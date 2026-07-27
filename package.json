@@ -1,0 +1,13 @@
+{
+  "name": "quiz-boss",
+  "version": "1.0.0",
+  "description": "Quiz Boss — a modern React quiz & flashcard app backed by MySQL (Quiz_boss)",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "setup:db": "npm --prefix server run setup",
+    "test:db": "npm --prefix server run test:db",
+    "server": "npm --prefix server start",
+    "client": "npm --prefix client run dev"
+  }
+}

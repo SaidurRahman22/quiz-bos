@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment files (contain secrets — set these in Railway/Vercel dashboards instead)
+.env
+.env.local
+.env.*.local
+
+# Generated backups
+server/data/seed-data.backup.json
+
+# Vercel / editor / OS
+.vercel/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*

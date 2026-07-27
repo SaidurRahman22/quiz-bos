@@ -1,0 +1,38 @@
+-- Reference schema for the Quiz_boss database.
+-- The actual creation is performed programmatically by setup.js (via the mysql2 driver),
+-- since no mysql CLI is required. This file documents the structure.
+
+CREATE DATABASE IF NOT EXISTS Quiz_boss
+  CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+USE Quiz_boss;
+
+CREATE TABLE topics (
+  id          INT AUTO_INCREMENT PRIMARY KEY,
+  slug        VARCHAR(64)  NOT NULL UNIQUE,
+  name        VARCHAR(128) NOT NULL,
+  description TEXT,
+  icon        VARCHAR(16),
+  color       VARCHAR(16)
+) ENGINE=InnoDB;
+
+CREATE TABLE quiz_questions (
+  id            INT AUTO_INCREMENT PRIMARY KEY,
+  topic_id      INT NOT NULL,
+  question      TEXT NOT NULL,
+  options       JSON NOT NULL,             -- array of 4 strings
+  correct_index TINYINT NOT NULL,          -- 0..3, index into options
+  explanation   TEXT,
+  difficulty    ENUM('easy','medium','hard') NOT NULL DEFAULT 'medium',
+  FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE flashcards (
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  topic_id   INT NOT NULL,
+  front      TEXT NOT NULL,
+  back       TEXT NOT NULL,
+  hint       TEXT,
+  difficulty ENUM('easy','medium','hard') NOT NULL DEFAULT 'easy',
+  FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE
+) ENGINE=InnoDB;

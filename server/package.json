@@ -1,0 +1,23 @@
+{
+  "name": "quiz-boss-server",
+  "version": "1.0.0",
+  "description": "Backend API for Quiz Boss — quizzes & flashcards",
+  "type": "module",
+  "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node ensure-seed.js && node index.js",
+    "serve": "node index.js",
+    "dev": "node --watch index.js",
+    "setup": "node setup.js",
+    "test:db": "node test-db.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.11.3"
+  }
+}
