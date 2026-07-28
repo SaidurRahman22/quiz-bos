@@ -673,6 +673,23 @@ a { color: var(--primary); }
   font-weight: 500;
   margin-bottom: 1.1rem;
 }
+.remember-row {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.1rem 0.15rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  user-select: none;
+}
+.remember-row input[type='checkbox'] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary);
+  cursor: pointer;
+  flex: 0 0 auto;
+}
 .auth-submit {
   margin-top: 0.4rem;
   padding: 0.75rem;

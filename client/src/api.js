@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { getToken } from './tokenStore.js';
 
 // Local dev: leave VITE_API_URL unset -> "/api" is proxied to the Express
 // server by Vite (see vite.config.js).
@@ -9,7 +10,7 @@ const api = axios.create({ baseURL });
 
 // Attach the JWT (if present) to every request.
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('qb-token');
+  const token = getToken();
   if (token) config.headers.Authorization = `Bearer ${token}`;
   return config;
 });

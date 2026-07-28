@@ -9,6 +9,7 @@ export default function Login() {
   const navigate = useNavigate();
   const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
+  const [remember, setRemember] = useState(true);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -22,7 +23,7 @@ export default function Login() {
     }
     setLoading(true);
     try {
-      await login(identifier.trim(), password);
+      await login(identifier.trim(), password, remember);
       navigate('/');
     } catch (err) {
       setError(err.response?.data?.error || 'Could not log in. Please try again.');
@@ -58,6 +59,15 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
+        <label className="remember-row">
+          <input
+            type="checkbox"
+            checked={remember}
+            onChange={(e) => setRemember(e.target.checked)}
+          />
+          <span>Remember me on this device</span>
+        </label>
+
         <button className="btn btn-gradient w-100 auth-submit" disabled={loading}>
           {loading ? <span className="btn-spinner" /> : 'Log in →'}
         </button>

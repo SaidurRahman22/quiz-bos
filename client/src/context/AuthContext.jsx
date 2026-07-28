@@ -1,10 +1,9 @@
 import { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import * as apiClient from '../api.js';
+import { getToken, setToken, clearToken } from '../tokenStore.js';
 
 const AuthContext = createContext(null);
 export const useAuth = () => useContext(AuthContext);
-
-const TOKEN_KEY = 'qb-token';
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -12,31 +11,35 @@ export function AuthProvider({ children }) {
 
   // On load, validate any stored token by fetching the current user.
   useEffect(() => {
-    const token = localStorage.getItem(TOKEN_KEY);
-    if (!token) {
+    if (!getToken()) {
       setReady(true);
       return;
     }
     apiClient
       .getMe()
       .then((d) => setUser(d.user))
-      .catch(() => localStorage.removeItem(TOKEN_KEY))
+      .catch(() => clearToken())
       .finally(() => setReady(true));
   }, []);
 
-  const persist = (data) => {
-    localStorage.setItem(TOKEN_KEY, data.token);
+  const persist = (data, remember) => {
+    setToken(data.token, remember);
     setUser(data.user);
     return data.user;
   };
 
+  // remember=true -> stays logged in after closing the browser; false -> only this session.
   const login = useCallback(
-    (identifier, password) => apiClient.login({ identifier, password }).then(persist),
+    (identifier, password, remember = true) =>
+      apiClient.login({ identifier, password }).then((d) => persist(d, remember)),
     []
   );
-  const register = useCallback((payload) => apiClient.register(payload).then(persist), []);
+  const register = useCallback(
+    (payload) => apiClient.register(payload).then((d) => persist(d, true)),
+    []
+  );
   const logout = useCallback(() => {
-    localStorage.removeItem(TOKEN_KEY);
+    clearToken();
     setUser(null);
   }, []);
 
