@@ -7,7 +7,7 @@ import { filterByDifficulty, difficultyCounts } from '../utils.js';
 import { useAuth } from '../context/AuthContext.jsx';
 
 const KEYS = ['A', 'B', 'C', 'D'];
-const SESSION_SIZE = 15; // questions per play-through (drawn at random from the pool)
+const SESSION_SIZE = 10; // questions per play-through (drawn at random from the pool)
 
 export default function QuizPlay() {
   const { slug } = useParams();

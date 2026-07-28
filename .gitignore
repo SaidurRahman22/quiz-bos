@@ -12,6 +12,7 @@ build/
 
 # Generated backups
 server/data/seed-data.backup.json
+server/data/seed-data.prebalance.json
 
 # Vercel / editor / OS
 .vercel/

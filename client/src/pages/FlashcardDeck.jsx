@@ -29,7 +29,8 @@ export default function FlashcardDeck() {
   const buildDeck = useCallback(
     (lvl) => {
       if (!data) return;
-      setDeck(filterByDifficulty(data.cards, lvl));
+      // 10 random cards per study session for the chosen difficulty.
+      setDeck(filterByDifficulty(data.cards, lvl).slice(0, 10));
       setIndex(0);
       setFlipped(false);
     },
