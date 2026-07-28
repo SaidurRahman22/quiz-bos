@@ -38,7 +38,11 @@ export default function App() {
         </Routes>
       </main>
       <footer className="qb-footer">
-        Built with React, Bootstrap & MySQL · <span className="gradient-text fw-semibold">Quiz Boss</span>
+        <div className="qb-footer-tag">✨ Sharpen your mind, one quiz at a time — learn boldly, quiz fearlessly ✨</div>
+        <div className="qb-footer-copy">
+          © {new Date().getFullYear()} · All rights reserved by the colourful{' '}
+          <span className="footer-brand">Quiz Boss</span>
+        </div>
       </footer>
     </>
   );
