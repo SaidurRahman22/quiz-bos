@@ -31,3 +31,13 @@ export const DB_NAME =
   parsed?.database || process.env.DB_NAME || process.env.MYSQLDATABASE || 'Quiz_boss';
 
 export const PORT = Number(process.env.PORT || 4000);
+
+// Secret used to sign JWTs. MUST be set to a long random string in production
+// (Railway → Variables → JWT_SECRET). A dev fallback keeps local dev working.
+const DEV_SECRET = 'dev-only-insecure-secret-change-me';
+export const JWT_SECRET = process.env.JWT_SECRET || DEV_SECRET;
+export const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
+
+if (JWT_SECRET === DEV_SECRET && process.env.NODE_ENV === 'production') {
+  console.warn('⚠  JWT_SECRET is not set — set a strong secret in production!');
+}

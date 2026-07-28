@@ -1,9 +1,10 @@
 import { useEffect, useState, useMemo, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { getQuiz } from '../api.js';
+import { getQuiz, recordAttempt } from '../api.js';
 import Loader from '../components/Loader.jsx';
 import DifficultyToggle from '../components/DifficultyToggle.jsx';
 import { filterByDifficulty, difficultyCounts } from '../utils.js';
+import { useAuth } from '../context/AuthContext.jsx';
 
 const KEYS = ['A', 'B', 'C', 'D'];
 const SESSION_SIZE = 15; // questions per play-through (drawn at random from the pool)
@@ -11,6 +12,7 @@ const SESSION_SIZE = 15; // questions per play-through (drawn at random from the
 export default function QuizPlay() {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -75,8 +77,13 @@ export default function QuizPlay() {
   };
 
   const next = () => {
-    if (current + 1 >= total) setFinished(true);
-    else {
+    if (current + 1 >= total) {
+      setFinished(true);
+      // Record the completed attempt for logged-in users (fire-and-forget).
+      if (user && total > 0) {
+        recordAttempt({ topicSlug: slug, difficulty, score, total }).catch(() => {});
+      }
+    } else {
       setCurrent((c) => c + 1);
       setSelected(null);
     }

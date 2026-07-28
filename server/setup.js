@@ -73,7 +73,33 @@ export async function runSetup() {
       FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE
     ) ENGINE=InnoDB;
   `);
-  console.log('✔ Tables created');
+  console.log('✔ Content tables created');
+
+  // 2b. User + attempts tables — created if missing, NEVER dropped, so accounts
+  //     and quiz history survive content reseeds. quiz_attempts stores topic_slug
+  //     (not a FK) so it is decoupled from the content tables being recreated.
+  await db.query(`
+    CREATE TABLE IF NOT EXISTS users (
+      id            INT AUTO_INCREMENT PRIMARY KEY,
+      username      VARCHAR(30)  NOT NULL UNIQUE,
+      email         VARCHAR(255) NOT NULL UNIQUE,
+      password_hash VARCHAR(255) NOT NULL,
+      created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    ) ENGINE=InnoDB;
+
+    CREATE TABLE IF NOT EXISTS quiz_attempts (
+      id         INT AUTO_INCREMENT PRIMARY KEY,
+      user_id    INT NOT NULL,
+      topic_slug VARCHAR(64) NOT NULL,
+      difficulty VARCHAR(16) NOT NULL,
+      score      INT NOT NULL,
+      total      INT NOT NULL,
+      created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+      INDEX idx_user_created (user_id, created_at)
+    ) ENGINE=InnoDB;
+  `);
+  console.log('✔ User tables ready (preserved across reseeds)');
 
   // 3. Insert topics.
   const topicId = {};

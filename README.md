@@ -2,13 +2,16 @@
 
 A modern, responsive **quiz & flashcard** web app built with **React + Vite + Bootstrap**, backed by a **MySQL** database (`Quiz_boss`). No login required — just open it and start learning.
 
+- **Accounts** — animated login / registration (no email verification), secure JWT sessions
+- **Performance dashboard** — logged-in users get an animated stats dashboard (accuracy trend, per-topic
+  accuracy, overall-accuracy donut, recent activity) powered by [Recharts](https://recharts.org)
 - **900 quiz questions** across 4 topics (225 each): Nursing, General Knowledge, English, World Geo Politics
 - **250 study flashcards** across the same 4 topics (~62 each)
 - **Difficulty toggle — Easy / Medium / Hard / Mix** on both quizzes and flashcards (Mix = a random blend of all levels)
 - Each quiz play-through serves **15 random questions** drawn from the chosen difficulty pool
 - Instant answer feedback with explanations, animated score ring, per-item difficulty tags
 - Flip-card study mode with keyboard navigation and "known" tracking
-- Light / dark theme toggle, glassmorphism UI, gradient accents
+- Light / dark theme toggle, glassmorphism UI, gradient accents, fully responsive
 
 ---
 
@@ -95,6 +98,18 @@ Tables in `Quiz_boss`:
 | `topics`         | 4 topics (slug, name, description, icon, color)                      |
 | `quiz_questions` | 900 questions (`options` JSON, `correct_index`, `difficulty`)        |
 | `flashcards`     | 250 cards (`front`, `back`, `hint`, `difficulty`)                    |
+| `users`          | accounts (`username`, `email`, bcrypt `password_hash`)               |
+| `quiz_attempts`  | recorded quiz results per user (`topic_slug`, `difficulty`, `score`, `total`) |
+
+> `users` and `quiz_attempts` are **created if missing but never dropped**, so accounts and
+> history survive content reseeds (`npm run setup:db` only rebuilds the content tables).
+
+### Security
+
+Passwords are hashed with **bcrypt** (cost 12); sessions use signed **JWTs**. All auth/stats
+queries use **prepared statements** (`pool.execute`). Auth endpoints are **rate-limited**,
+security headers come from **helmet**, and inputs are validated server-side.
+Set a strong **`JWT_SECRET`** in production (see `.env.example`).
 
 Difficulty is one of `easy` / `medium` / `hard`. The original foundational
 content is tagged `easy`; the advanced expansion set is `medium` / `hard`.
@@ -102,12 +117,17 @@ The **Mix** toggle option randomly blends all three levels.
 
 ## 🔌 API endpoints
 
-| Method | Endpoint                   | Description                            |
-| ------ | -------------------------- | -------------------------------------- |
-| GET    | `/api/health`              | API + DB health check                  |
-| GET    | `/api/topics`              | All topics with quiz & flashcard counts |
-| GET    | `/api/quizzes/:slug`       | A topic's questions                    |
-| GET    | `/api/flashcards/:slug`    | A topic's flashcards                   |
+| Method | Endpoint                   | Description                              |
+| ------ | -------------------------- | ---------------------------------------- |
+| GET    | `/api/health`              | API + DB health check                    |
+| GET    | `/api/topics`              | All topics with quiz & flashcard counts  |
+| GET    | `/api/quizzes/:slug`       | A topic's questions                      |
+| GET    | `/api/flashcards/:slug`    | A topic's flashcards                     |
+| POST   | `/api/auth/register`       | Create an account → `{ token, user }`    |
+| POST   | `/api/auth/login`          | Log in (username or email) → `{ token }` |
+| GET    | `/api/auth/me`             | Current user (requires token)            |
+| POST   | `/api/attempts`            | Record a finished quiz (requires token)  |
+| GET    | `/api/stats`               | Aggregated performance metrics (token)   |
 
 Topic slugs: `nursing`, `general-knowledge`, `english`, `world-geo-politics`.
 
@@ -115,8 +135,8 @@ Topic slugs: `nursing`, `general-knowledge`, `english`, `world-geo-politics`.
 
 ## 🛠 Tech stack
 
-- **Frontend:** React 18, React Router 6, Vite 5, Bootstrap 5, Axios, custom CSS design system
-- **Backend:** Node.js, Express, mysql2
+- **Frontend:** React 18, React Router 6, Vite 5, Bootstrap 5, Recharts, Axios, custom CSS design system
+- **Backend:** Node.js, Express, mysql2, bcryptjs, jsonwebtoken, helmet, express-rate-limit
 - **Database:** MySQL 8 (`Quiz_boss`)
 
 ## 🏗 Production build

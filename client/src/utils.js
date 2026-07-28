@@ -17,6 +17,20 @@ export function filterByDifficulty(items, level) {
   return shuffle(items.filter((it) => it.difficulty === level));
 }
 
+// Rough password strength score (0–4) for the register meter.
+export function passwordStrength(pw) {
+  if (!pw) return { score: 0, label: 'Too short', pct: 0 };
+  let score = 0;
+  if (pw.length >= 8) score++;
+  if (pw.length >= 12) score++;
+  if (/[a-z]/.test(pw) && /[A-Z]/.test(pw)) score++;
+  if (/\d/.test(pw)) score++;
+  if (/[^A-Za-z0-9]/.test(pw)) score++;
+  score = Math.min(score, 4);
+  const labels = ['Very weak', 'Weak', 'Fair', 'Good', 'Strong'];
+  return { score, label: labels[score], pct: ((score + 1) / 5) * 100 };
+}
+
 // Count how many items exist at each difficulty level.
 export function difficultyCounts(items) {
   const c = { easy: 0, medium: 0, hard: 0 };

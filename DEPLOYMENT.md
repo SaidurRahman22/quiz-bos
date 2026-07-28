@@ -51,11 +51,13 @@ git push -u origin main
 4. Add the database: in the project canvas click **New → Database → Add MySQL**.
    Railway provisions a MySQL instance (this is your cloud replacement for the
    local MySQL on port 3306).
-5. Give the backend the DB connection. Open your **backend service → Variables →
-   New Variable**:
-   - Name: `DATABASE_URL`
-   - Value: `${{MySQL.MYSQL_URL}}`  ← type it exactly; Railway links it to the MySQL service.
-   - (If your MySQL service has a different name, use that name instead of `MySQL`.)
+5. Give the backend its variables. Open your **backend service → Variables →
+   New Variable** and add both:
+   - `DATABASE_URL` = `${{MySQL.MYSQL_URL}}`  ← type it exactly; Railway links it to the MySQL service.
+     (If your MySQL service has a different name, use that name instead of `MySQL`.)
+   - `JWT_SECRET` = a long random string used to sign login tokens. Generate one with:
+     `node -e "console.log(require('crypto').randomBytes(48).toString('hex'))"`
+   - *(Optional)* `CORS_ORIGIN` = your Vercel URL once you have it (Step 2), to lock the API to your site.
 6. Railway redeploys automatically. On first boot the app **auto-creates the tables
    and seeds all 900 questions + 250 flashcards** (via `ensure-seed.js`). Watch the
    **Deploy Logs** — you should see `… running one-time setup` then the insert counts.
