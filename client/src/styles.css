@@ -1,6 +1,10 @@
 :root {
-  --font-head: 'Poppins', system-ui, sans-serif;
-  --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* 'Hind Siliguri' is a modern Bengali face; browsers fall back to it per-glyph
+     so Bangla text (e.g. bilingual quiz explanations) renders crisply while Latin
+     stays in Poppins/Inter. */
+  --font-head: 'Poppins', 'Hind Siliguri', system-ui, sans-serif;
+  --font-body: 'Inter', 'Hind Siliguri', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-bn: 'Hind Siliguri', 'Noto Sans Bengali', var(--font-body);
 
   --primary: #6366f1;
   --primary-2: #8b5cf6;
@@ -309,6 +313,11 @@ h1, h2, h3, h4, h5, .fw-head {
   padding: 0.85rem 1rem;
   color: var(--muted);
   font-size: 0.95rem;
+  /* Bilingual explanations are stored as "English line\nBangla line";
+     pre-line turns that newline into a real line break, and the taller
+     line-height keeps Bengali conjuncts (যুক্তাক্ষর) legible. */
+  white-space: pre-line;
+  line-height: 1.7;
   animation: fadein 0.3s ease;
 }
 

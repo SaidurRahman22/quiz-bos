@@ -6,8 +6,10 @@
   "scripts": {
     "install:all": "npm --prefix server install && npm --prefix client install",
     "setup:db": "npm --prefix server run setup",
+    "setup": "npm --prefix server run setup",
     "test:db": "npm --prefix server run test:db",
     "server": "npm --prefix server start",
-    "client": "npm --prefix client run dev"
+    "client": "npm --prefix client run dev",
+    "build": "npm --prefix client run build"
   }
 }
