@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getFlashcards } from '../api.js';
 import Loader from '../components/Loader.jsx';
+import Bilingual from '../components/Bilingual.jsx';
 import DifficultyToggle from '../components/DifficultyToggle.jsx';
 import { filterByDifficulty, difficultyCounts } from '../utils.js';
 
@@ -144,7 +145,7 @@ export default function FlashcardDeck() {
           </div>
           <div className="flashcard-face flashcard-back">
             <span className="face-label">Answer</span>
-            <div className="back-text">{card.back}</div>
+            <div className="back-text"><Bilingual text={card.back} /></div>
             <span className="flip-tip">tap / space to flip</span>
           </div>
         </div>

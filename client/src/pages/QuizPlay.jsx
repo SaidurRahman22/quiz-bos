@@ -2,6 +2,7 @@ import { useEffect, useState, useMemo, useCallback } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getQuiz, recordAttempt } from '../api.js';
 import Loader from '../components/Loader.jsx';
+import Bilingual from '../components/Bilingual.jsx';
 import DifficultyToggle from '../components/DifficultyToggle.jsx';
 import { filterByDifficulty, difficultyCounts } from '../utils.js';
 import { useAuth } from '../context/AuthContext.jsx';
@@ -199,7 +200,7 @@ export default function QuizPlay() {
           <>
             <div className="explanation mt-3">
               <strong>{selected === q.correctIndex ? 'Correct! ' : 'Not quite. '}</strong>
-              {q.explanation}
+              <Bilingual text={q.explanation} />
             </div>
             <div className="d-flex justify-content-between align-items-center mt-4">
               <span className="text-muted-2">

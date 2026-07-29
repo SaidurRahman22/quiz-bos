@@ -15,6 +15,12 @@ prepared for this — you just create the accounts and click through.
 > You'll need three free accounts: **GitHub**, **Railway**, **Vercel**.
 > Signing into all three "with GitHub" is the easiest path.
 
+> **⚠ Current live stack:** this app is actually deployed on **Render** (backend) +
+> **Aiven for MySQL** (database, TLS-required) + **Vercel** (frontend). The Railway
+> steps below are legacy — the concepts are identical (set `DATABASE_URL`, `JWT_SECRET`,
+> and `DB_SSL=true`). For changing the live content, jump to
+> [**Updating content later**](#updating-content-later-reseeding-the-cloud-database).
+
 ---
 
 ## Step 0 — Put the code on GitHub
@@ -109,14 +115,48 @@ accept requests from your frontend. Optional, but good practice.
 
 ---
 
-## Updating content later
+## Updating content later (reseeding the cloud database)
 
-- Edit content locally, run `npm run setup:db` to refresh your **local** DB.
-- Push to GitHub. Vercel auto-redeploys the frontend.
-- The Railway backend **won't** reseed automatically (it only seeds when empty, so it
-  never wipes data). To reseed the cloud DB after content changes, run a one-off:
-  either use the **Railway CLI** — `railway run npm run setup` — or temporarily change
-  the start command to `npm run setup && npm start` for one deploy, then change it back.
+Editing `seed-data.json` and pushing to GitHub does **not** change the numbers on the
+live site. The frontend redeploys, but the backend only auto-seeds when the database is
+**empty** (`ensure-seed.js`) — so an already-populated cloud DB keeps its old data and
+you'll see the same counts as before. You must reseed it once, manually, pointing
+`setup.js` at the **same** database your backend uses.
+
+1. **Refresh your local DB** (optional): `npm run setup:db`.
+2. **Push to GitHub** so the deployed code carries the new `seed-data.json`.
+3. **Reseed the cloud DB.** Get the *exact* `DATABASE_URL` your backend uses —
+   **Render → your service → Environment → copy `DATABASE_URL`**. Do **not** hand-build
+   it: the database name after the last `/` must be correct (e.g. `/defaultdb`). If you
+   accidentally put the **port** there, you'll create and seed a stray database named
+   after the port, and the live site won't change. Then, from the project root in
+   PowerShell (Aiven **and** TiDB Cloud require TLS, so `DB_SSL=true` is mandatory):
+
+   ```powershell
+   $env:DB_SSL="true"
+   $env:DATABASE_URL="<paste the exact URL from Render>"
+
+   # A) verify you're pointing at the LIVE db first — should show your current totals
+   #    and a real database name (NOT a number):
+   node server/check-db.js
+
+   # B) if that looks right, reseed — drops+refills ONLY content tables;
+   #    users & quiz history are preserved:
+   npm run setup:db
+
+   # C) confirm it took (should show the new totals):
+   node server/check-db.js
+   ```
+
+4. Refresh the site. (Render's free tier sleeps after 15 min idle, so the first load may
+   take ~30s to wake.)
+
+> `server/check-db.js` prints the host + database it connected to and the live counts,
+> and warns if the database name looks like a port number — run it before **and** after
+> a reseed so you never seed the wrong database again.
+>
+> **Same procedure for TiDB Cloud Starter** — just use the TiDB `DATABASE_URL` (keep
+> `DB_SSL=true`) and update Render's `DATABASE_URL` env var to the TiDB URL afterward.
 
 ---
 
