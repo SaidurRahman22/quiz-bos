@@ -1,9 +1,38 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { VitePWA } from 'vite-plugin-pwa';
+import { manifest } from './pwa/manifest.js';
 
-// Proxy /api to the Express backend during development.
+// The web app is the React SPA. The VitePWA block below is the ONLY build-time PWA
+// wiring — it generates the service worker + web manifest. Everything else PWA-related
+// lives under client/pwa/ and client/src/pwa/ (see pwa/README.md).
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      manifest,
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+        navigateFallback: '/index.html',
+        runtimeCaching: [
+          {
+            // Quiz/flashcard/topic content: serve from network, fall back to cache so
+            // decks you've already opened keep working offline.
+            urlPattern: /\/api\/(topics|quizzes|flashcards)/,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'qb-api-content',
+              expiration: { maxEntries: 120, maxAgeSeconds: 60 * 60 * 24 * 7 },
+              cacheableResponse: { statuses: [0, 200] },
+            },
+          },
+        ],
+      },
+      devOptions: { enabled: false }, // no service worker during `npm run dev`
+    }),
+  ],
+  // Proxy /api to the Express backend during development.
   server: {
     host: true, // listen on 0.0.0.0 so phones/other devices on the same LAN can connect
     port: 5173,

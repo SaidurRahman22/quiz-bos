@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Master PWA app icon. Pure vector (no fonts) so it rasterizes identically anywhere. -->
+  <!-- Edit this, then run `npm run icons` (client/) to rebuild the PNGs in public/pwa/. -->
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+  <!-- Full-bleed background so Android can mask it into any shape (maskable-safe). -->
+  <rect width="512" height="512" fill="url(#g)"/>
+  <!-- Bold check mark = "quiz / correct", kept inside the center safe zone. -->
+  <path d="M146 262 L226 342 L372 176" fill="none" stroke="#ffffff" stroke-width="52"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

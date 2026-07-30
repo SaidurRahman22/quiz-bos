@@ -28,12 +28,16 @@ Test Agent/
 │   └── data/
 │       ├── topics.js        # Topic metadata (name, icon, color)
 │       └── seed-data.json   # 100 quiz questions + 50 flashcards
-└── client/                  # React + Vite + Bootstrap SPA (port 5173)
-    └── src/
-        ├── pages/           # Home, QuizTopics, QuizPlay, FlashcardTopics, FlashcardDeck
-        ├── components/      # Navbar, TopicCard, Loader
-        ├── api.js           # Axios client (calls /api, proxied to :4000)
-        └── styles.css       # Design system (themes, cards, animations)
+└── client/                  # React + Vite + Bootstrap SPA (port 5173) — the WEB APP
+    ├── src/
+    │   ├── pages/           # Home, QuizTopics, QuizPlay, FlashcardTopics, FlashcardDeck
+    │   ├── components/      # Navbar, TopicCard, Loader
+    │   ├── pwa/             # PWA-only React bits (install/update toast) ← mobile layer
+    │   ├── api.js           # Axios client (calls /api, proxied to :4000)
+    │   └── styles.css       # Design system (themes, cards, animations)
+    ├── pwa/                 # 📱 PWA / Android app layer — manifest, master icon, generator
+    │   └── README.md        #    explains the web-vs-PWA split in detail
+    └── public/pwa/          # generated app icons (192 / 512 / apple-touch)
 ```
 
 ---
@@ -138,6 +142,20 @@ Topic slugs: `nursing`, `general-knowledge`, `english`, `world-geo-politics`.
 - **Frontend:** React 18, React Router 6, Vite 5, Bootstrap 5, Recharts, Axios, custom CSS design system
 - **Backend:** Node.js, Express, mysql2, bcryptjs, jsonwebtoken, helmet, express-rate-limit
 - **Database:** MySQL 8 (`Quiz_boss`)
+
+## 📱 Install as an Android app (PWA)
+
+Quiz Boss is a **Progressive Web App** — the *same* React site, made installable. On Android, open it in
+Chrome and choose **menu ▸ Install app / Add to Home screen**; it launches full-screen (no browser bar)
+and works offline for decks you've already opened.
+
+The mobile layer is fully isolated and documented in **[`client/pwa/README.md`](client/pwa/README.md)** —
+the manifest, the master `icon.svg`, the icon generator (`npm run icons`), and the service-worker wiring
+in `vite.config.js`. Everything else is the untouched web app.
+
+```bash
+cd client && npm run build && npm run preview   # the service worker is active in the preview build
+```
 
 ## 🏗 Production build
 
