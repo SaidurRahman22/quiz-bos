@@ -3,7 +3,7 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { PORT } from './config.js';
-import { pool } from './db.js';
+import { pool, ensureAuthSchema } from './db.js';
 import topicsRouter from './routes/topics.js';
 import quizzesRouter from './routes/quizzes.js';
 import flashcardsRouter from './routes/flashcards.js';
@@ -18,8 +18,13 @@ app.set('trust proxy', 1);
 // Security headers. Allow cross-origin use so the Vercel frontend can call this API.
 app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
 
-// Allow all origins by default; set CORS_ORIGIN (e.g. your Vercel URL) to restrict.
-app.use(cors({ origin: process.env.CORS_ORIGIN || true }));
+// CORS: deny cross-origin by default; allow only the origins listed in CORS_ORIGIN
+// (comma-separated, e.g. "https://quiz-bos.vercel.app"). Unset -> no cross-origin (SEC-04).
+const allowedOrigins = (process.env.CORS_ORIGIN || '')
+  .split(',')
+  .map((s) => s.trim())
+  .filter(Boolean);
+app.use(cors({ origin: allowedOrigins.length ? allowedOrigins : false, methods: ['GET', 'POST'] }));
 app.use(express.json({ limit: '64kb' }));
 
 app.get('/api/health', async (_req, res) => {
@@ -57,6 +62,11 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-app.listen(PORT, () => {
-  console.log(`Quiz Boss API listening on http://localhost:${PORT}`);
-});
+// Ensure the token_version revocation column exists (idempotent), then start.
+ensureAuthSchema()
+  .catch((err) => console.error('Auth schema migration failed:', err))
+  .finally(() => {
+    app.listen(PORT, () => {
+      console.log(`Quiz Boss API listening on http://localhost:${PORT}`);
+    });
+  });

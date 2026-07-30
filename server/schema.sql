@@ -36,3 +36,24 @@ CREATE TABLE flashcards (
   difficulty ENUM('easy','medium','hard') NOT NULL DEFAULT 'easy',
   FOREIGN KEY (topic_id) REFERENCES topics(id) ON DELETE CASCADE
 ) ENGINE=InnoDB;
+
+CREATE TABLE users (
+  id            INT AUTO_INCREMENT PRIMARY KEY,
+  username      VARCHAR(30)  NOT NULL UNIQUE,
+  email         VARCHAR(255) NOT NULL UNIQUE,
+  password_hash VARCHAR(255) NOT NULL,
+  token_version INT NOT NULL DEFAULT 0,   -- bumped to revoke outstanding JWTs (SEC-03)
+  created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE quiz_attempts (
+  id         INT AUTO_INCREMENT PRIMARY KEY,
+  user_id    INT NOT NULL,
+  topic_slug VARCHAR(64) NOT NULL,
+  difficulty VARCHAR(16) NOT NULL,
+  score      INT NOT NULL,
+  total      INT NOT NULL,
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  INDEX idx_user_created (user_id, created_at)
+) ENGINE=InnoDB;

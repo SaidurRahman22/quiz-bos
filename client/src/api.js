@@ -25,6 +25,7 @@ export const getHealth = () => api.get('/health').then((r) => r.data);
 export const register = (data) => api.post('/auth/register', data).then((r) => r.data);
 export const login = (data) => api.post('/auth/login', data).then((r) => r.data);
 export const getMe = () => api.get('/auth/me').then((r) => r.data);
+export const logoutAll = () => api.post('/auth/logout-all').then((r) => r.data);
 
 // Stats / attempts
 export const recordAttempt = (data) => api.post('/attempts', data).then((r) => r.data);

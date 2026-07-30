@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import fs from 'node:fs';
 
 // Supports three ways to configure the DB, in priority order:
 //   1. A single connection URL:  DATABASE_URL / MYSQL_URL   (Railway, most hosts)
@@ -23,8 +24,17 @@ export const dbConfig = {
   port: Number(parsed?.port || process.env.DB_PORT || process.env.MYSQLPORT || 3306),
   user: parsed?.user || process.env.DB_USER || process.env.MYSQLUSER || 'root',
   password: parsed?.password ?? process.env.DB_PASSWORD ?? process.env.MYSQLPASSWORD ?? '',
-  // Some managed hosts require TLS. Set DB_SSL=true to enable.
-  ...(process.env.DB_SSL === 'true' ? { ssl: { rejectUnauthorized: false } } : {}),
+  // TLS to a managed DB. Validate the server certificate (SEC-02) — never accept
+  // an unverified cert. Supply the provider's CA bundle via DB_CA_CERT_PATH when it
+  // isn't in the system trust store (e.g. Aiven publishes a CA .pem to download).
+  ...(process.env.DB_SSL === 'true'
+    ? {
+        ssl: {
+          rejectUnauthorized: true,
+          ...(process.env.DB_CA_CERT_PATH ? { ca: fs.readFileSync(process.env.DB_CA_CERT_PATH) } : {}),
+        },
+      }
+    : {}),
 };
 
 export const DB_NAME =
@@ -32,12 +42,14 @@ export const DB_NAME =
 
 export const PORT = Number(process.env.PORT || 4000);
 
-// Secret used to sign JWTs. MUST be set to a long random string in production
-// (Railway → Variables → JWT_SECRET). A dev fallback keeps local dev working.
-const DEV_SECRET = 'dev-only-insecure-secret-change-me';
-export const JWT_SECRET = process.env.JWT_SECRET || DEV_SECRET;
-export const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '7d';
-
-if (JWT_SECRET === DEV_SECRET && process.env.NODE_ENV === 'production') {
-  console.warn('⚠  JWT_SECRET is not set — set a strong secret in production!');
+// JWT signing secret. REQUIRED in every environment — no committed fallback (SEC-01).
+// Fail closed at startup instead of silently signing tokens with a public value.
+export const JWT_SECRET = process.env.JWT_SECRET;
+if (!JWT_SECRET || JWT_SECRET.length < 32) {
+  throw new Error(
+    'JWT_SECRET must be set to a random string of at least 32 characters. ' +
+      'Generate one with: node -e "console.log(require(\'crypto\').randomBytes(48).toString(\'hex\'))"'
+  );
 }
+// Shorter default lifetime limits how long a stolen token stays usable (SEC-03).
+export const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '1d';

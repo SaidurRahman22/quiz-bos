@@ -55,7 +55,7 @@ router.post('/login', async (req, res, next) => {
       return res.status(400).json({ error: 'Enter your username/email and password.' });
 
     const [rows] = await pool.execute(
-      'SELECT id, username, email, password_hash FROM users WHERE username = ? OR email = ? LIMIT 1',
+      'SELECT id, username, email, password_hash, token_version FROM users WHERE username = ? OR email = ? LIMIT 1',
       [identifier, identifier.toLowerCase()]
     );
     const user = rows[0];
@@ -78,6 +78,17 @@ router.get('/me', requireAuth, async (req, res, next) => {
     );
     if (!rows.length) return res.status(404).json({ error: 'User not found.' });
     res.json({ user: rows[0] });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// POST /api/auth/logout-all — revoke every outstanding token for this user by
+// bumping token_version, so a leaked/stolen token can be invalidated (SEC-03).
+router.post('/logout-all', requireAuth, async (req, res, next) => {
+  try {
+    await pool.execute('UPDATE users SET token_version = token_version + 1 WHERE id = ?', [req.user.id]);
+    res.json({ ok: true });
   } catch (err) {
     next(err);
   }
