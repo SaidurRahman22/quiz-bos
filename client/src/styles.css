@@ -374,13 +374,13 @@ h1, h2, h3, h4, h5, .fw-head {
 /* ---------- Flashcard ---------- */
 .flashcard {
   perspective: 1400px;
-  height: 360px;
   cursor: pointer;
 }
 .flashcard-inner {
   position: relative;
+  display: grid; /* stack both faces in one cell so the card grows to the taller face */
   width: 100%;
-  height: 100%;
+  min-height: 360px;
   transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
   transform-style: preserve-3d;
 }
@@ -388,11 +388,10 @@ h1, h2, h3, h4, h5, .fw-head {
   transform: rotateY(180deg);
 }
 .flashcard-face {
-  position: absolute;
-  inset: 0;
+  grid-area: 1 / 1; /* both faces share the same grid cell */
   backface-visibility: hidden;
   border-radius: 22px;
-  padding: 2rem;
+  padding: 2.9rem 2rem; /* extra top/bottom room so text never collides with the label/flip-tip */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -427,11 +426,8 @@ h1, h2, h3, h4, h5, .fw-head {
 }
 .flashcard-face .back-text {
   font-size: 1.05rem;
-  line-height: 1.5;
+  line-height: 1.55;
   width: 100%;
-  max-height: 100%;
-  min-height: 0;
-  overflow-y: auto;
 }
 .flashcard-face .hint {
   position: absolute;
