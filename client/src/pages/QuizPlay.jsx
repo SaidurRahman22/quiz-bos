@@ -20,7 +20,9 @@ export default function QuizPlay() {
   const [difficulty, setDifficulty] = useState('mix');
   const [session, setSession] = useState([]);
   const [current, setCurrent] = useState(0);
-  const [selected, setSelected] = useState(null);
+  // answers[i] = the option index the user chose for question i (null = unanswered).
+  // Storing the actual choice per question (not just correctness) is what lets the
+  // user go Previous/Next and review their earlier answer + explanation.
   const [answers, setAnswers] = useState([]);
   const [finished, setFinished] = useState(false);
 
@@ -36,10 +38,10 @@ export default function QuizPlay() {
     (lvl) => {
       if (!data) return;
       const pool = filterByDifficulty(data.questions, lvl);
-      setSession(pool.slice(0, SESSION_SIZE));
+      const picked = pool.slice(0, SESSION_SIZE);
+      setSession(picked);
       setCurrent(0);
-      setSelected(null);
-      setAnswers([]);
+      setAnswers(Array(picked.length).fill(null));
       setFinished(false);
     },
     [data]
@@ -63,7 +65,9 @@ export default function QuizPlay() {
   const { topic } = data;
   const total = session.length;
   const q = session[current];
-  const score = answers.filter((a) => a.correct).length;
+  const selected = answers[current] ?? null; // the choice for the question on screen
+  const answeredCount = answers.filter((a) => a !== null).length;
+  const score = session.reduce((acc, qq, i) => acc + (answers[i] === qq.correctIndex ? 1 : 0), 0);
 
   const changeDifficulty = (lvl) => {
     setDifficulty(lvl);
@@ -72,10 +76,15 @@ export default function QuizPlay() {
   const restart = () => buildSession(difficulty);
 
   const choose = (idx) => {
-    if (selected !== null) return;
-    setSelected(idx);
-    setAnswers((prev) => [...prev, { correct: idx === q.correctIndex }]);
+    if (answers[current] !== null) return; // already answered — review only, never overwrite
+    setAnswers((prev) => {
+      const copy = [...prev];
+      copy[current] = idx;
+      return copy;
+    });
   };
+
+  const prev = () => setCurrent((c) => Math.max(c - 1, 0));
 
   const next = () => {
     if (current + 1 >= total) {
@@ -86,7 +95,6 @@ export default function QuizPlay() {
       }
     } else {
       setCurrent((c) => c + 1);
-      setSelected(null);
     }
   };
 
@@ -150,7 +158,7 @@ export default function QuizPlay() {
   }
 
   // ---------- Question ----------
-  const progressPct = ((current + (selected !== null ? 1 : 0)) / total) * 100;
+  const progressPct = total ? (answeredCount / total) * 100 : 0;
 
   return (
     <div className="container-narrow mx-auto fade-in">
@@ -197,21 +205,29 @@ export default function QuizPlay() {
         </div>
 
         {selected !== null && (
-          <>
-            <div className="explanation mt-3">
-              <strong>{selected === q.correctIndex ? 'Correct! ' : 'Not quite. '}</strong>
-              <Bilingual text={q.explanation} />
-            </div>
-            <div className="d-flex justify-content-between align-items-center mt-4">
-              <span className="text-muted-2">
-                Score: <strong>{score}</strong> / {answers.length}
-              </span>
-              <button className="btn btn-gradient" onClick={next}>
-                {current + 1 >= total ? 'See results →' : 'Next question →'}
-              </button>
-            </div>
-          </>
+          <div className="explanation mt-3">
+            <strong>{selected === q.correctIndex ? 'Correct! ' : 'Not quite. '}</strong>
+            <Bilingual text={q.explanation} />
+          </div>
         )}
+
+        <div className="d-flex justify-content-between align-items-center mt-4 gap-2 flex-wrap">
+          <button className="btn btn-ghost" onClick={prev} disabled={current === 0}>
+            ← Previous
+          </button>
+          <span className="text-muted-2">
+            Score: <strong>{score}</strong> / {answeredCount}
+          </span>
+          {selected !== null ? (
+            <button className="btn btn-gradient" onClick={next}>
+              {current + 1 >= total ? 'See results →' : 'Next →'}
+            </button>
+          ) : (
+            <button className="btn btn-gradient" disabled title="Choose an answer to continue">
+              Next →
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );
