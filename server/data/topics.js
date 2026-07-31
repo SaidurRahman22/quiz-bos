@@ -22,6 +22,13 @@ export const TOPICS = [
     color: '#f59e0b',
   },
   {
+    slug: 'bangla',
+    name: 'Bangla',
+    description: 'Bengali literature, grammar & language history — the high-frequency topics from BCS, bank, NTRCA & university admission exams.',
+    icon: '✍️',
+    color: '#0ea5e9',
+  },
+  {
     slug: 'world-geo-politics',
     name: 'World Geo Politics',
     description: 'Capitals, countries, borders, oceans and global organizations.',
