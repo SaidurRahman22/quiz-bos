@@ -37,7 +37,7 @@ export default function Admin() {
   // Friendly 403 rather than a hard redirect. The server enforces admin too.
   if (!user || !user.isAdmin) {
     return (
-      <div className="container-narrow fade-in">
+      <div className="container-narrow mx-auto fade-in">
         <div className="qb-card p-5 text-center mt-4">
           <div style={{ fontSize: '3rem' }}>🔒</div>
           <h3 className="mt-2">Not authorized</h3>

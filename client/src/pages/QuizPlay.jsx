@@ -43,7 +43,7 @@ function fmtTime(s) {
 // flicker / page-jump. A stable identity lets it reconcile in place.
 function Segmented({ label, options, value, onChange }) {
   return (
-    <div className="d-flex align-items-center gap-2">
+    <div className="d-flex flex-column flex-sm-row align-items-center gap-1 gap-sm-2">
       <span className="text-muted-2" style={{ fontSize: '0.85rem' }}>
         {label}
       </span>
@@ -484,7 +484,7 @@ export default function QuizPlay() {
       {Controls}
 
       {isExam && secondsLeft != null && (
-        <div className="d-flex align-items-center justify-content-between mb-3 gap-2 flex-wrap">
+        <div className="d-flex flex-column flex-sm-row align-items-center justify-content-sm-between text-center mb-3 gap-2">
           <span
             className="pill"
             style={{
@@ -545,11 +545,11 @@ export default function QuizPlay() {
 
         <div className="mt-3">{actionRow(q)}</div>
 
-        <div className="d-flex justify-content-between align-items-center mt-3 gap-2 flex-wrap">
+        <div className="d-flex flex-column flex-sm-row align-items-stretch align-items-sm-center justify-content-sm-between mt-3 gap-2">
           <button className="btn btn-ghost" onClick={prev} disabled={current === 0}>
             ← Previous
           </button>
-          <span className="text-muted-2">
+          <span className="text-muted-2 text-center">
             {isExam ? (
               <>
                 Answered <strong>{answeredCount}</strong> / {total}
