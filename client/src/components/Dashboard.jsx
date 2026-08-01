@@ -333,9 +333,9 @@ export default function Dashboard() {
             </div>
 
             <div className="col-12 col-lg-7">
-              <div className="qb-card chart-card">
+              <div className="qb-card chart-card" style={{ userSelect: 'none' }}>
                 <div className="chart-title">Accuracy by topic</div>
-                <ResponsiveContainer width="100%" height={Math.max(200, topicData.length * 56)}>
+                <ResponsiveContainer width="100%" height={Math.max(132, topicData.length * 46)}>
                   <BarChart
                     layout="vertical"
                     data={topicData}
@@ -344,9 +344,9 @@ export default function Dashboard() {
                   >
                     <CartesianGrid stroke={grid} horizontal={false} />
                     <XAxis type="number" domain={[0, 100]} tick={{ fill: ink, fontSize: 12 }} tickLine={false} axisLine={{ stroke: grid }} unit="%" />
-                    <YAxis type="category" dataKey="name" width={104} tick={<TopicTick />} interval={0} tickLine={false} axisLine={false} />
+                    <YAxis type="category" dataKey="name" width={78} tick={<TopicTick />} interval={0} tickLine={false} axisLine={false} />
                     <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(99,102,241,0.06)' }} />
-                    <Bar dataKey="accuracy" radius={[0, 6, 6, 0]} animationDuration={900}>
+                    <Bar dataKey="accuracy" radius={[0, 6, 6, 0]} maxBarSize={26} animationDuration={900}>
                       {topicData.map((d, i) => (
                         <Cell key={i} fill={d.color} />
                       ))}
