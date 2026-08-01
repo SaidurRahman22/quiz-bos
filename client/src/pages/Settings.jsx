@@ -73,8 +73,16 @@ export default function Settings() {
   };
 
   const sendTest = async () => {
+    setReminderMsg('');
+    // Ask for permission on the spot if we don't have it yet (this button works standalone).
+    let perm = permission === 'granted' ? 'granted' : await requestNotificationPermission();
+    setPermission(perm);
+    if (perm !== 'granted') {
+      setReminderMsg('Notifications are blocked. Allow them in your browser settings, then try again.');
+      return;
+    }
     const ok = await showReminderNow('This is how your daily reminder will look. 📚');
-    if (!ok) setReminderMsg('Couldn’t show a notification — check that they’re allowed.');
+    if (!ok) setReminderMsg('Couldn’t show a notification — check that notifications are allowed for this site.');
   };
 
   // ---- Offline handlers ----
@@ -134,7 +142,7 @@ export default function Settings() {
                   padding: '0.4rem 0.6rem',
                 }}
               />
-              <button className="btn btn-sm btn-ghost" onClick={sendTest} disabled={permission !== 'granted'}>
+              <button className="btn btn-sm btn-ghost" onClick={sendTest}>
                 Send a test
               </button>
             </div>

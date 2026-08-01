@@ -47,7 +47,13 @@ export function saveReminderSettings(settings) {
 async function readyRegistration() {
   if (!('serviceWorker' in navigator)) return null;
   try {
-    return await navigator.serviceWorker.ready;
+    // navigator.serviceWorker.ready NEVER resolves when no SW is registered (e.g. `npm run
+    // dev`, where the SW is disabled), which would hang the caller forever. Race it with a
+    // short timeout and fall back to null so callers can use `new Notification()` instead.
+    return await Promise.race([
+      navigator.serviceWorker.ready,
+      new Promise((resolve) => setTimeout(() => resolve(null), 1500)),
+    ]);
   } catch {
     return null;
   }
