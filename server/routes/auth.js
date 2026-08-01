@@ -4,7 +4,7 @@ import bcrypt from 'bcryptjs';
 import { pool } from '../db.js';
 import { signToken, requireAuth, computeIsAdmin } from '../middleware/auth.js';
 import { sendMail } from '../email.js';
-import { APP_URL } from '../config.js';
+import { APP_URL, ADMIN_EMAILS } from '../config.js';
 
 const router = Router();
 
@@ -12,10 +12,16 @@ const USERNAME_RE = /^[a-zA-Z0-9_]{3,30}$/;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const BCRYPT_ROUNDS = 12;
 
-// Avatar may be an uploaded image/GIF (data URL) or an https image URL. Capped so a
-// giant data URL can't bloat the row / body. ~1.4M chars ≈ a ~1 MB image.
+// Avatar may be an uploaded image/GIF (data URL of a safe raster type) or an https image
+// URL. Capped so a giant data URL can't bloat the row / body (~1.4M chars ≈ a ~1 MB image).
+// The https branch forbids whitespace, quotes, angle brackets, backticks, backslashes and
+// control chars so the stored value can never carry an HTML/attribute-breakout payload even
+// if it is one day rendered outside a React attribute. SVG and non-https schemes
+// (javascript:, data:text/html, …) are intentionally excluded as XSS carriers.
 const AVATAR_MAX_LEN = 1_400_000;
-const AVATAR_RE = /^(data:image\/(png|jpe?g|gif|webp);base64,[A-Za-z0-9+/=\s]+|https:\/\/[^\s]+)$/i;
+const AVATAR_URL_MAX_LEN = 2048; // an https URL never legitimately needs to be huge
+// eslint-disable-next-line no-control-regex
+const AVATAR_RE = /^(data:image\/(png|jpe?g|gif|webp);base64,[A-Za-z0-9+/=\s]+|https:\/\/[^\s"'<>\\`\x00-\x1f]+)$/i;
 const RESET_TTL_MIN = 60; // password-reset link lifetime
 
 // Precomputed hash compared against when a user isn't found, so login timing
@@ -58,6 +64,13 @@ router.post('/register', async (req, res, next) => {
     if (password.length > 200)
       return res.status(400).json({ error: 'Password is too long.' });
 
+    // Admin is granted by ADMIN_EMAILS membership, and registration doesn't prove email
+    // ownership — so a public signup with an admin email would hand out admin. Refuse it:
+    // the operator provisions admin accounts out-of-band (register first, then set the env,
+    // or set users.is_admin), never through this open endpoint.
+    if (ADMIN_EMAILS.has(email))
+      return res.status(403).json({ error: 'This email address is not available for registration.' });
+
     const hash = await bcrypt.hash(password, BCRYPT_ROUNDS);
 
     // Prepared statement (parameterized) — no string concatenation.
@@ -66,7 +79,15 @@ router.post('/register', async (req, res, next) => {
       [username, email, hash]
     );
 
-    const user = { id: result.insertId, username, email, avatar: null, is_admin: 0, token_version: 0 };
+    const user = {
+      id: result.insertId,
+      username,
+      email,
+      avatar: null,
+      is_admin: 0,
+      token_version: 0,
+      created_at: new Date(),
+    };
     res.status(201).json({ token: signToken(user), user: publicUser(user) });
   } catch (err) {
     if (err.code === 'ER_DUP_ENTRY')
@@ -84,7 +105,7 @@ router.post('/login', async (req, res, next) => {
       return res.status(400).json({ error: 'Enter your username/email and password.' });
 
     const [rows] = await pool.execute(
-      'SELECT id, username, email, password_hash, token_version, avatar, is_admin FROM users WHERE username = ? OR email = ? LIMIT 1',
+      'SELECT id, username, email, password_hash, token_version, avatar, is_admin, created_at FROM users WHERE username = ? OR email = ? LIMIT 1',
       [identifier, identifier.toLowerCase()]
     );
     const user = rows[0];
@@ -134,10 +155,22 @@ router.patch('/me', requireAuth, async (req, res, next) => {
         values.push(null);
       } else {
         const avatar = String(raw);
+        const isDataUrl = /^data:image\//i.test(avatar);
         if (avatar.length > AVATAR_MAX_LEN)
           return res.status(400).json({ error: 'Image is too large (max ~1 MB).' });
+        if (!isDataUrl && avatar.length > AVATAR_URL_MAX_LEN)
+          return res.status(400).json({ error: 'Image URL is too long.' });
         if (!AVATAR_RE.test(avatar))
           return res.status(400).json({ error: 'Unsupported image. Upload an image/GIF or use an https URL.' });
+        // Structural check for URLs: must parse and be strictly https (defence in depth
+        // on top of the allowlist regex).
+        if (!isDataUrl) {
+          try {
+            if (new URL(avatar).protocol !== 'https:') throw new Error('non-https');
+          } catch {
+            return res.status(400).json({ error: 'Unsupported image. Upload an image/GIF or use an https URL.' });
+          }
+        }
         fields.push('avatar = ?');
         values.push(avatar);
       }
@@ -214,7 +247,15 @@ router.post('/forgot-password', async (req, res, next) => {
 
     const [rows] = await pool.execute('SELECT id, username FROM users WHERE email = ? LIMIT 1', [email]);
     const u = rows[0];
-    if (u) {
+
+    // Respond immediately with the same generic body regardless of whether the account
+    // exists — this equalizes response time (the only prior work is the indexed SELECT
+    // run on both paths) and closes the enumeration timing oracle. The token creation +
+    // email dispatch then run fire-and-forget, never blocking or altering the response.
+    res.json(generic);
+    if (!u) return;
+
+    try {
       const raw = crypto.randomBytes(32).toString('hex');
       const hash = crypto.createHash('sha256').update(raw).digest('hex');
       const expires = new Date(Date.now() + RESET_TTL_MIN * 60 * 1000);
@@ -235,8 +276,10 @@ router.post('/forgot-password', async (req, res, next) => {
 <p><a href="${link}">Reset my password</a></p>
 <p>If you didn't request this, you can safely ignore this email.</p>`,
       });
+    } catch (err) {
+      // Already responded; just log for the operator.
+      console.error('Password reset dispatch failed:', err.message);
     }
-    res.json(generic);
   } catch (err) {
     next(err);
   }

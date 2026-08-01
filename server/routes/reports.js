@@ -19,13 +19,18 @@ router.post('/', async (req, res, next) => {
     if (!topicSlug || topicSlug.length > 64)
       return res.status(400).json({ error: 'Invalid report.' });
 
-    // Optional auth: capture the reporter's id if a valid token was supplied.
+    // Optional auth: capture the reporter's id if a valid, NON-REVOKED token was supplied.
+    // A missing/invalid/revoked token never blocks the request — user_id falls back to null.
     let userId = null;
     const header = String(req.headers.authorization ?? '');
     if (header.startsWith('Bearer ')) {
       try {
         const payload = jwt.verify(header.slice(7), JWT_SECRET);
-        if (Number.isInteger(payload?.id)) userId = payload.id;
+        if (Number.isInteger(payload?.id)) {
+          // Honor token_version revocation (logout-all / password change) just like requireAuth.
+          const [urows] = await pool.execute('SELECT token_version FROM users WHERE id = ?', [payload.id]);
+          if (urows[0] && urows[0].token_version === (payload.tv ?? 0)) userId = payload.id;
+        }
       } catch {
         userId = null;
       }

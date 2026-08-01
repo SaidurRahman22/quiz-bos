@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   adminGetTopics,
@@ -102,6 +102,11 @@ function QuestionsManager() {
   const [editing, setEditing] = useState(null); // null = none, {} = new, {...} = editing existing
   const [toast, setToast] = useState(null); // { type: 'success' | 'danger', text }
 
+  // Tracks the slug of the most recent load request so stale/out-of-order
+  // responses (e.g. a slow topic A resolving after topic B was selected) can
+  // be ignored instead of overwriting the current topic's questions.
+  const latestSlugRef = useRef('');
+
   const showToast = useCallback((type, text) => {
     setToast({ type, text });
     window.clearTimeout(showToast._t);
@@ -125,21 +130,35 @@ function QuestionsManager() {
 
   const loadQuestions = useCallback((slug) => {
     if (!slug) return;
+    latestSlugRef.current = slug;
     setLoadingList(true);
     setListError('');
     return adminListQuestions(slug)
-      .then((list) => setQuestions(list))
+      .then((list) => {
+        // Ignore responses for a topic that's no longer selected.
+        if (latestSlugRef.current !== slug) return;
+        setQuestions(list);
+      })
       .catch((err) => {
+        if (latestSlugRef.current !== slug) return;
         setQuestions([]);
         setListError(errMessage(err, 'Could not load questions.'));
       })
-      .finally(() => setLoadingList(false));
+      .finally(() => {
+        // Only the latest request may clear the in-flight flag, so it keeps
+        // reflecting a newer request that's still pending.
+        if (latestSlugRef.current !== slug) return;
+        setLoadingList(false);
+      });
   }, []);
 
   // (Re)load questions whenever the selected topic changes.
   useEffect(() => {
     if (activeSlug) {
       setEditing(null);
+      // Clear the previous topic's list so it can't render under the new topic
+      // while the fresh fetch is in flight (the loading state shows instead).
+      setQuestions(null);
       loadQuestions(activeSlug);
     }
   }, [activeSlug, loadQuestions]);

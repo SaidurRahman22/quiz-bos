@@ -50,6 +50,7 @@ export default function FlashcardDeck() {
   const [flipped, setFlipped] = useState(false);
   const [srs, setSrs] = useState({}); // { [cardId]: { box, due } }
   const [stats, setStats] = useState({ reviewed: new Set(), learning: new Set() });
+  const [gradedIds, setGradedIds] = useState(() => new Set()); // ids graded this session (idempotency guard)
 
   // Always-fresh mirrors so session building / key handling read current state
   // without forcing rebuilds on every grade.
@@ -100,6 +101,7 @@ export default function FlashcardDeck() {
       setPos(0);
       setFlipped(false);
       setStats({ reviewed: new Set(), learning: new Set() });
+      setGradedIds(new Set());
     },
     [data]
   );
@@ -142,6 +144,7 @@ export default function FlashcardDeck() {
   const noCards = queue.length === 0;
   const complete = queue.length > 0 && pos >= queue.length;
   const box = card ? srs[card.id]?.box || 1 : 1;
+  const alreadyGraded = card ? gradedIds.has(card.id) : false;
 
   const changeDifficulty = (lvl) => {
     setDifficulty(lvl);
@@ -151,6 +154,14 @@ export default function FlashcardDeck() {
   // Grade the current card, update its Leitner box, persist, and advance.
   const grade = (correct) => {
     if (!card) return;
+    // Idempotent per session: never re-mutate the schedule for a card the user
+    // already graded (e.g. after navigating back with Prev).
+    if (gradedIds.has(card.id)) return;
+    setGradedIds((g) => {
+      const next = new Set(g);
+      next.add(card.id);
+      return next;
+    });
     const now = Date.now();
     const prev = srsRef.current[card.id] || { box: 1, due: 0 };
     const newBox = correct ? Math.min(prev.box + 1, MAX_BOX) : 1;
@@ -293,22 +304,28 @@ export default function FlashcardDeck() {
         </button>
 
         {flipped ? (
-          <div className="d-flex gap-2">
-            <button
-              className="btn btn-ghost"
-              onClick={() => grade(false)}
-              title="Reset to box 1 — you'll see this card again soon"
-            >
-              ✗ Missed
-            </button>
-            <button
-              className="btn btn-gradient"
-              onClick={() => grade(true)}
-              title="Promote this card to the next box"
-            >
-              ✓ Got it
-            </button>
-          </div>
+          alreadyGraded ? (
+            <span className="text-muted-2" style={{ fontSize: '0.85rem' }}>
+              Already reviewed this session
+            </span>
+          ) : (
+            <div className="d-flex gap-2">
+              <button
+                className="btn btn-ghost"
+                onClick={() => grade(false)}
+                title="Reset to box 1 — you'll see this card again soon"
+              >
+                ✗ Missed
+              </button>
+              <button
+                className="btn btn-gradient"
+                onClick={() => grade(true)}
+                title="Promote this card to the next box"
+              >
+                ✓ Got it
+              </button>
+            </div>
+          )
         ) : (
           <button className="btn btn-gradient" onClick={() => setFlipped(true)}>
             Show answer

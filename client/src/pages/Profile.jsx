@@ -6,6 +6,21 @@ import Loader from '../components/Loader.jsx';
 import './Profile.css';
 
 const MAX_BYTES = 1024 * 1024; // ~1 MB
+const MAX_URL_LEN = 2048;
+
+// Mirror of the server allowlist: an uploaded image/GIF (data URL of a safe raster type)
+// or an https image URL with no whitespace/quote/angle-bracket/backtick/control chars.
+// Kept in sync with AVATAR_RE in server/routes/auth.js — SVG and non-https schemes are
+// intentionally excluded (SVG can carry script; javascript:/data:text/html are XSS vectors).
+// eslint-disable-next-line no-control-regex
+const AVATAR_URL_RE = /^(data:image\/(png|jpe?g|gif|webp);base64,[A-Za-z0-9+/=\s]+|https:\/\/[^\s"'<>\\`\x00-\x1f]+)$/i;
+
+function isSafeAvatar(value) {
+  if (typeof value !== 'string') return false;
+  const isData = /^data:image\//i.test(value);
+  if (!isData && value.length > MAX_URL_LEN) return false;
+  return AVATAR_URL_RE.test(value);
+}
 
 // Pull a human-readable message out of an axios error, with a fallback.
 function errMsg(err, fallback) {
@@ -62,13 +77,15 @@ export default function Profile() {
   const [logoutBusy, setLogoutBusy] = useState(false);
   const [logoutError, setLogoutError] = useState(null);
 
-  // Seed editable fields once the user is available.
+  // Seed each editable field from its OWN source value. Keying the effects on the specific
+  // field (not the whole user object) means saving one field — which returns a fresh user —
+  // doesn't wipe out unsaved edits in the other field.
   useEffect(() => {
-    if (user) {
-      setDraftAvatar(user.avatar ?? null);
-      setUsername(user.username ?? '');
-    }
-  }, [user]);
+    if (user) setUsername(user.username ?? '');
+  }, [user?.username]);
+  useEffect(() => {
+    if (user) setDraftAvatar(user.avatar ?? null);
+  }, [user?.avatar]);
 
   // Fetch the compact stats snapshot on mount.
   useEffect(() => {
@@ -114,8 +131,12 @@ export default function Profile() {
   const applyUrl = () => {
     const url = urlInput.trim();
     if (!url) return;
-    setAvatarError(null);
     setAvatarSuccess(null);
+    if (!isSafeAvatar(url)) {
+      setAvatarError('Enter a valid https image URL (no scripts, SVG, or special characters).');
+      return;
+    }
+    setAvatarError(null);
     setDraftAvatar(url);
   };
 
@@ -127,6 +148,12 @@ export default function Profile() {
   };
 
   const saveAvatar = async () => {
+    // Belt-and-suspenders: never POST a value the server would reject (or that slipped
+    // past the URL field). null clears the photo; anything else must pass the allowlist.
+    if (draftAvatar && !isSafeAvatar(draftAvatar)) {
+      setAvatarError('That image type isn’t allowed. Use a PNG/JPG/GIF/WebP upload or an https URL.');
+      return;
+    }
     setAvatarBusy(true);
     setAvatarError(null);
     setAvatarSuccess(null);

@@ -18,7 +18,12 @@ export function AuthProvider({ children }) {
     apiClient
       .getMe()
       .then((d) => setUser(d.user))
-      .catch(() => clearToken())
+      .catch((err) => {
+        // Only discard the token when the session is actually invalid/expired (401/403).
+        // Transient network failures or 5xx must NOT log the user out.
+        const status = err?.response?.status;
+        if (status === 401 || status === 403) clearToken();
+      })
       .finally(() => setReady(true));
   }, []);
 

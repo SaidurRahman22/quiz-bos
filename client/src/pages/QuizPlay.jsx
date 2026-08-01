@@ -14,9 +14,9 @@ import DifficultyToggle from '../components/DifficultyToggle.jsx';
 import { filterByDifficulty, difficultyCounts, shuffle } from '../utils.js';
 import { useAuth } from '../context/AuthContext.jsx';
 
-const KEYS = ['A', 'B', 'C', 'D'];
+const KEYS = ['A', 'B', 'C', 'D', 'E', 'F']; // supports up to 6 options (admin questions)
 const DEFAULT_SIZE = 10; // questions per play-through when the user hasn't picked a size
-const SIZES = [10, 20, 50, 'all']; // adjustable session size
+const SIZES = [10, 20, 50]; // adjustable session size
 const EXAM_SECONDS_PER_Q = 60; // exam mode: one minute per question
 
 // Shuffle a question's options each attempt so people learn the answer, not "always C".
@@ -35,6 +35,34 @@ function fmtTime(s) {
   const m = Math.floor(s / 60);
   const sec = s % 60;
   return `${m}:${String(sec).padStart(2, '0')}`;
+}
+
+// Small segmented pill control (reuses the difficulty-toggle styling). Defined at MODULE
+// scope on purpose: an inline component would get a new identity on every render, so React
+// would unmount/remount the whole controls bar each time you answered — causing the
+// flicker / page-jump. A stable identity lets it reconcile in place.
+function Segmented({ label, options, value, onChange }) {
+  return (
+    <div className="d-flex align-items-center gap-2">
+      <span className="text-muted-2" style={{ fontSize: '0.85rem' }}>
+        {label}
+      </span>
+      <div className="difficulty-toggle" role="tablist" aria-label={label}>
+        {options.map((o) => (
+          <button
+            key={String(o.value)}
+            role="tab"
+            aria-selected={value === o.value}
+            className={`dt-btn ${value === o.value ? 'active' : ''}`}
+            onClick={() => onChange(o.value)}
+            title={o.title || o.label}
+          >
+            <span>{o.label}</span>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 export default function QuizPlay() {
@@ -56,12 +84,15 @@ export default function QuizPlay() {
   const [secondsLeft, setSecondsLeft] = useState(null); // exam countdown; null in practice
   const [reported, setReported] = useState(() => new Set());
   const [savedIds, setSavedIds] = useState(() => new Set());
+  const [savingIds, setSavingIds] = useState(() => new Set()); // bookmark toggles in flight
+  const [built, setBuilt] = useState(false); // first session for the current topic is ready
   // Guards recordAttempt / setFinished against firing twice (e.g. submit + timeout race).
   const finishedRef = useRef(false);
 
   useEffect(() => {
     setData(null);
     setError(null);
+    setBuilt(false); // don't show a stale/empty session while the new topic loads
     getQuiz(slug).then(setData).catch(() => setError(true));
   }, [slug]);
 
@@ -86,6 +117,7 @@ export default function QuizPlay() {
     setFinished(false);
     setReported(new Set());
     setSecondsLeft(examSeconds);
+    setBuilt(true);
   }, []);
 
   const buildSession = useCallback(
@@ -95,7 +127,8 @@ export default function QuizPlay() {
       const pool = filterByDifficulty(data.questions, lvl);
       const limit = sz === 'all' ? pool.length : sz;
       const picked = pool.slice(0, limit).map(shuffleOptions);
-      startSession(picked, md === 'exam' ? picked.length * EXAM_SECONDS_PER_Q : null);
+      // No timer for an empty pool — otherwise secondsLeft=0 would instantly "finish".
+      startSession(picked, md === 'exam' && picked.length ? picked.length * EXAM_SECONDS_PER_Q : null);
     },
     [data, startSession]
   );
@@ -117,15 +150,23 @@ export default function QuizPlay() {
   const reveal = !isExam && selected !== null;
 
   // ---------- Handlers ----------
+  // Changing difficulty/size/mode rebuilds the set — confirm first if answers are in
+  // progress so a stray tap can't wipe progress (or silently reset the exam timer).
+  const confirmRebuild = () =>
+    answeredCount === 0 || finished || window.confirm('Start a new set? Your current progress will be lost.');
+
   const changeDifficulty = (lvl) => {
+    if (lvl === difficulty || !confirmRebuild()) return;
     setDifficulty(lvl);
     buildSession(lvl, size, mode);
   };
   const changeSize = (sz) => {
+    if (sz === size || !confirmRebuild()) return;
     setSize(sz);
     buildSession(difficulty, sz, mode);
   };
   const changeMode = (md) => {
+    if (md === mode || !confirmRebuild()) return;
     setMode(md);
     buildSession(difficulty, size, md);
   };
@@ -156,6 +197,12 @@ export default function QuizPlay() {
     }
   }, [user, session, answers, slug, difficulty]);
 
+  // Keep the latest finishQuiz in a ref so the countdown effect below doesn't list it as a
+  // dependency. finishQuiz's identity changes whenever `answers` changes, so depending on
+  // it would clear+restart the 1s timer on every answer and stall the exam countdown.
+  const finishQuizRef = useRef(finishQuiz);
+  finishQuizRef.current = finishQuiz;
+
   const prev = () => setCurrent((c) => Math.max(c - 1, 0));
   const next = () => {
     if (current + 1 >= total) finishQuiz();
@@ -181,7 +228,9 @@ export default function QuizPlay() {
       navigate('/login');
       return;
     }
+    if (savingIds.has(qq.id)) return; // a toggle for this question is already in flight
     const wasSaved = savedIds.has(qq.id);
+    setSavingIds((prevSet) => new Set(prevSet).add(qq.id));
     setSavedIds((prevSet) => {
       const s = new Set(prevSet);
       wasSaved ? s.delete(qq.id) : s.add(qq.id);
@@ -204,19 +253,27 @@ export default function QuizPlay() {
           explanation: qq.explanation,
           difficulty: qq.difficulty,
         });
-    req.catch(rollback);
+    req
+      .catch(rollback)
+      .finally(() =>
+        setSavingIds((prevSet) => {
+          const s = new Set(prevSet);
+          s.delete(qq.id);
+          return s;
+        })
+      );
   };
 
   // ---------- Exam countdown ----------
   useEffect(() => {
     if (!isExam || finished || secondsLeft == null) return undefined;
     if (secondsLeft <= 0) {
-      finishQuiz();
+      finishQuizRef.current();
       return undefined;
     }
     const id = setTimeout(() => setSecondsLeft((s) => (s == null ? s : s - 1)), 1000);
     return () => clearTimeout(id);
-  }, [isExam, finished, secondsLeft, finishQuiz]);
+  }, [isExam, finished, secondsLeft]);
 
   // ---------- Keyboard: A–D / 1–4 to answer, ← → to move, Enter to advance ----------
   useEffect(() => {
@@ -266,32 +323,11 @@ export default function QuizPlay() {
     );
   }
   if (!data) return <Loader label="Loading quiz…" />;
+  // The first session is built in an effect after data arrives; gate on `built` so we never
+  // flash "No questions available" for a topic that actually has questions.
+  if (!built) return <Loader label="Loading quiz…" />;
 
   const { topic } = data;
-  const availableCount = counts ? (difficulty === 'mix' ? counts.mix : counts[difficulty]) : 0;
-
-  // Small segmented pill control (reuses the difficulty-toggle styling).
-  const Segmented = ({ label, options, value, onChange }) => (
-    <div className="d-flex align-items-center gap-2">
-      <span className="text-muted-2" style={{ fontSize: '0.85rem' }}>
-        {label}
-      </span>
-      <div className="difficulty-toggle" role="tablist" aria-label={label}>
-        {options.map((o) => (
-          <button
-            key={String(o.value)}
-            role="tab"
-            aria-selected={value === o.value}
-            className={`dt-btn ${value === o.value ? 'active' : ''}`}
-            onClick={() => onChange(o.value)}
-            title={o.title || o.label}
-          >
-            <span>{o.label}</span>
-          </button>
-        ))}
-      </div>
-    </div>
-  );
 
   const Controls = (
     <div className="d-flex flex-column align-items-center gap-3 mb-4">
@@ -310,10 +346,7 @@ export default function QuizPlay() {
           label="Questions"
           value={size}
           onChange={changeSize}
-          options={SIZES.map((s) => ({
-            value: s,
-            label: s === 'all' ? `All${availableCount ? ` (${availableCount})` : ''}` : String(s),
-          }))}
+          options={SIZES.map((s) => ({ value: s, label: String(s) }))}
         />
       </div>
     </div>
@@ -324,6 +357,7 @@ export default function QuizPlay() {
       <button
         className={`btn btn-sm ${savedIds.has(qq.id) ? 'btn-gradient' : 'btn-ghost'}`}
         onClick={() => toggleSave(qq)}
+        disabled={savingIds.has(qq.id)}
         title={user ? 'Save this question to your ⭐ deck' : 'Log in to save questions'}
       >
         {savedIds.has(qq.id) ? '⭐ Saved' : '☆ Save'}

@@ -40,22 +40,8 @@ app.use(
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
   })
 );
-// Profile updates can carry an avatar (image/GIF data URL) so this one path gets a
-// larger body limit; everything else stays tight at 64kb. This parser runs first, so
-// the global one below sees the body already parsed and skips it.
-app.use('/api/auth/me', express.json({ limit: '2mb' }));
-app.use(express.json({ limit: '64kb' }));
-
-app.get('/api/health', async (_req, res) => {
-  try {
-    await pool.query('SELECT 1');
-    res.json({ status: 'ok', db: 'connected' });
-  } catch (err) {
-    res.status(500).json({ status: 'error', db: 'disconnected', message: err.message });
-  }
-});
-
-// Throttle auth endpoints to blunt brute-force / credential-stuffing attacks.
+// Rate limiters are defined BEFORE the body parsers so the avatar route can throttle
+// large uploads before they are ever buffered / decompressed / parsed.
 const authLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 40,
@@ -63,14 +49,41 @@ const authLimiter = rateLimit({
   legacyHeaders: false,
   message: { error: 'Too many attempts. Please try again in a few minutes.' },
 });
-
-// Throttle report submissions to blunt spam from a single client.
 const reportsLimiter = rateLimit({
   windowMs: 15 * 60 * 1000,
   max: 30,
   standardHeaders: true,
   legacyHeaders: false,
   message: { error: 'Too many reports. Please try again later.' },
+});
+// Guards the larger avatar-upload body so an unauthenticated flood can't force repeated
+// big-body buffering before auth runs.
+const avatarUploadLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many profile updates. Please try again later.' },
+});
+
+// Profile updates can carry an avatar (image/GIF data URL) so this one path gets a larger
+// body limit — throttled FIRST, and with inflate:false so a tiny gzip body can't be
+// decompression-amplified (~1000x) into a huge payload before auth/rate-limiting run.
+// Everything else stays tight at 64kb. This parser runs first, so the global one below
+// sees the body already parsed and skips it. inflate:false also rejects compressed bodies
+// globally (our client only sends plain JSON).
+app.use('/api/auth/me', avatarUploadLimiter, express.json({ limit: '1.5mb', inflate: false }));
+app.use(express.json({ limit: '64kb', inflate: false }));
+
+app.get('/api/health', async (_req, res) => {
+  try {
+    await pool.query('SELECT 1');
+    res.json({ status: 'ok', db: 'connected' });
+  } catch (err) {
+    // Don't leak internal DB error details to unauthenticated clients.
+    console.error('Health check failed:', err.message);
+    res.status(500).json({ status: 'error', db: 'disconnected' });
+  }
 });
 
 // Content (public)
