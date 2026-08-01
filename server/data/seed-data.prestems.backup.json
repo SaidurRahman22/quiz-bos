@@ -4,7 +4,7 @@
    "slug": "nursing",
    "questions": [
     {
-     "question": "সুস্থ প্রাপ্তবয়স্কের স্বাভাবিক বিশ্রামকালীন resting heart rate কত?",
+     "question": "What is the normal resting heart rate range for a healthy adult?",
      "options": [
       "40–60 beats/min",
       "20–40 beats/min",
@@ -16,7 +16,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "বিশ্রামরত অবস্থায় সুস্থ প্রাপ্তবয়স্কের স্বাভাবিক respiratory rate কত?",
+     "question": "What is the normal respiratory rate range for a healthy adult at rest?",
      "options": [
       "6–10 breaths/min",
       "12–20 breaths/min",
@@ -28,7 +28,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "সুস্থ প্রাপ্তবয়স্কের মুখ দিয়ে মাপা স্বাভাবিক গড় body temperature কত?",
+     "question": "What is the normal average oral body temperature of a healthy adult?",
      "options": [
       "96.8°F (36°C)",
       "100.4°F (38°C)",
@@ -40,7 +40,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "সাধারণ room air-এ শ্বাস নেওয়া সুস্থ প্রাপ্তবয়স্কের স্বাভাবিক oxygen saturation (SpO2) কত?",
+     "question": "What is the normal oxygen saturation (SpO2) range for a healthy adult breathing room air?",
      "options": [
       "95–100%",
       "85–90%",
@@ -52,7 +52,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "মানবদেহের বৃহত্তম organ কোনটি?",
+     "question": "Which is the largest organ of the human body?",
      "options": [
       "Liver",
       "Lungs",
@@ -64,7 +64,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "মানুষের heart-এ কয়টি chamber থাকে?",
+     "question": "How many chambers does the human heart have?",
      "options": [
       "Two",
       "Four",
@@ -76,7 +76,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "কোন ধরনের blood vessel হৃৎপিণ্ড থেকে রক্ত বাইরের দিকে বহন করে?",
+     "question": "Which type of blood vessel carries blood away from the heart?",
      "options": [
       "Veins",
       "Capillaries",
@@ -88,7 +88,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "health care setting-এ সংক্রমণ ছড়ানো রোধে সবচেয়ে কার্যকর একক পদক্ষেপ কোনটি?",
+     "question": "Which action is the single most effective way to prevent the spread of infection in a health care setting?",
      "options": [
       "Hand hygiene",
       "Wearing gloves",
@@ -100,7 +100,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "প্রাপ্তবয়স্কের স্বাভাবিক fasting blood glucose কত?",
+     "question": "What is the normal fasting blood glucose range for an adult?",
      "options": [
       "100–140 mg/dL",
       "70–100 mg/dL",
@@ -112,7 +112,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রাপ্তবয়স্কের স্বাভাবিক serum potassium মাত্রা কত?",
+     "question": "What is the normal serum potassium level for an adult?",
      "options": [
       "135–145 mEq/L",
       "1.5–2.5 mEq/L",
@@ -124,7 +124,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রাপ্তবয়স্কের স্বাভাবিক serum sodium মাত্রা কত?",
+     "question": "What is the normal serum sodium level for an adult?",
      "options": [
       "135–145 mEq/L",
       "3.5–5.0 mEq/L",
@@ -136,7 +136,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রাপ্তবয়স্কের স্বাভাবিক platelet count কত?",
+     "question": "What is the normal platelet count for an adult?",
      "options": [
       "5,000–10,000/µL",
       "4.5–5.5 million/µL",
@@ -148,7 +148,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "intramuscular (IM) injection দেওয়ার সময় needle কত ডিগ্রি কোণে প্রবেশ করানো উচিত?",
+     "question": "At what angle should the needle be inserted for an intramuscular (IM) injection?",
      "options": [
       "45 degrees",
       "15 degrees",
@@ -160,7 +160,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "নিচের কোনটি একটি fat-soluble vitamin?",
+     "question": "Which of the following is a fat-soluble vitamin?",
      "options": [
       "Vitamin C",
       "Vitamin D",
@@ -172,7 +172,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একজন রোগীর active pulmonary tuberculosis নির্ণয় হয়েছে। nurse-এর কোন ধরনের transmission-based precautions প্রয়োগ করা উচিত?",
+     "question": "A patient is diagnosed with active pulmonary tuberculosis. Which type of transmission-based precautions should the nurse implement?",
      "options": [
       "Airborne precautions",
       "Droplet precautions",
@@ -184,7 +184,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "বর্তমান American Heart Association (2017 ACC/AHA) guideline অনুযায়ী প্রাপ্তবয়স্কের কোন blood pressure reading-কে normal হিসেবে ধরা হয়?",
+     "question": "According to current American Heart Association (2017 ACC/AHA) guidelines, which blood pressure reading is classified as normal for an adult?",
      "options": [
       "140/90 mmHg",
       "130/85 mmHg",
@@ -196,7 +196,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোনো invasive procedure করার বা medication দেওয়ার আগে রোগীর পরিচয় নিশ্চিত করতে nurse-এর কয়টি patient identifier ব্যবহার করা উচিত?",
+     "question": "Before performing an invasive procedure or administering medication, how many patient identifiers should the nurse use to verify identity?",
      "options": [
       "One",
       "Two",
@@ -208,7 +208,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একজন রোগীর Clostridioides difficile (C. difficile) সংক্রমণ হয়েছে। কোন infection-control ব্যবস্থাটি সবচেয়ে উপযুক্ত?",
+     "question": "A patient has a Clostridioides difficile (C. difficile) infection. Which infection-control measure is most appropriate?",
      "options": [
       "Airborne precautions with an N95 respirator",
       "Droplet precautions with a surgical mask",
@@ -220,7 +220,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "personal protective equipment (PPE) পরার (donning) সঠিক ক্রম কোনটি?",
+     "question": "What is the correct order for donning (putting on) personal protective equipment (PPE)?",
      "options": [
       "Gloves, gown, mask, goggles",
       "Mask, gloves, gown, goggles",
@@ -232,7 +232,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "warfarin-এর therapeutic effect মূল্যায়নে nurse-এর কোন laboratory value পর্যবেক্ষণ করা উচিত?",
+     "question": "Which laboratory value should the nurse monitor to evaluate the therapeutic effect of warfarin?",
      "options": [
       "aPTT",
       "PT/INR",
@@ -244,7 +244,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "heparin overdose-এর antidote কোনটি?",
+     "question": "What is the antidote for a heparin overdose?",
      "options": [
       "Vitamin K",
       "Naloxone",
@@ -256,7 +256,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "acetaminophen (Tylenol) toxicity-এর antidote কোনটি?",
+     "question": "What is the antidote for acetaminophen (Tylenol) toxicity?",
      "options": [
       "Naloxone",
       "Flumazenil",
@@ -268,7 +268,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "tuberculin (PPD) skin test-এর মতো intradermal injection দেওয়ার সময় needle কত ডিগ্রি কোণে প্রবেশ করানো উচিত?",
+     "question": "At what angle should the needle be inserted for an intradermal injection, such as a tuberculin (PPD) skin test?",
      "options": [
       "5–15 degrees",
       "45 degrees",
@@ -280,7 +280,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "digoxin দেওয়ার আগে nurse এক মিনিট ধরে apical pulse পরীক্ষা করেন। প্রাপ্তবয়স্কে apical pulse কোন rate-এর নিচে হলে medication বন্ধ রেখে provider-কে জানাতে হবে?",
+     "question": "Before administering digoxin, the nurse assesses the apical pulse for one full minute. In an adult, the medication should be withheld and the provider notified if the apical pulse is below which rate?",
      "options": [
       "80 beats/min",
       "100 beats/min",
@@ -292,7 +292,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "পর্যাপ্ত kidney perfusion নির্দেশ করে এমন প্রাপ্তবয়স্কের ঘণ্টাপ্রতি সর্বনিম্ন গ্রহণযোগ্য urine output কত?",
+     "question": "What is the minimum acceptable hourly urine output for an adult that indicates adequate kidney perfusion?",
      "options": [
       "5 mL/hr",
       "30 mL/hr",
@@ -304,7 +304,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "digoxin-এর স্বীকৃত therapeutic serum range কত?",
+     "question": "What is the accepted therapeutic serum range for digoxin?",
      "options": [
       "0.5–2.0 ng/mL",
       "0.6–1.2 mEq/L",
@@ -316,7 +316,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রাণঘাতী digoxin toxicity-এর নির্দিষ্ট antidote কোনটি?",
+     "question": "Which agent is the specific antidote for life-threatening digoxin toxicity?",
      "options": [
       "Digoxin immune Fab",
       "Protamine sulfate",
@@ -328,7 +328,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "digoxin গ্রহণকারী একজন রোগীকে furosemide-ও শুরু করা হয়েছে। কোন electrolyte disturbance digoxin toxicity-এর ঝুঁকি সবচেয়ে বাড়ায়?",
+     "question": "A patient on digoxin is also started on furosemide. Which electrolyte disturbance most increases the risk of digoxin toxicity?",
      "options": [
       "Hyperkalemia",
       "Hypokalemia",
@@ -340,7 +340,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "প্রাপ্তবয়স্ককে digoxin দেওয়ার আগে apical heart rate কত হলে nurse-এর ডোজ বন্ধ রেখে provider-কে জানানো উচিত?",
+     "question": "Before giving digoxin to an adult, the nurse should withhold the dose and notify the provider if the apical heart rate is:",
      "options": [
       "Below 60 beats/min",
       "Below 100 beats/min",
@@ -352,7 +352,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "unfractionated heparin-এর anticoagulant প্রভাব কোন agent প্রতিহত করে?",
+     "question": "Which agent reverses the anticoagulant effect of unfractionated heparin?",
      "options": [
       "Protamine sulfate",
       "Vitamin K",
@@ -364,7 +364,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "therapeutic unfractionated heparin therapy পর্যবেক্ষণে কোন laboratory test ব্যবহৃত হয়?",
+     "question": "Which laboratory test is used to monitor therapeutic unfractionated heparin therapy?",
      "options": [
       "Activated partial thromboplastin time (aPTT)",
       "Prothrombin time (PT/INR)",
@@ -376,7 +376,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "heparin-এর প্রধান mechanism of action কোনটি?",
+     "question": "What is the primary mechanism of action of heparin?",
      "options": [
       "Potentiates antithrombin III to inactivate thrombin and factor Xa",
       "Inhibits vitamin K epoxide reductase",
@@ -388,7 +388,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "warfarin therapy পর্যবেক্ষণে কোন laboratory value ব্যবহৃত হয়?",
+     "question": "Which laboratory value is used to monitor warfarin therapy?",
      "options": [
       "PT/INR",
       "aPTT",
@@ -400,7 +400,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "warfarin-জনিত অতিরিক্ত anticoagulation-এর antidote কোনটি?",
+     "question": "Which is the antidote for warfarin-induced excessive anticoagulation?",
      "options": [
       "Vitamin K (phytonadione)",
       "Protamine sulfate",
@@ -412,7 +412,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "warfarin-এর mechanism of action কোনটি?",
+     "question": "What is the mechanism of action of warfarin?",
      "options": [
       "Inhibits vitamin K epoxide reductase, reducing synthesis of factors II, VII, IX, and X",
       "Activates antithrombin III",
@@ -424,7 +424,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "warfarin গ্রহণকারী রোগীর কোন খাবার ওঠানামা না করে ধারাবাহিক পরিমাণে খাওয়া উচিত?",
+     "question": "Which food should a patient on warfarin consume in consistent, not fluctuating, amounts?",
      "options": [
       "Spinach and other leafy greens",
       "White rice",
@@ -436,7 +436,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "যখন monitoring প্রয়োজন হয়, তখন low-molecular-weight heparin (enoxaparin) পর্যবেক্ষণে কোন laboratory test ব্যবহৃত হয়?",
+     "question": "Which laboratory test is used to monitor low-molecular-weight heparin (enoxaparin) when monitoring is indicated?",
      "options": [
       "Anti-factor Xa level",
       "aPTT",
@@ -448,7 +448,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "acetaminophen overdose-এর antidote কোনটি?",
+     "question": "What is the antidote for acetaminophen overdose?",
      "options": [
       "N-acetylcysteine",
       "Naloxone",
@@ -460,7 +460,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "opioid overdose-এর antidote কোনটি?",
+     "question": "What is the antidote for opioid overdose?",
      "options": [
       "Naloxone",
       "Flumazenil",
@@ -472,7 +472,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "benzodiazepine-জনিত sedation কোন agent প্রতিহত করে?",
+     "question": "Which agent reverses benzodiazepine-induced sedation?",
      "options": [
       "Flumazenil",
       "Naloxone",
@@ -484,7 +484,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "beta-blocker overdose-জনিত symptomatic bradycardia ও hypotension-এ আক্রান্ত একজন রোগী atropine-এ সাড়া দিচ্ছেন না। কোন agent-টি পছন্দের antidote?",
+     "question": "A patient with symptomatic bradycardia and hypotension from beta-blocker overdose does not respond to atropine. Which agent is the antidote of choice?",
      "options": [
       "Glucagon",
       "Naloxone",
@@ -496,7 +496,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "magnesium sulfate toxicity-এর antidote কোন medication?",
+     "question": "Which medication is the antidote for magnesium sulfate toxicity?",
      "options": [
       "Calcium gluconate",
       "Sodium bicarbonate",
@@ -508,7 +508,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "preeclampsia-র জন্য IV magnesium sulfate গ্রহণকারী রোগীকে পর্যবেক্ষণের সময় আসন্ন magnesium toxicity-এর সবচেয়ে প্রাথমিক লক্ষণ কোনটি?",
+     "question": "When monitoring a patient receiving IV magnesium sulfate for preeclampsia, which is the earliest sign of impending magnesium toxicity?",
      "options": [
       "Loss of deep tendon reflexes",
       "Onset of seizure activity",
@@ -520,7 +520,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "lithium maintenance therapy-এর therapeutic serum range কত?",
+     "question": "What is the therapeutic serum range for lithium maintenance therapy?",
      "options": [
       "0.6–1.2 mEq/L",
       "10–20 mcg/mL",
@@ -532,7 +532,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "নিচের কোনটি lithium toxicity-এর ঝুঁকি সবচেয়ে বেশি বাড়ায়?",
+     "question": "Which of the following most increases the risk of lithium toxicity?",
      "options": [
       "Concurrent thiazide diuretic use",
       "A high dietary sodium intake",
@@ -544,7 +544,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "vancomycin infusion চলাকালে একজন রোগীর মুখ ও ঘাড়ে flushing ও erythema দেখা দেয়। এই প্রতিক্রিয়াটি সবচেয়ে সরাসরি যার কারণে ঘটে:",
+     "question": "A patient develops flushing and erythema of the face and neck during a vancomycin infusion. This reaction is most directly caused by:",
      "options": [
       "Rapid IV infusion causing histamine release",
       "A true IgE-mediated anaphylaxis",
@@ -556,7 +556,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "trough vancomycin level মূলত কী কারণে মাপা হয়?",
+     "question": "Trough vancomycin levels are drawn primarily to:",
      "options": [
       "Ensure therapeutic efficacy while minimizing nephrotoxicity",
       "Confirm peak antibacterial effect",
@@ -568,7 +568,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "gentamicin-এর মতো aminoglycoside-এর প্রধান দুটি toxicity কী কী?",
+     "question": "Which two toxicities are the primary concern with aminoglycosides such as gentamicin?",
      "options": [
       "Nephrotoxicity and ototoxicity",
       "Hepatotoxicity and pancreatitis",
@@ -580,7 +580,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রচলিত gentamicin dosing-এ nephrotoxicity সীমিত রাখতে মূলত trough level পর্যবেক্ষণ করা হয়; এর সাধারণ target trough কত?",
+     "question": "With conventional gentamicin dosing, the trough level is monitored mainly to limit nephrotoxicity, with a general target trough of:",
      "options": [
       "Less than 2 mcg/mL",
       "5–10 mcg/mL",
@@ -592,7 +592,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "gentamicin ও furosemide একসঙ্গে দেওয়া কোন adverse effect-এর ঝুঁকি বাড়ায়?",
+     "question": "Concurrent administration of gentamicin and furosemide increases the risk of which adverse effect?",
      "options": [
       "Ototoxicity",
       "Hyperglycemia",
@@ -604,7 +604,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "total phenytoin-এর therapeutic serum range কত?",
+     "question": "What is the therapeutic serum range for total phenytoin?",
      "options": [
       "10–20 mcg/mL",
       "0.6–1.2 mEq/L",
@@ -616,7 +616,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "IV phenytoin প্রয়োগ সম্পর্কে কোন statement-টি সঠিক?",
+     "question": "Which statement is correct regarding IV phenytoin administration?",
      "options": [
       "Dilute in normal saline and infuse no faster than 50 mg/min",
       "Dilute in 5% dextrose and give by rapid IV push",
@@ -628,7 +628,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "দীর্ঘমেয়াদী phenytoin therapy-এর বৈশিষ্ট্যসূচক adverse effect কোনটি?",
+     "question": "Which adverse effect is characteristic of long-term phenytoin therapy?",
      "options": [
       "Gingival hyperplasia",
       "Hyperkalemia",
@@ -640,7 +640,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "theophylline-এর therapeutic serum range কত?",
+     "question": "What is the therapeutic serum range for theophylline?",
      "options": [
       "10–20 mcg/mL",
       "0.5–2.0 ng/mL",
@@ -652,7 +652,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "ACE inhibitor-এর সঙ্গে সম্পর্কিত ক্রমাগত শুষ্ক কাশি (dry cough) কী কারণে হয়?",
+     "question": "The persistent dry cough associated with ACE inhibitors is caused by:",
      "options": [
       "Accumulation of bradykinin",
       "Excess histamine release",
@@ -664,7 +664,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "lisinopril গ্রহণকারী রোগীর hyperkalemia-র ঝুঁকির কারণে কোন agent একসঙ্গে ব্যবহার এড়ানো উচিত?",
+     "question": "A patient taking lisinopril should avoid concurrent use of which agent because of the risk of hyperkalemia?",
      "options": [
       "Spironolactone",
       "Furosemide",
@@ -676,7 +676,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "ACE inhibitor গ্রহণকারী একজন রোগীর ঠোঁট ও জিহ্বা ফুলে যায়। এই লক্ষণটি কী নির্দেশ করে?",
+     "question": "A patient on an ACE inhibitor develops swelling of the lips and tongue. This finding indicates:",
      "options": [
       "Angioedema requiring immediate discontinuation",
       "An expected, benign effect",
@@ -688,7 +688,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "atorvastatin গ্রহণকারী একজন রোগী পেশিতে ব্যথা ও দুর্বলতার কথা জানান। কোন laboratory test rhabdomyolysis মূল্যায়ন করে?",
+     "question": "A patient on atorvastatin reports muscle pain and weakness. Which laboratory test evaluates for rhabdomyolysis?",
      "options": [
       "Creatine kinase (CK)",
       "INR",
@@ -700,7 +700,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "grapefruit juice কেন কিছু statin-এর সঙ্গে toxicity-র ঝুঁকি বাড়ায়?",
+     "question": "Why does grapefruit juice increase the risk of toxicity with certain statins?",
      "options": [
       "It inhibits CYP3A4, increasing statin blood levels",
       "It induces CYP3A4, decreasing statin levels",
@@ -712,7 +712,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "furosemide-এর মতো loop diuretic-এর mechanism of action কোনটি?",
+     "question": "What is the mechanism of action of loop diuretics such as furosemide?",
      "options": [
       "Inhibit the Na-K-2Cl cotransporter in the ascending loop of Henle",
       "Inhibit the Na-Cl symporter in the distal tubule",
@@ -724,7 +724,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "furosemide-এর একটি সাধারণ adverse effect হিসেবে কোন electrolyte imbalance দেখা যায়?",
+     "question": "Which electrolyte imbalance is a common adverse effect of furosemide?",
      "options": [
       "Hypokalemia",
       "Hyperkalemia",
@@ -736,7 +736,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "spironolactone-এর সঙ্গে সম্পর্কিত adverse effect কোনটি?",
+     "question": "Which adverse effect is associated with spironolactone?",
      "options": [
       "Hyperkalemia",
       "Hypokalemia",
@@ -748,7 +748,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "দীর্ঘমেয়াদী hydrochlorothiazide therapy-এর সঙ্গে সম্পর্কিত metabolic effect-এর কোন সেটটি সঠিক?",
+     "question": "Which set of metabolic effects is associated with long-term hydrochlorothiazide therapy?",
      "options": [
       "Hyperglycemia, hyperuricemia, and hypercalcemia",
       "Hypoglycemia, hypouricemia, and hypocalcemia",
@@ -760,7 +760,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একটি syringe-এ regular ও NPH insulin একসঙ্গে মেশানোর সময় সঠিক পদ্ধতি হলো:",
+     "question": "When mixing regular and NPH insulin in one syringe, the correct technique is to:",
      "options": [
       "Draw up the regular (clear) insulin before the NPH (cloudy)",
       "Draw up the NPH before the regular insulin",
@@ -772,7 +772,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন insulin preparation intravenously দেওয়া যেতে পারে?",
+     "question": "Which insulin preparation may be administered intravenously?",
      "options": [
       "Regular insulin",
       "NPH insulin",
@@ -784,7 +784,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "NPH insulin সকাল 0700-এ দেওয়া হলো। nurse কোন সময়ে সবচেয়ে নিবিড়ভাবে hypoglycemia-র জন্য পর্যবেক্ষণ করবেন?",
+     "question": "NPH insulin is given at 0700. The nurse monitors most closely for hypoglycemia during which time frame?",
      "options": [
       "Approximately 1100–1900 (about 4–12 hours later)",
       "Within the first 15 minutes",
@@ -796,7 +796,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন বৈশিষ্ট্য insulin glargine-কে অন্যান্য insulin থেকে আলাদা করে?",
+     "question": "Which characteristic distinguishes insulin glargine from other insulins?",
      "options": [
       "It has no pronounced peak and must not be mixed with other insulins",
       "It peaks sharply at 2 hours",
@@ -808,7 +808,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "নিচের কোনটি ISMP অনুযায়ী high-alert medication হিসেবে শ্রেণিবদ্ধ?",
+     "question": "Which of the following is classified as a high-alert medication by ISMP?",
      "options": [
       "Insulin",
       "Acetaminophen",
@@ -820,7 +820,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "intravenous potassium chloride সম্পর্কে কোন বক্তব্যটি সঠিক?",
+     "question": "Which statement about intravenous potassium chloride is correct?",
      "options": [
       "It must never be given by IV push",
       "It may be given by rapid IV push in emergencies",
@@ -832,7 +832,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "MAOI phenelzine গ্রহণকারী একজন রোগীকে hypertensive crisis প্রতিরোধে কোন খাবার পরিহার করতে হবে?",
+     "question": "A patient taking the MAOI phenelzine must avoid which food to prevent a hypertensive crisis?",
      "options": [
       "Aged cheddar cheese",
       "White bread",
@@ -844,7 +844,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একটি SSRI-এর সঙ্গে কোনটি মেশালে serotonin syndrome হওয়ার সম্ভাবনা সবচেয়ে বেশি?",
+     "question": "Serotonin syndrome is most likely to develop when an SSRI is combined with:",
      "options": [
       "An MAOI",
       "Acetaminophen",
@@ -856,7 +856,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "haloperidol গ্রহণকারী একজন রোগীর উচ্চ জ্বর, তীব্র muscle rigidity ও বর্ধিত CK দেখা দেয়। ওষুধ বন্ধ করার পাশাপাশি চিকিৎসায় অন্তর্ভুক্ত থাকে:",
+     "question": "A patient on haloperidol develops high fever, severe muscle rigidity, and elevated CK. Besides stopping the drug, treatment includes:",
      "options": [
       "Dantrolene",
       "Benztropine",
@@ -868,7 +868,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একটি antipsychotic শুরু করার কিছুক্ষণ পরেই একজন রোগীর acute dystonia (torticollis) দেখা দেয়। nurse কোনটি দেওয়ার প্রস্তুতি নেবেন?",
+     "question": "A patient develops acute dystonia (torticollis) shortly after starting an antipsychotic. The nurse anticipates administering:",
      "options": [
       "Benztropine or diphenhydramine",
       "Dantrolene",
@@ -880,7 +880,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "metronidazole গ্রহণকারী একজন রোগীকে কোনটি প্রতিরোধে alcohol পরিহার করতে হবে?",
+     "question": "A patient taking metronidazole must avoid alcohol to prevent:",
      "options": [
       "A disulfiram-like reaction",
       "Enhanced antibacterial effect",
@@ -892,7 +892,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "oral tetracycline কোনটির সঙ্গে খেলে এর absorption উল্লেখযোগ্যভাবে কমে যায়?",
+     "question": "Absorption of oral tetracycline is significantly reduced when it is taken with:",
      "options": [
       "Dairy products and antacids",
       "Plain water",
@@ -904,7 +904,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "ciprofloxacin-এর মতো fluoroquinolone-এর সঙ্গে কোন গুরুতর adverse effect জড়িত?",
+     "question": "Which serious adverse effect is associated with fluoroquinolones such as ciprofloxacin?",
      "options": [
       "Tendon rupture, particularly of the Achilles tendon",
       "Gingival hyperplasia",
@@ -916,7 +916,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "দীর্ঘমেয়াদী amiodarone therapy গ্রহণকারী একজন রোগীর জন্য কোন monitoring অপরিহার্য?",
+     "question": "Which monitoring is essential for a patient on long-term amiodarone therapy?",
      "options": [
       "Thyroid function tests and pulmonary function/chest x-ray",
       "Serum amylase and lipase",
@@ -928,7 +928,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Amiodarone কোন ওষুধগুলোর serum concentration ও toxicity-র ঝুঁকি বাড়ায়?",
+     "question": "Amiodarone increases the serum concentration and toxicity risk of which drugs?",
      "options": [
       "Digoxin and warfarin",
       "Furosemide",
@@ -940,7 +940,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "sodium nitroprusside-এর দীর্ঘস্থায়ী infusion কোন toxicity-র ঝুঁকি বহন করে?",
+     "question": "Prolonged infusion of sodium nitroprusside carries the risk of which toxicity?",
      "options": [
       "Cyanide and thiocyanate toxicity",
       "Salicylate toxicity",
@@ -952,7 +952,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "anginal chest pain-এর জন্য sublingual nitroglycerin প্রচলিতভাবে প্রতি 5 মিনিট অন্তর সর্বোচ্চ কতটি dose পর্যন্ত দেওয়া যায়?",
+     "question": "For anginal chest pain, sublingual nitroglycerin is traditionally repeated every 5 minutes up to a maximum of how many doses?",
      "options": [
       "3 doses",
       "5 doses",
@@ -964,7 +964,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "nitroglycerin therapy-র একটি সাধারণ side effect কোনটি?",
+     "question": "Which is a common side effect of nitroglycerin therapy?",
      "options": [
       "Headache",
       "Bradycardia",
@@ -976,7 +976,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "nonselective beta-blocker শুরু করা একজন diabetic রোগীর জন্য একটি গুরুত্বপূর্ণ শিক্ষণীয় বিষয় হলো এটি:",
+     "question": "A key teaching point for a diabetic patient beginning a nonselective beta-blocker is that it can:",
      "options": [
       "Mask the tachycardia and tremor that signal hypoglycemia",
       "Cause hyperglycemia unresponsive to insulin",
@@ -988,7 +988,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "bronchospasm-এর ঝুঁকির কারণে কোন condition থাকা রোগীদের ক্ষেত্রে propranolol সতর্কতার সঙ্গে ব্যবহার বা পরিহার করা হয়?",
+     "question": "Propranolol is used cautiously or avoided in patients with which condition because of the risk of bronchospasm?",
      "options": [
       "Asthma",
       "Hypertension",
@@ -1000,7 +1000,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "metformin ও iodinated contrast study সম্পর্কে কোন নির্দেশনাটি সঠিক?",
+     "question": "Which instruction is correct regarding metformin and iodinated contrast studies?",
      "options": [
       "Metformin should be withheld at the time of the study and for 48 hours afterward",
       "Metformin should be doubled before the study",
@@ -1012,7 +1012,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "metformin-এর সঙ্গে জড়িত সবচেয়ে গুরুতর adverse effect কোনটি?",
+     "question": "Which is the most serious adverse effect associated with metformin?",
      "options": [
       "Lactic acidosis",
       "Severe hypoglycemia when used alone",
@@ -1024,7 +1024,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "দীর্ঘমেয়াদী corticosteroid therapy হঠাৎ বন্ধ করার বিপদ কী?",
+     "question": "What is the danger of abruptly stopping long-term corticosteroid therapy?",
      "options": [
       "Acute adrenal insufficiency",
       "Rebound hypertension",
@@ -1036,7 +1036,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "দীর্ঘমেয়াদী high-dose prednisone গ্রহণকারী একজন রোগীর ক্ষেত্রে nurse কোন laboratory abnormality আশা করবেন?",
+     "question": "Which laboratory abnormality should the nurse anticipate in a patient on chronic high-dose prednisone?",
      "options": [
       "Hyperglycemia",
       "Hyperkalemia",
@@ -1048,7 +1048,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "সর্বোত্তম absorption-এর জন্য levothyroxine কীভাবে দেওয়া উচিত?",
+     "question": "How should levothyroxine be administered for optimal absorption?",
      "options": [
       "On an empty stomach in the morning, separated from calcium and iron",
       "With a high-calcium breakfast",
@@ -1060,7 +1060,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "aspirin (salicylate) toxicity-র কোন প্রাথমিক লক্ষণটি nurse-এর মূল্যায়ন করা উচিত?",
+     "question": "Which early symptom of aspirin (salicylate) toxicity should the nurse assess for?",
      "options": [
       "Tinnitus",
       "Constipation",
@@ -1072,7 +1072,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন ওষুধের একসঙ্গে ব্যবহারে clopidogrel-এর antiplatelet effect উল্লেখযোগ্যভাবে কমে যেতে পারে?",
+     "question": "The antiplatelet effect of clopidogrel may be significantly reduced by concurrent use of which drug?",
      "options": [
       "Omeprazole",
       "Aspirin",
@@ -1084,7 +1084,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন agent সুনির্দিষ্টভাবে direct thrombin inhibitor dabigatran-কে reverse করে?",
+     "question": "Which agent specifically reverses the direct thrombin inhibitor dabigatran?",
      "options": [
       "Idarucizumab",
       "Andexanet alfa",
@@ -1096,7 +1096,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "factor Xa inhibitor apixaban ও rivaroxaban-কে reverse করতে কোন agent ব্যবহৃত হয়?",
+     "question": "Which agent is used to reverse the factor Xa inhibitors apixaban and rivaroxaban?",
      "options": [
       "Andexanet alfa",
       "Idarucizumab",
@@ -1108,7 +1108,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "tuberculosis-এর জন্য isoniazid শুরু করা একজন রোগীকে peripheral neuropathy প্রতিরোধে কোন supplement দেওয়া হয়?",
+     "question": "A patient starting isoniazid for tuberculosis is prescribed which supplement to prevent peripheral neuropathy?",
      "options": [
       "Pyridoxine (vitamin B6)",
       "Folic acid",
@@ -1120,7 +1120,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "high-dose methotrexate toxicity-র জন্য rescue medication (antidote) কোনটি?",
+     "question": "Which agent is the rescue medication (antidote) for high-dose methotrexate toxicity?",
      "options": [
       "Leucovorin",
       "Protamine sulfate",
@@ -1132,7 +1132,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "organophosphate (cholinergic) poisoning-এর antidote কোন combination?",
+     "question": "Which combination is the antidote for organophosphate (cholinergic) poisoning?",
      "options": [
       "Atropine and pralidoxime",
       "Naloxone and flumazenil",
@@ -1144,7 +1144,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "acute iron overdose-এর antidote কোন agent?",
+     "question": "Which agent is the antidote for acute iron overdose?",
      "options": [
       "Deferoxamine",
       "Calcium disodium EDTA",
@@ -1156,7 +1156,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "1,000 mL-এর একটি IV, 15 gtt/mL drop factor-এর tubing ব্যবহার করে 8 ঘণ্টায় infuse করতে হবে। flow rate আনুমানিক কত?",
+     "question": "An IV of 1,000 mL is to infuse over 8 hours using tubing with a drop factor of 15 gtt/mL. The flow rate is approximately:",
      "options": [
       "31 gtt/min",
       "21 gtt/min",
@@ -1168,7 +1168,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একটি order-এ আছে 1,000 mL 6 ঘণ্টায় infuse করতে হবে। infusion pump কত-তে (round করে) সেট করতে হবে?",
+     "question": "An order reads 1,000 mL to infuse over 6 hours. The infusion pump should be set to (rounded):",
      "options": [
       "167 mL/hr",
       "125 mL/hr",
@@ -1180,7 +1180,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "250 mL D5W-তে Heparin 25,000 units, 1,000 units/hr হারে infuse করার order দেওয়া হয়েছে। pump কত-তে সেট করতে হবে?",
+     "question": "Heparin 25,000 units in 250 mL of D5W is ordered to infuse at 1,000 units/hr. The pump should be set to:",
      "options": [
       "10 mL/hr",
       "25 mL/hr",
@@ -1192,7 +1192,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "250 mL D5W-তে Dopamine 400 mg, একজন 80-kg রোগীর জন্য 5 mcg/kg/min হারে প্রেসক্রাইব করা হয়েছে। pump কত-তে (round করে) সেট করতে হবে?",
+     "question": "Dopamine 400 mg in 250 mL of D5W is prescribed at 5 mcg/kg/min for an 80-kg patient. The pump should be set to (rounded):",
      "options": [
       "15 mL/hr",
       "24 mL/hr",
@@ -1204,7 +1204,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "20 kg ওজনের একটি শিশুকে 30 mg/kg/day হারে একটি ওষুধ প্রতি 8 ঘণ্টায় ভাগ করে প্রেসক্রাইব করা হয়েছে। প্রতিটি dose কত?",
+     "question": "A child weighing 20 kg is prescribed a medication at 30 mg/kg/day divided every 8 hours. Each dose is:",
      "options": [
       "200 mg",
       "600 mg",
@@ -1216,7 +1216,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "12 kg ওজনের একটি শিশুর জন্য cefazolin 300 mg IV প্রতি 8 ঘণ্টায় দেওয়ার order আছে। নিরাপদ সীমা 25–100 mg/kg/day। এই order-টি:",
+     "question": "An order reads cefazolin 300 mg IV every 8 hours for a child weighing 12 kg. The safe range is 25–100 mg/kg/day. This order is:",
      "options": [
       "Safe (75 mg/kg/day, within range)",
       "Unsafe—it exceeds the maximum",
@@ -1228,7 +1228,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "microdrip tubing (60 gtt/mL) ব্যবহার করে 50 mL 30 মিনিটে infuse করতে হবে। flow rate কত?",
+     "question": "Using microdrip tubing (60 gtt/mL), 50 mL is to infuse over 30 minutes. The flow rate is:",
      "options": [
       "100 gtt/min",
       "50 gtt/min",
@@ -1240,7 +1240,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "heparin গ্রহণকারী একজন রোগীর ৬ষ্ঠ দিনে platelet count 50%-এর বেশি কমে যায় এবং নতুন thrombosis দেখা দেয়। nurse কী আশা করবেন?",
+     "question": "A patient on heparin develops a platelet count drop of more than 50% on day 6 with new thrombosis. The nurse should anticipate:",
      "options": [
       "Stopping all heparin and starting a non-heparin anticoagulant such as argatroban",
       "Increasing the heparin infusion rate",
@@ -1252,7 +1252,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "opioid-এর কোন adverse effect সবচেয়ে তাৎক্ষণিকভাবে প্রাণঘাতী এবং নিবিড় পর্যবেক্ষণ প্রয়োজন?",
+     "question": "Which adverse effect of opioids is the most immediately life-threatening and requires close monitoring?",
      "options": [
       "Respiratory depression",
       "Constipation",
@@ -1264,7 +1264,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "patient-controlled analgesia (PCA) pump-এর ক্ষেত্রে কোন safety principle প্রযোজ্য?",
+     "question": "Which safety principle applies to patient-controlled analgesia (PCA) pumps?",
      "options": [
       "Only the patient should press the dose button",
       "Family members may press the button when the patient is asleep",
@@ -1276,7 +1276,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "tricyclic antidepressant overdose কোন effect-এর কারণে সবচেয়ে বিপজ্জনক?",
+     "question": "A tricyclic antidepressant overdose is most dangerous because of which effect?",
      "options": [
       "Cardiac dysrhythmias from QRS widening",
       "Severe diarrhea",
@@ -1288,7 +1288,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একটি rhythm strip-এ, স্পষ্ট P wave ছাড়া irregularly irregular ventricular response কোন dysrhythmia-র সবচেয়ে বৈশিষ্ট্যপূর্ণ?",
+     "question": "On a rhythm strip, an irregularly irregular ventricular response with no discernible P waves is most characteristic of which dysrhythmia?",
      "options": [
       "Sinus arrhythmia with inverted P waves",
       "Atrial fibrillation",
@@ -1300,7 +1300,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একজন রোগীর pulse-সহ polymorphic ventricular tachycardia (torsades de pointes) দেখা দেয়। QT-prolonging কারণগুলো সংশোধনের পাশাপাশি কোন IV agent পছন্দের চিকিৎসা?",
+     "question": "A patient develops polymorphic ventricular tachycardia (torsades de pointes) with a pulse. Aside from correcting QT-prolonging causes, which IV agent is the treatment of choice?",
      "options": [
       "Magnesium sulfate",
       "Adenosine",
@@ -1312,7 +1312,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একজন রোগীকে pulseless ventricular fibrillation অবস্থায় পাওয়া গেল। অগ্রাধিকারমূলক intervention কী?",
+     "question": "A patient is found in pulseless ventricular fibrillation. What is the priority intervention?",
      "options": [
       "Synchronized cardioversion",
       "Immediate unsynchronized defibrillation",
@@ -1324,7 +1324,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একটি ECG-তে P wave ও QRS complex পরস্পর স্বাধীনভাবে, তাদের মধ্যে কোনো সুসংগত সম্পর্ক ছাড়াই দেখা যাচ্ছে। এটি কোনটি বর্ণনা করে?",
+     "question": "An ECG shows P waves and QRS complexes that occur independently with no consistent relationship between them. This describes:",
      "options": [
       "First-degree AV block",
       "Mobitz type I (Wenckebach)",
@@ -1336,7 +1336,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "PR interval ক্রমাগত দীর্ঘ হয়ে একটি QRS complex বাদ পড়া, তারপর cycle-টি পুনরাবৃত্তি হওয়া কোনটির বৈশিষ্ট্য?",
+     "question": "Progressive lengthening of the PR interval until a QRS complex is dropped, after which the cycle repeats, is characteristic of:",
      "options": [
       "Mobitz type II second-degree AV block",
       "Mobitz type I (Wenckebach)",
@@ -1348,7 +1348,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Mobitz type I-এর তুলনায় second-degree AV block Mobitz type II প্রধানত clinically বেশি উদ্বেগজনক, কারণ এটি:",
+     "question": "Compared with Mobitz type I, second-degree AV block Mobitz type II is more clinically concerning primarily because it:",
      "options": [
       "Always responds fully to atropine",
       "Shows progressive PR-interval lengthening",
@@ -1360,7 +1360,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "paroxysmal supraventricular tachycardia থাকা একজন stable রোগীকে adenosine দেওয়ার order দেওয়া হয়েছে। nurse প্রাথমিক 6 mg dose কীভাবে দেবেন?",
+     "question": "A stable patient with paroxysmal supraventricular tachycardia is ordered adenosine. The nurse should administer the initial 6 mg dose by:",
      "options": [
       "Slow IV infusion over 30 minutes",
       "Rapid IV push immediately followed by a saline flush",
@@ -1372,7 +1372,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "defibrillation-এর পরিবর্তে synchronized cardioversion কোন ক্ষেত্রে নির্দেশিত?",
+     "question": "Synchronized cardioversion, rather than defibrillation, is indicated for:",
      "options": [
       "Pulseless ventricular tachycardia",
       "Ventricular fibrillation",
@@ -1384,7 +1384,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রায় 250-350/min নিয়মিত atrial rate-সহ করাত-দাঁতের মতো baseline (flutter wave) কোনটির বৈশিষ্ট্য?",
+     "question": "A sawtooth baseline (flutter waves) with a regular atrial rate around 250-350/min is characteristic of:",
      "options": [
       "Atrial fibrillation",
       "Atrial flutter",
@@ -1396,7 +1396,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "বর্তমান ACLS নির্দেশনা অনুযায়ী, symptomatic bradycardia-র জন্য first-line drug কোনটি?",
+     "question": "According to current ACLS guidance, the first-line drug for symptomatic bradycardia is:",
      "options": [
       "Atropine 1 mg IV",
       "Amiodarone 300 mg IV",
@@ -1408,7 +1408,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "0.20 সেকেন্ডের বেশি একটি স্থিরভাবে দীর্ঘায়িত PR interval, যেখানে প্রতিটি P wave-এর পরেই একটি QRS complex থাকে, কোনটিকে সংজ্ঞায়িত করে?",
+     "question": "A consistently prolonged PR interval greater than 0.20 seconds, with every P wave followed by a QRS complex, defines:",
      "options": [
       "First-degree AV block",
       "Second-degree AV block type II",
@@ -1420,7 +1420,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন serum biomarker myocardial injury-র সবচেয়ে specific ও sensitive সূচক?",
+     "question": "Which serum biomarker is the most specific and sensitive indicator of myocardial injury?",
      "options": [
       "Myoglobin",
       "Total creatine kinase (CK)",
@@ -1432,7 +1432,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন ECG finding একটি ST-elevation myocardial infarction (STEMI)-কে NSTEMI বা unstable angina থেকে আলাদা করে?",
+     "question": "Which ECG finding distinguishes an ST-elevation myocardial infarction (STEMI) from NSTEMI or unstable angina?",
      "options": [
       "ST-segment depression",
       "T-wave inversion",
@@ -1444,7 +1444,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "inferior wall MI ও সন্দেহভাজন right ventricular involvement থাকা একজন রোগী hypotensive হয়ে পড়েন। কোন intervention contraindicated?",
+     "question": "A patient with an inferior wall MI and suspected right ventricular involvement becomes hypotensive. Which intervention is contraindicated?",
      "options": [
       "IV fluid bolus",
       "Sublingual or IV nitroglycerin",
@@ -1456,7 +1456,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "chest pain-এর জন্য nitroglycerin দেওয়ার আগে, রোগী সম্প্রতি কোনটি ব্যবহার করেছেন কিনা তা নির্ধারণ করা অপরিহার্য?",
+     "question": "Before administering nitroglycerin for chest pain, it is essential to determine whether the patient has recently used:",
      "options": [
       "Acetaminophen",
       "A phosphodiesterase-5 inhibitor such as sildenafil",
@@ -1468,7 +1468,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "lead II, III ও aVF-এ ST-segment elevation সম্ভবত কোনটির occlusion নির্দেশ করে?",
+     "question": "ST-segment elevation in leads II, III, and aVF most likely indicates occlusion of the:",
      "options": [
       "Left anterior descending artery",
       "Left circumflex artery",
@@ -1480,7 +1480,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একটি anterior wall myocardial infarction সাধারণত কোন lead-গুলোতে ECG পরিবর্তন ঘটায়?",
+     "question": "An anterior wall myocardial infarction typically produces ECG changes in leads:",
      "options": [
       "II, III, and aVF",
       "V1 through V4",
@@ -1492,7 +1492,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "primary percutaneous coronary intervention (PCI) করানো একজন STEMI রোগীর জন্য নির্দেশিত door-to-balloon time কত?",
+     "question": "For a STEMI patient undergoing primary percutaneous coronary intervention (PCI), the recommended door-to-balloon time is:",
      "options": [
       "Within 30 minutes",
       "Within 90 minutes",
@@ -5109,7 +5109,7 @@
    "slug": "general-knowledge",
    "questions": [
     {
-     "question": "আমাদের সৌরজগতের বৃহত্তম planet কোনটি?",
+     "question": "Which is the largest planet in our solar system?",
      "options": [
       "Saturn",
       "Neptune",
@@ -5121,7 +5121,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "সোনা (gold)-এর রাসায়নিক প্রতীক কোনটি?",
+     "question": "What is the chemical symbol for gold?",
      "options": [
       "Au",
       "Ag",
@@ -5133,7 +5133,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Mona Lisa চিত্রকর্মটি কে এঁকেছিলেন?",
+     "question": "Who painted the Mona Lisa?",
      "options": [
       "Michelangelo",
       "Leonardo da Vinci",
@@ -5145,7 +5145,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "পৃথিবীর বৃহত্তম ocean কোনটি?",
+     "question": "Which is the largest ocean on Earth?",
      "options": [
       "Atlantic Ocean",
       "Indian Ocean",
@@ -5157,7 +5157,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "একটি পূর্ণবয়স্ক insect-এর কয়টি পা থাকে?",
+     "question": "How many legs does an adult insect have?",
      "options": [
       "Six",
       "Eight",
@@ -5169,7 +5169,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Japan-এর সরকারি মুদ্রা কী?",
+     "question": "What is the official currency of Japan?",
      "options": [
       "Won",
       "Yuan",
@@ -5181,7 +5181,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "পৃথিবীতে প্রাকৃতিকভাবে পাওয়া সবচেয়ে কঠিন পদার্থ কোনটি?",
+     "question": "What is the hardest naturally occurring substance on Earth?",
      "options": [
       "Quartz",
       "Diamond",
@@ -5193,7 +5193,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "soccer (association football) ম্যাচের শুরুতে একটি দলের কতজন খেলোয়াড় মাঠে থাকে?",
+     "question": "How many players from one team are on the field at the start of a soccer (association football) match?",
      "options": [
       "9",
       "10",
@@ -5205,7 +5205,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "কোন মৌলের atomic number 1?",
+     "question": "Which element has the atomic number 1?",
      "options": [
       "Hydrogen",
       "Helium",
@@ -5217,7 +5217,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Romeo and Juliet' নাটকটি কে রচনা করেছিলেন?",
+     "question": "Who wrote the play 'Romeo and Juliet'?",
      "options": [
       "Charles Dickens",
       "Geoffrey Chaucer",
@@ -5229,7 +5229,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Australia-র রাজধানী শহর কোনটি?",
+     "question": "What is the capital city of Australia?",
      "options": [
       "Sydney",
       "Canberra",
@@ -5241,7 +5241,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন বিখ্যাত চিত্রশিল্পী নিজের কানের একটি অংশ কেটে ফেলেছিলেন?",
+     "question": "Which famous painter cut off part of his own ear?",
      "options": [
       "Pablo Picasso",
       "Claude Monet",
@@ -5253,7 +5253,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "এ পর্যন্ত জানা পৃথিবীর সবচেয়ে বড় প্রাণী কোনটি?",
+     "question": "What is the largest animal known to have ever lived?",
      "options": [
       "Blue whale",
       "African elephant",
@@ -5265,7 +5265,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "World War II কোন সালে শেষ হয়েছিল?",
+     "question": "In which year did World War II end?",
      "options": [
       "1939",
       "1918",
@@ -5277,7 +5277,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন বিজ্ঞানী general relativity-র তত্ত্ব প্রণয়ন করেন?",
+     "question": "Which scientist developed the theory of general relativity?",
      "options": [
       "Isaac Newton",
       "Albert Einstein",
@@ -5289,7 +5289,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন planet তার সুস্পষ্ট বলয় (rings)-এর জন্য বিখ্যাত?",
+     "question": "Which planet is famous for its prominent system of rings?",
      "options": [
       "Jupiter",
       "Uranus",
@@ -5301,7 +5301,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Greek mythology-তে সমুদ্রের দেবতা কে?",
+     "question": "In Greek mythology, who is the god of the sea?",
      "options": [
       "Poseidon",
       "Zeus",
@@ -5313,7 +5313,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "tungsten মৌলের রাসায়নিক প্রতীক কোনটি?",
+     "question": "What is the chemical symbol for the element tungsten?",
      "options": [
       "Tu",
       "Tg",
@@ -5325,7 +5325,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "মানবদেহের সবচেয়ে ছোট হাড় কোনটি?",
+     "question": "What is the smallest bone in the human body?",
      "options": [
       "Femur",
       "Stapes",
@@ -5337,7 +5337,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "প্রাচীন বিশ্বের সপ্তাশ্চর্যের কোনটি Alexandria শহরে অবস্থিত ছিল?",
+     "question": "Which of the Seven Wonders of the Ancient World stood in the city of Alexandria?",
      "options": [
       "Colossus of Rhodes",
       "Hanging Gardens of Babylon",
@@ -5349,7 +5349,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "1896 সালে প্রথম আধুনিক Olympic Games কোন দেশে অনুষ্ঠিত হয়েছিল?",
+     "question": "Which country hosted the first modern Olympic Games in 1896?",
      "options": [
       "Greece",
       "France",
@@ -5361,7 +5361,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "শূন্যস্থানে (vacuum) আলো আনুমানিক কত দ্রুত চলে?",
+     "question": "Approximately how fast does light travel in a vacuum?",
      "options": [
       "150,000 km/s",
       "3,000 km/s",
@@ -5373,7 +5373,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "পৃথিবীর atmosphere-এ সবচেয়ে বেশি পরিমাণে থাকা gas কোনটি?",
+     "question": "Which gas is the most abundant in Earth's atmosphere?",
      "options": [
       "Oxygen",
       "Nitrogen",
@@ -5385,7 +5385,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কার অভিযান প্রথম বিশ্বপরিক্রমা (circumnavigation) সম্পন্ন করেছিল?",
+     "question": "Whose expedition was the first to complete a circumnavigation of the globe?",
      "options": [
       "Christopher Columbus",
       "Vasco da Gama",
@@ -5397,7 +5397,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "মানবদেহের সবচেয়ে বড় অভ্যন্তরীণ অঙ্গ কোনটি?",
+     "question": "What is the largest internal organ in the human body?",
      "options": [
       "Liver",
       "Brain",
@@ -5409,7 +5409,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একজন ice skater দুই হাত ছড়িয়ে ঘুরতে ঘুরতে হাত ভেতরের দিকে টেনে নিলে আরও দ্রুত ঘোরেন। এই গতির সময় কোন রাশিটি ধ্রুব থাকে?",
+     "question": "An ice skater spinning with arms extended pulls her arms inward and spins faster. Which quantity stays constant during this motion?",
      "options": [
       "Angular velocity",
       "Angular momentum",
@@ -5421,7 +5421,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "magnetic flux-এর SI unit কী?",
+     "question": "What is the SI unit of magnetic flux?",
      "options": [
       "Tesla",
       "Gauss",
@@ -5433,7 +5433,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একটি পাতলা অভিসারী (convex) lens-এ, lens ও এর focal point-এর মধ্যে রাখা কোনো বস্তু যে ধরনের প্রতিবিম্ব তৈরি করে তা হলো:",
+     "question": "For a thin converging (convex) lens, an object placed between the lens and its focal point produces an image that is:",
      "options": [
       "Real, inverted, and magnified",
       "Virtual, upright, and magnified",
@@ -5445,7 +5445,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Lenz's law অনুসারে, আবিষ্ট তড়িৎ প্রবাহ এমন দিকে প্রবাহিত হয় যা:",
+     "question": "According to Lenz's law, an induced electric current flows in a direction that:",
      "options": [
       "Aids the change in magnetic flux that produced it",
       "Opposes the change in magnetic flux that produced it",
@@ -5457,7 +5457,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একটি চলমান বস্তুর ওপর ধ্রুব একটি force ক্রিয়া করে, কিন্তু বস্তুর সরণ (displacement) force-এর সাথে লম্ব। ওই force-এর কৃতকাজ হলো:",
+     "question": "A constant force acts on a moving object, but the object's displacement is perpendicular to the force. The work done by that force is:",
      "options": [
       "Maximum",
       "Zero",
@@ -5469,7 +5469,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "special relativity-র স্বীকার্য অনুসারে, নিচের কোনটি সব পর্যবেক্ষকের কাছে অভিন্ন?",
+     "question": "Which of the following is identical for all observers, according to the postulates of special relativity?",
      "options": [
       "The kinetic energy of a particle",
       "The speed of light in vacuum",
@@ -5481,7 +5481,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Ohm's law মেনে চলা একটি circuit-এ, voltage স্থির রেখে resistance দ্বিগুণ করলে:",
+     "question": "In a circuit obeying Ohm's law, doubling the resistance while keeping the voltage constant will:",
      "options": [
       "Double the current",
       "Halve the current",
@@ -5493,7 +5493,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "আলোর পূর্ণ অভ্যন্তরীণ প্রতিফলন (total internal reflection) কেবল তখনই ঘটতে পারে যখন আলো যায়:",
+     "question": "Total internal reflection of light can occur only when light travels:",
      "options": [
       "From a lower to a higher refractive index medium",
       "From a higher to a lower refractive index medium beyond the critical angle",
@@ -5505,7 +5505,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "পরিষ্কার দিনের আকাশের নীল রঙের মূল কারণ হলো:",
+     "question": "The blue color of the clear daytime sky is primarily caused by:",
      "options": [
       "Diffraction around clouds",
       "Rayleigh scattering of sunlight by air molecules",
@@ -5517,7 +5517,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "বিভিন্ন মানের কয়েকটি resistor-যুক্ত একটি সরল series circuit-এ, প্রতিটি resistor-এর জন্য কোন রাশিটি অবশ্যই একই থাকে?",
+     "question": "In a simple series circuit containing several resistors of different values, which quantity is necessarily the same for every resistor?",
      "options": [
       "The voltage across each resistor",
       "The power dissipated by each resistor",
@@ -5529,7 +5529,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একটি আহিত capacitor কোন রূপে শক্তি সঞ্চয় করে?",
+     "question": "A charged capacitor stores energy in the form of:",
      "options": [
       "A magnetic field",
       "An electric field",
@@ -5541,7 +5541,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একটি চলমান particle-এর de Broglie wavelength নিচের কোনটির ব্যস্তানুপাতিক?",
+     "question": "The de Broglie wavelength of a moving particle is inversely proportional to its:",
      "options": [
       "Mass only",
       "Momentum",
@@ -5553,7 +5553,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "নিচের কোন ধরনের electromagnetic radiation-এর frequency সর্বোচ্চ?",
+     "question": "Which of these types of electromagnetic radiation has the highest frequency?",
      "options": [
       "Ultraviolet",
       "X-rays",
@@ -5565,7 +5565,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "দুটি বিন্দু আধান (point charge) পরস্পরের ওপর electrostatic force প্রয়োগ করে। এদের মধ্যকার দূরত্ব তিনগুণ করলে বল হবে:",
+     "question": "Two point charges exert an electrostatic force on each other. If the distance between them is tripled, the force becomes:",
      "options": [
       "One-third as large",
       "One-sixth as large",
@@ -5577,7 +5577,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একটি heat engine-এর সর্বোচ্চ সম্ভাব্য দক্ষতা (Carnot efficiency) কেবল কীসের ওপর নির্ভর করে?",
+     "question": "The maximum possible efficiency of a heat engine (the Carnot efficiency) depends only on:",
      "options": [
       "The working substance used",
       "The temperatures of the hot and cold reservoirs",
@@ -5589,7 +5589,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "I তীব্রতার অ-সমবর্তিত (unpolarized) আলো একটি আদর্শ polarizing filter-এর মধ্য দিয়ে গেলে, নির্গত তীব্রতা হয়:",
+     "question": "When unpolarized light of intensity I passes through a single ideal polarizing filter, the transmitted intensity is:",
      "options": [
       "Unchanged at I",
       "Reduced to I/2",
@@ -5601,7 +5601,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একটি ছিদ্রের (aperture) মধ্য দিয়ে wave-এর অপবর্তন (diffraction) তখনই সবচেয়ে স্পষ্ট হয় যখন wavelength:",
+     "question": "Diffraction of a wave through an aperture becomes most pronounced when the wavelength is:",
      "options": [
       "Much smaller than the aperture",
       "Comparable to or larger than the aperture",
@@ -5613,7 +5613,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "right-hand rule সাধারণত কীসের দিক নির্ণয়ে ব্যবহৃত হয়?",
+     "question": "The right-hand rule is commonly used to find the direction of:",
      "options": [
       "The resistance of a wire",
       "The magnetic force on a moving positive charge",
@@ -5625,7 +5625,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একটি বৈদ্যুতিক transformer কোন নীতির ওপর ভিত্তি করে কাজ করে?",
+     "question": "An electrical transformer operates on the principle of:",
      "options": [
       "Electrostatic induction",
       "Mutual electromagnetic induction",
@@ -5637,7 +5637,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Newton's second law of motion-এর সবচেয়ে সাধারণ রূপ কোন উক্তিটি?",
+     "question": "Which statement is the most general form of Newton's second law of motion?",
      "options": [
       "Force equals mass times velocity",
       "Force equals the time rate of change of momentum",
@@ -5649,7 +5649,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "বৈদ্যুতিক capacitance-এর SI unit হলো:",
+     "question": "The SI unit of electrical capacitance is the:",
      "options": [
       "Henry",
       "Farad",
@@ -5661,7 +5661,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একটি superconductor-এর একটি সংজ্ঞায়ক বৈশিষ্ট্য হলো এটি তার critical temperature-এর নিচে প্রদর্শন করে:",
+     "question": "A defining property of a superconductor is that below its critical temperature it exhibits:",
      "options": [
       "Infinite electrical resistance",
       "Zero electrical resistance",
@@ -5673,7 +5673,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "photoelectric effect সম্পর্কে Einstein-এর ব্যাখ্যা দেখিয়েছিল যে আলো আচরণ করে:",
+     "question": "Einstein's explanation of the photoelectric effect showed that light behaves as:",
      "options": [
       "Continuous waves only",
       "Discrete energy packets called photons",
@@ -5685,7 +5685,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন মৌলের atomic number 26?",
+     "question": "Which element has atomic number 26?",
      "options": [
       "Copper",
       "Iron",
@@ -5697,7 +5697,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "periodic table-এর একটি period বরাবর বাঁ থেকে ডানে গেলে, atomic radius সাধারণত:",
+     "question": "As you move from left to right across a period of the periodic table, the atomic radius generally:",
      "options": [
       "Increases",
       "Decreases",
@@ -5709,7 +5709,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন মৌলটি সবচেয়ে বেশি electronegative?",
+     "question": "Which element is the most electronegative?",
      "options": [
       "Oxygen",
       "Chlorine",
@@ -5721,7 +5721,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "2H2 + O2 -> 2H2O বিক্রিয়ায় কোন species জারিত (oxidized) হয়?",
+     "question": "In the reaction 2H2 + O2 -> 2H2O, which species is oxidized?",
      "options": [
       "Oxygen",
       "Hydrogen",
@@ -5733,7 +5733,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Avogadro's number, অর্থাৎ এক mole-এ কণার সংখ্যা, আনুমানিক কত?",
+     "question": "Avogadro's number, the number of particles in one mole, is approximately:",
      "options": [
       "6.022 x 10^23",
       "3.14 x 10^8",
@@ -5745,7 +5745,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "pH 4-এর একটি দ্রবণের hydrogen-ion concentration, pH 6-এর একটি দ্রবণের তুলনায় কত গুণ বেশি?",
+     "question": "A solution of pH 4 has a hydrogen-ion concentration that is how many times greater than a solution of pH 6?",
      "options": [
       "2 times",
       "20 times",
@@ -5757,7 +5757,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একটি nitrogen molecule (N2)-এ দুটি পরমাণুকে কোন ধরনের bond একসাথে ধরে রাখে?",
+     "question": "What type of bond holds the two atoms together in a nitrogen molecule (N2)?",
      "options": [
       "Single covalent bond",
       "Double covalent bond",
@@ -5769,7 +5769,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একই মৌলের isotope-গুলোর ক্ষেত্রে থাকে:",
+     "question": "Isotopes of the same element have:",
      "options": [
       "The same number of protons but different numbers of neutrons",
       "The same number of neutrons but different numbers of protons",
@@ -5781,7 +5781,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রমাণ কক্ষ তাপমাত্রা ও চাপে কোন metal টি তরল অবস্থায় থাকে?",
+     "question": "Which metal is a liquid at standard room temperature and pressure?",
      "options": [
       "Bromine",
       "Mercury",
@@ -5793,7 +5793,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "ammonium ion-এর রাসায়নিক সংকেত কোনটি?",
+     "question": "What is the chemical formula of the ammonium ion?",
      "options": [
       "NH3",
       "NH4+",
@@ -5805,7 +5805,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "একটি catalyst কীভাবে একটি রাসায়নিক বিক্রিয়ার হার বাড়ায়?",
+     "question": "A catalyst increases the rate of a chemical reaction by:",
      "options": [
       "Increasing the activation energy",
       "Lowering the activation energy",
@@ -5817,7 +5817,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "zinc ধাতু লঘু hydrochloric acid-এর সাথে বিক্রিয়া করলে কোন gas নির্গত হয়?",
+     "question": "Which gas is released when zinc metal reacts with dilute hydrochloric acid?",
      "options": [
       "Oxygen",
       "Chlorine",
@@ -5829,7 +5829,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "periodic table-এর একই group (column)-এর মৌলগুলোর একই সংখ্যক থাকে:",
+     "question": "Elements in the same group (column) of the periodic table share the same number of:",
      "options": [
       "Neutrons",
       "Valence electrons",
@@ -5841,7 +5841,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "hydrogen peroxide (H2O2)-এ oxygen-এর জারণ সংখ্যা (oxidation state) কত?",
+     "question": "What is the oxidation state of oxygen in hydrogen peroxide (H2O2)?",
      "options": [
       "-2",
       "-1",
@@ -5853,7 +5853,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন জোড়াটি একই মৌলের দুটি রূপভেদ (allotrope) নিয়ে গঠিত?",
+     "question": "Which pair consists of two allotropes of the same element?",
      "options": [
       "Diamond and quartz",
       "Diamond and graphite",
@@ -5865,7 +5865,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Le Chatelier নীতি প্রয়োগ করলে, কোনো গ্যাসীয় রাসায়নিক সাম্যাবস্থায় (আয়তন কমিয়ে) চাপ বাড়ালে তা কোন দিকে সরে যায়?",
+     "question": "Applying Le Chatelier's principle, increasing the pressure on a gaseous chemical equilibrium (by reducing the volume) shifts it toward:",
      "options": [
       "The side with more moles of gas",
       "The side with fewer moles of gas",
@@ -5877,7 +5877,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "প্রাকৃতিক গ্যাসের (natural gas) প্রধান উপাদান কোনটি?",
+     "question": "What is the main component of natural gas?",
      "options": [
       "Ethane",
       "Methane",
@@ -5889,7 +5889,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "বাইকার্বনেট আয়নের (HCO3-) সংযুক্ত ক্ষার (conjugate base) কোনটি?",
+     "question": "What is the conjugate base of the bicarbonate ion (HCO3-)?",
      "options": [
       "H2CO3",
       "CO3^2-",
@@ -5901,7 +5901,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "carbon-14 এর একটি নিরপেক্ষ পরমাণুতে কতটি electron থাকে?",
+     "question": "How many electrons are in a neutral atom of carbon-14?",
      "options": [
       "8",
       "6",
@@ -5913,7 +5913,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "প্রমাণ তাপমাত্রা ও চাপে (STP; 0°C, 1 atm) এক mole আদর্শ গ্যাস আনুমানিক কত আয়তন দখল করে?",
+     "question": "At standard temperature and pressure (0 C, 1 atm), one mole of an ideal gas occupies approximately:",
      "options": [
       "11.2 liters",
       "22.4 liters",
@@ -5925,7 +5925,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "পৃথিবীকে প্রদক্ষিণকারী প্রথম কৃত্রিম উপগ্রহ (artificial satellite) কোনটি?",
+     "question": "Which was the first artificial satellite to orbit the Earth?",
      "options": [
       "Explorer 1",
       "Sputnik 1",
@@ -5937,7 +5937,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "সৌরজগতের (Solar System) কোন গ্রহের পৃষ্ঠতল সবচেয়ে উষ্ণ?",
+     "question": "Which planet has the hottest surface in the Solar System?",
      "options": [
       "Mercury",
       "Venus",
@@ -5949,7 +5949,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "আলোকবর্ষ (light-year) কীসের একক?",
+     "question": "A light-year is a unit of:",
      "options": [
       "Time",
       "Distance",
@@ -5961,7 +5961,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "সূর্য থেকে বিকিরিত শক্তি কীভাবে উৎপন্ন হয়?",
+     "question": "The energy radiated by the Sun is produced by:",
      "options": [
       "Nuclear fission of uranium",
       "Chemical combustion",
@@ -5973,7 +5973,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "মহাকাশে যাত্রাকারী প্রথম মানুষ কে?",
+     "question": "Who was the first human to travel into space?",
      "options": [
       "Alan Shepard",
       "Yuri Gagarin",
@@ -5985,7 +5985,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "black hole-এর চারপাশের যে সীমা অতিক্রম করলে আলোসহ কোনো কিছুই আর ফিরে আসতে পারে না, তাকে কী বলে?",
+     "question": "The boundary surrounding a black hole beyond which nothing, not even light, can escape is called the:",
      "options": [
       "Photosphere",
       "Event horizon",
@@ -5997,7 +5997,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "সৌরজগতের বৃহত্তম উপগ্রহ কোনটি, যা ব্যাসে Mercury গ্রহের চেয়েও বড়?",
+     "question": "Which is the largest moon in the Solar System, exceeding the planet Mercury in diameter?",
      "options": [
       "Titan",
       "Ganymede",
@@ -6009,7 +6009,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "সূর্যের মতো একটি নক্ষত্র কখন red giant-এ পরিণত হয়?",
+     "question": "A Sun-like star becomes a red giant when it:",
      "options": [
       "Is first forming from a collapsing gas cloud",
       "Has exhausted the hydrogen in its core and expanded its outer layers",
@@ -6021,7 +6021,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "সৌরজগতের প্রধান গ্রহাণুপুঞ্জ (asteroid belt) কোন দুটি গ্রহের কক্ষপথের মাঝে অবস্থিত?",
+     "question": "The main asteroid belt of the Solar System lies between the orbits of:",
      "options": [
       "Earth and Mars",
       "Mars and Jupiter",
@@ -6033,7 +6033,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Hubble ধ্রুবক (Hubble constant) কী পরিমাপ করে?",
+     "question": "The Hubble constant is a measure of:",
      "options": [
       "The mass of the Milky Way",
       "The current rate of expansion of the universe",
@@ -6045,7 +6045,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "James Webb Space Telescope মূলত তড়িৎচুম্বকীয় বর্ণালির (electromagnetic spectrum) কোন অংশে মহাবিশ্ব পর্যবেক্ষণ করে?",
+     "question": "The James Webb Space Telescope observes the universe primarily in which part of the electromagnetic spectrum?",
      "options": [
       "Radio waves",
       "Infrared",
@@ -6057,7 +6057,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "চাঁদের দশা (phases) কীসের কারণে ঘটে?",
+     "question": "What causes the phases of the Moon?",
      "options": [
       "Earth's shadow falling on the Moon",
       "The changing relative positions of the Sun, Earth, and Moon",
@@ -6069,7 +6069,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "International Astronomical Union কোন সালে Pluto-কে বামন গ্রহ (dwarf planet) হিসেবে পুনর্শ্রেণিভুক্ত করে?",
+     "question": "In what year did the International Astronomical Union reclassify Pluto as a dwarf planet?",
      "options": [
       "1996",
       "2006",
@@ -6081,7 +6081,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রায় ৯৮ ডিগ্রি অক্ষীয় কাত নিয়ে কোন গ্রহটি প্রায় কাত হয়ে ঘোরে?",
+     "question": "Which planet rotates almost on its side, with an axial tilt of roughly 98 degrees?",
      "options": [
       "Neptune",
       "Uranus",
@@ -6093,7 +6093,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "মহাজাগতিক অণুতরঙ্গ পটভূমি বিকিরণ (cosmic microwave background radiation) কীসের জোরালো প্রমাণ হিসেবে বিবেচিত হয়?",
+     "question": "The cosmic microwave background radiation is regarded as strong evidence for:",
      "options": [
       "A steady-state universe",
       "The Big Bang",
@@ -6105,7 +6105,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোনো গ্রহের কক্ষপথে সূর্যের সবচেয়ে কাছের বিন্দুটিকে কী বলে?",
+     "question": "The point in a planet's orbit at which it is closest to the Sun is called the:",
      "options": [
       "Aphelion",
       "Perihelion",
@@ -6117,7 +6117,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "সূর্যকে ঘিরে গ্রহের গতি বর্ণনাকারী তিনটি সূত্র কে প্রণয়ন করেন?",
+     "question": "Who formulated the three laws describing the motion of the planets around the Sun?",
      "options": [
       "Galileo Galilei",
       "Johannes Kepler",
@@ -6129,7 +6129,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "১৯৫৩ সালে DNA-এর দ্বি-হেলিক্স (double-helix) গঠন প্রধানত কারা বর্ণনা করেন?",
+     "question": "The double-helix structure of DNA was described in 1953 principally by:",
      "options": [
       "Watson and Crick",
       "Mendel and Morgan",
@@ -6141,7 +6141,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Albert Einstein কোন সালে তাঁর সাধারণ আপেক্ষিকতার তত্ত্ব (general theory of relativity) প্রকাশ করেন?",
+     "question": "In what year did Albert Einstein publish his general theory of relativity?",
      "options": [
       "1905",
       "1915",
@@ -6153,7 +6153,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "penicillin আবিষ্কারের কৃতিত্ব কাকে দেওয়া হয়?",
+     "question": "Who is credited with the discovery of penicillin?",
      "options": [
       "Louis Pasteur",
       "Alexander Fleming",
@@ -6165,7 +6165,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন বিজ্ঞানী পারমাণবিক ভর (atomic weight) অনুসারে সাজানো একটি আদি পর্যায় সারণি (periodic table) তৈরি করেন এবং অনাবিষ্কৃত মৌল অনুমানের জন্য ফাঁকা স্থান রেখেছিলেন?",
+     "question": "Which scientist created an early periodic table arranged by atomic weight, leaving gaps to predict undiscovered elements?",
      "options": [
       "John Dalton",
       "Dmitri Mendeleev",
@@ -6177,7 +6177,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "১৮৯৭ সালে electron আবিষ্কারের কৃতিত্ব কাকে দেওয়া হয়?",
+     "question": "The discovery of the electron in 1897 is credited to:",
      "options": [
       "Ernest Rutherford",
       "J. J. Thomson",
@@ -6189,7 +6189,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Rutherford-এর gold-foil (alpha-particle scattering) পরীক্ষার সিদ্ধান্ত অনুযায়ী একটি পরমাণুতে থাকে:",
+     "question": "Rutherford's gold-foil (alpha-particle scattering) experiment led to the conclusion that an atom has:",
      "options": [
       "Electrons embedded uniformly in a positive sphere",
       "A small, dense, positively charged nucleus",
@@ -6201,7 +6201,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন প্রকৃতিবিজ্ঞানী স্বাধীনভাবে প্রাকৃতিক নির্বাচনের মাধ্যমে বিবর্তনের তত্ত্ব উদ্ভাবন করেন, যার ফলে ১৮৫৮ সালে Charles Darwin-এর সাথে একটি যৌথ উপস্থাপনা হয়?",
+     "question": "Which naturalist independently conceived the theory of evolution by natural selection, prompting a joint presentation with Charles Darwin in 1858?",
      "options": [
       "Gregor Mendel",
       "Alfred Russel Wallace",
@@ -6213,7 +6213,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "২০১২ সালে কোন গবেষণাকেন্দ্রে পরীক্ষামূলকভাবে Higgs boson নিশ্চিত করা হয়?",
+     "question": "At which facility was the Higgs boson experimentally confirmed in 2012?",
      "options": [
       "Fermilab's Tevatron",
       "CERN's Large Hadron Collider",
@@ -6225,7 +6225,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Marie Curie কোন দুটি ক্ষেত্রে Nobel Prize লাভ করেন?",
+     "question": "Marie Curie was awarded Nobel Prizes in which two fields?",
      "options": [
       "Physics and Chemistry",
       "Chemistry and Medicine",
@@ -6237,7 +6237,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রতিলিপনের (replication) সময় কোন enzyme জোড়াবদ্ধ বেসগুলোর মধ্যকার hydrogen bond ভেঙে DNA-এর দ্বি-হেলিক্স খুলে দেয়?",
+     "question": "Which enzyme unwinds the DNA double helix during replication by breaking the hydrogen bonds between paired bases?",
      "options": [
       "DNA polymerase",
       "Helicase",
@@ -6249,7 +6249,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "chloroplast-এর কোন অংশে Calvin cycle (আলোক-নিরপেক্ষ বিক্রিয়া) সংঘটিত হয়?",
+     "question": "In which part of the chloroplast does the Calvin cycle (light-independent reactions) take place?",
      "options": [
       "Thylakoid membrane",
       "Stroma",
@@ -6261,7 +6261,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Meselson-Stahl পরীক্ষা মূল প্রমাণ দেয় যে DNA প্রতিলিপন (replication) হলো:",
+     "question": "The Meselson-Stahl experiment provided key evidence that DNA replication is:",
      "options": [
       "Conservative",
       "Dispersive",
@@ -6273,7 +6273,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "lagging strand-এ DNA ছোট ছোট খণ্ড হিসেবে সংশ্লেষিত হয় যেগুলো পরে জোড়া লাগানো হয়। এই খণ্ডগুলোকে কী বলে?",
+     "question": "On the lagging strand, DNA is synthesized as short segments that are later joined together. These segments are called:",
      "options": [
       "Okazaki fragments",
       "Telomeres",
@@ -6285,7 +6285,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন codon translation-এর সর্বজনীন সূচনা সংকেত হিসেবে কাজ করে এবং methionine নির্দেশ করে?",
+     "question": "Which codon serves as the universal start signal for translation and specifies methionine?",
      "options": [
       "UAA",
       "AUG",
@@ -6297,7 +6297,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "mitochondria ও chloroplast-এর উৎপত্তি সম্পর্কিত endosymbiotic theory সবচেয়ে জোরালোভাবে কে তুলে ধরেন?",
+     "question": "The endosymbiotic theory for the origin of mitochondria and chloroplasts was most prominently advanced by:",
      "options": [
       "Rosalind Franklin",
       "Lynn Margulis",
@@ -6309,7 +6309,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন নাইট্রোজেনঘটিত বেস (nitrogenous base) RNA-তে থাকে কিন্তু DNA-তে থাকে না?",
+     "question": "Which nitrogenous base occurs in RNA but not in DNA?",
      "options": [
       "Thymine",
       "Cytosine",
@@ -6321,7 +6321,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "দুটি heterozygote-এর (Aa × Aa) মধ্যে সংকরায়ণে অপত্যের genotypic অনুপাত কত হয়?",
+     "question": "A cross between two heterozygotes (Aa x Aa) produces offspring in what genotypic ratio?",
      "options": [
       "3:1",
       "1:2:1",
@@ -6333,7 +6333,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Down syndrome সবচেয়ে সাধারণভাবে কোন chromosome-এর একটি অতিরিক্ত কপির কারণে ঘটে?",
+     "question": "Down syndrome most commonly results from an extra copy of which chromosome?",
      "options": [
       "Chromosome 18",
       "Chromosome 21",
@@ -6345,7 +6345,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "HIV-এর মতো retrovirus কর্তৃক ব্যবহৃত reverse transcriptase enzyme কী সংশ্লেষ করে?",
+     "question": "The enzyme reverse transcriptase, used by retroviruses such as HIV, synthesizes:",
      "options": [
       "RNA from a DNA template",
       "DNA from an RNA template",
@@ -6357,7 +6357,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন বিজ্ঞানী ভুট্টা (maize) নিয়ে গবেষণাকালে transposable elements ('jumping genes') আবিষ্কার করেন?",
+     "question": "Which scientist discovered transposable elements ('jumping genes') while studying maize?",
      "options": [
       "Barbara McClintock",
       "Gregor Mendel",
@@ -6369,7 +6369,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "eukaryotic chromosome-এর প্রান্তকে ঢেকে রক্ষাকারী পুনরাবৃত্ত DNA অনুক্রমগুলোকে কী বলে?",
+     "question": "The repetitive DNA sequences that cap and protect the ends of eukaryotic chromosomes are called:",
      "options": [
       "Centromeres",
       "Telomeres",
@@ -6381,7 +6381,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "DNA-কে বহুগুণ (amplify) করতে ব্যবহৃত polymerase chain reaction (PCR) কে উদ্ভাবন করেন?",
+     "question": "The polymerase chain reaction (PCR), used to amplify DNA, was invented by:",
      "options": [
       "Kary Mullis",
       "Frederick Sanger",
@@ -6393,7 +6393,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "মানুষে hemophilia মূলত কোন ধরনের বৈশিষ্ট্য হিসেবে বংশানুক্রমে সঞ্চারিত হয়?",
+     "question": "In humans, hemophilia is inherited primarily as which type of trait?",
      "options": [
       "Autosomal dominant",
       "X-linked recessive",
@@ -6405,7 +6405,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "glucose ভাঙনের প্রথম ধাপ glycolysis কোথায় সংঘটিত হয়?",
+     "question": "Glycolysis, the first stage of glucose breakdown, takes place in the:",
      "options": [
       "Mitochondrial matrix",
       "Cytoplasm",
@@ -6417,7 +6417,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "citric acid (Krebs) চক্র কোষের কোন স্থানে সংঘটিত হয়?",
+     "question": "The citric acid (Krebs) cycle occurs in which cellular location?",
      "options": [
       "Cytoplasm",
       "Mitochondrial matrix",
@@ -6429,7 +6429,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "বৃক্কের (kidney) কার্যকরী পরিস্রাবণ একক কোনটি?",
+     "question": "The functional filtering unit of the kidney is the:",
      "options": [
       "Nephron",
       "Alveolus",
@@ -6441,7 +6441,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "মানবদেহের সবচেয়ে ছোট হাড় কোনটি?",
+     "question": "Which is the smallest bone in the human body?",
      "options": [
       "Stapes",
       "Malleus",
@@ -6453,7 +6453,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "বাম অলিন্দ (left atrium) ও বাম নিলয়ের (left ventricle) মধ্যে অবস্থিত হৃৎপিণ্ডের কপাটিকা (valve) কোনটি?",
+     "question": "The heart valve situated between the left atrium and the left ventricle is the:",
      "options": [
       "Tricuspid valve",
       "Pulmonary valve",
@@ -6465,7 +6465,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "মস্তিষ্কের কোন অংশ প্রধানত ভারসাম্য ও নড়াচড়ার সমন্বয়ের জন্য দায়ী?",
+     "question": "Which region of the brain is chiefly responsible for balance and the coordination of movement?",
      "options": [
       "Cerebrum",
       "Cerebellum",
@@ -6477,7 +6477,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "রক্তে glucose কমানো hormone insulin কোন কোষ থেকে নিঃসৃত হয়?",
+     "question": "Insulin, the hormone that lowers blood glucose, is secreted by which cells?",
      "options": [
       "Alpha cells of the pancreas",
       "Beta cells of the pancreas",
@@ -6489,7 +6489,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "ঘুম-জাগরণ চক্র নিয়ন্ত্রণে সাহায্যকারী hormone melatonin কোথায় উৎপন্ন হয়?",
+     "question": "Melatonin, a hormone that helps regulate sleep-wake cycles, is produced by the:",
      "options": [
       "Pineal gland",
       "Thyroid gland",
@@ -6501,7 +6501,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "নিঃশ্বাসে নেওয়া বাতাস ও রক্তের মধ্যে গ্যাস বিনিময় কোন গঠনের প্রাচীর দিয়ে ঘটে?",
+     "question": "Gas exchange between inhaled air and the blood occurs across the walls of the:",
      "options": [
       "Bronchi",
       "Alveoli",
@@ -6513,7 +6513,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন করোটিক স্নায়ু (cranial nerve) retina থেকে মস্তিষ্কে দৃষ্টি সংক্রান্ত তথ্য বহন করে?",
+     "question": "Which cranial nerve carries visual information from the retina to the brain?",
      "options": [
       "Optic nerve (CN II)",
       "Oculomotor nerve (CN III)",
@@ -6525,7 +6525,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "বক্ষ গহ্বর (thoracic cavity) ও উদর গহ্বরকে (abdominal cavity) পৃথককারী গম্বুজাকৃতির পেশিটি কী?",
+     "question": "The dome-shaped muscle that separates the thoracic cavity from the abdominal cavity is the:",
      "options": [
       "Diaphragm",
       "Intercostal muscle",
@@ -6537,7 +6537,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রাপ্তবয়স্ক মানুষে লোহিত রক্তকণিকা (red blood cells) মূলত কোথায় তৈরি হয়?",
+     "question": "In adult humans, red blood cells are produced mainly in the:",
      "options": [
       "Liver",
       "Spleen",
@@ -6549,7 +6549,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "চর্বি হজমে সাহায্যকারী পিত্ত (bile) যকৃতে তৈরি হয় এবং কোথায় সঞ্চিত থাকে?",
+     "question": "Bile, which aids in the digestion of fats, is produced by the liver and stored in the:",
      "options": [
       "Pancreas",
       "Gallbladder",
@@ -6561,7 +6561,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন রক্তনালি সর্বদা হৃৎপিণ্ড থেকে রক্ত বহন করে নিয়ে যায়?",
+     "question": "Which blood vessels always carry blood away from the heart?",
      "options": [
       "Veins",
       "Arteries",
@@ -6573,7 +6573,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "বাস্তুসংস্থানিক পরিভাষা 'keystone species' কে প্রবর্তন করেন?",
+     "question": "The ecological term 'keystone species' was introduced by:",
      "options": [
       "Robert Paine",
       "Eugene Odum",
@@ -6585,7 +6585,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "'ten percent rule' অনুসারে এক পুষ্টিস্তর (trophic level) থেকে পরবর্তী স্তরে আনুমানিক কত অংশ শক্তি স্থানান্তরিত হয়?",
+     "question": "According to the 'ten percent rule,' roughly what fraction of energy is transferred from one trophic level to the next?",
      "options": [
       "1%",
       "10%",
@@ -6597,7 +6597,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "যে সম্পর্কে একটি জীব উপকৃত হয় অথচ অন্যটি উপকৃত বা ক্ষতিগ্রস্ত কোনোটিই হয় না, তাকে কী বলে?",
+     "question": "A relationship in which one organism benefits while the other is neither helped nor harmed is called:",
      "options": [
       "Mutualism",
       "Commensalism",
@@ -12614,7 +12614,7 @@
    "slug": "english",
    "questions": [
     {
-     "question": "'Writing a diary' is a very good practice to develop the writing skill — বাক্যের underlined অংশটি a/an কী?",
+     "question": "'Writing a diary' is a very good practice to develop the writing skill. The underlined part is a/an-",
      "options": [
       "noun phrase",
       "verbal phrase",
@@ -12626,7 +12626,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'I will not let you go' — এই বাক্যে 'go' শব্দটি a/an কী?",
+     "question": "In the sentence 'I will not let you go', the word 'go' is a/an-",
      "options": [
       "infinitive",
       "gerund",
@@ -12638,7 +12638,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Every man is potential — এখানে 'every' শব্দটি কী?",
+     "question": "Every man is potential. Here 'every' is-",
      "options": [
       "Noun",
       "Pronoun",
@@ -12650,7 +12650,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "The then prime Minister misled the nation — বাক্যের underlined শব্দ 'then' কোনটির অন্তর্ভুক্ত?",
+     "question": "The then prime Minister misled the nation. The underlined word 'then' belongs to-",
      "options": [
       "Adverb",
       "Adjective",
@@ -12662,7 +12662,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'non' prefix-টি নিচের কোন শব্দের সাথে যুক্ত হতে পারে?",
+     "question": "The prefix 'non' can be added to-",
      "options": [
       "office",
       "regular",
@@ -12674,7 +12674,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Ability' শব্দটির verb কোনটি?",
+     "question": "What is the verb of the word 'Ability'?",
      "options": [
       "Unable",
       "Enable",
@@ -12686,7 +12686,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "'Mutton' শব্দটি a/an কী?",
+     "question": "'Mutton' is a/an-",
      "options": [
       "Common Noun",
       "Abstract Noun",
@@ -12698,7 +12698,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Hasan has read most of the ---- of Shakespeare — শূন্যস্থানে কোনটি বসবে?",
+     "question": "Hasan has read most of the ---- of Shakespeare.",
      "options": [
       "poem",
       "play",
@@ -12710,7 +12710,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "নিচের কোনটি Abstract Noun?",
+     "question": "Which one is an Abstract Noun?",
      "options": [
       "City",
       "Boy",
@@ -12722,7 +12722,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "He received ---- wound — শূন্যস্থানে কোনটি বসবে?",
+     "question": "He received ---- wound.",
      "options": [
       "a",
       "an",
@@ -12734,7 +12734,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "He as well as his parents ---- spending vacation abroad — শূন্যস্থানে কোনটি বসবে?",
+     "question": "He as well as his parents ---- spending vacation abroad.",
      "options": [
       "are",
       "is",
@@ -12746,7 +12746,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "English ---- across the world — শূন্যস্থানে কোনটি বসবে?",
+     "question": "English ---- across the world.",
      "options": [
       "speaks",
       "is speaking",
@@ -12758,7 +12758,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Suddenly finding himself alone, he becomes frightened' — এই বাক্যে 'finding' শব্দটি a/an কী?",
+     "question": "In the sentence 'Suddenly finding himself alone, he becomes frightened', the word 'finding' is a/an-",
      "options": [
       "participle",
       "complement",
@@ -12770,7 +12770,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "নিচের কোনটি conjunction?",
+     "question": "Which one is a conjunction?",
      "options": [
       "or",
       "our",
@@ -12782,7 +12782,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "If you had informed me before, I ---- you — শূন্যস্থানে কোনটি বসবে?",
+     "question": "If you had informed me before, I ---- you.",
      "options": [
       "will have met",
       "would have met",
@@ -12794,7 +12794,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "নিচের কোন sentence-টি সঠিক?",
+     "question": "Which of the following sentences is correct?",
      "options": [
       "Paper is made of wood.",
       "Paper is made from wood.",
@@ -12806,7 +12806,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "The child cried for ---- mother — শূন্যস্থানে কোনটি বসবে?",
+     "question": "The child cried for ---- mother.",
      "options": [
       "its",
       "none",
@@ -12818,7 +12818,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "I love reading books and ---- football — শূন্যস্থানে কোনটি বসবে?",
+     "question": "I love reading books and ---- football.",
      "options": [
       "to play",
       "play",
@@ -12830,7 +12830,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'My needs are few' — এই বাক্যে 'needs' শব্দটি কী?",
+     "question": "In the sentence 'My needs are few', the word 'needs' is a-",
      "options": [
       "verb",
       "noun",
@@ -12842,7 +12842,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "সঠিক narration নির্বাচন করুন — He says, 'I am well'.",
+     "question": "Choose the correct narration- He says, 'I am well'.",
      "options": [
       "He said that he is well",
       "He says that he is well",
@@ -12854,7 +12854,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Times have changed and so ---- — শূন্যস্থানে কোনটি বসবে?",
+     "question": "Times have changed and so ----.",
      "options": [
       "I have",
       "I had",
@@ -12866,7 +12866,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "---- is not the only thing that tourists want to see — শূন্যস্থানে কোনটি বসবে?",
+     "question": "---- is not the only thing that tourists want to see.",
      "options": [
       "A scenery",
       "Sceneries",
@@ -12878,7 +12878,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "নিচের কোন sentence-টি সঠিক?",
+     "question": "Which of the following sentences is correct?",
      "options": [
       "No pains were spared",
       "Do not make noise",
@@ -12890,7 +12890,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "He walks to school ---- — শূন্যস্থানে কোনটি বসবে?",
+     "question": "He walks to school ----.",
      "options": [
       "today",
       "now",
@@ -12902,7 +12902,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "'My uncle looks after me' — বাক্যটির passive form কোনটি?",
+     "question": "What is the passive form of 'My uncle looks after me'?",
      "options": [
       "I am looked after by my uncle",
       "I was looked after by my uncle",
@@ -12914,7 +12914,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'He is going to set up a school' — বাক্যটির passive form কোনটি?",
+     "question": "What is the passive form of 'He is going to set up a school'?",
      "options": [
       "A school is going to be set up by him",
       "A school is being set up by him",
@@ -12926,7 +12926,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'A child likes sweets only' — বাক্যটির negative form কোনটি?",
+     "question": "'A child likes sweets only.' The negative form of the sentence is-",
      "options": [
       "A child likes none but sweets.",
       "A child likes nothing but sweets.",
@@ -12938,7 +12938,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Handsome is that handsome ----' প্রবাদটির শেষ শব্দটি কী?",
+     "question": "The last word of the proverb 'Handsome is that handsome ----' is-",
      "options": [
       "works",
       "thinks",
@@ -12950,7 +12950,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "নিচের কোনটি সঠিক?",
+     "question": "Which one is correct?",
      "options": [
       "Pen through the line",
       "Cut the line",
@@ -12962,7 +12962,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "'dearth' শব্দটির বিপরীত অর্থ কোন শব্দটি প্রকাশ করে?",
+     "question": "Which word means the opposite of 'dearth'?",
      "options": [
       "lack",
       "abundance",
@@ -12974,7 +12974,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'mouse' শব্দটির plural form কোনটি?",
+     "question": "The plural form of 'mouse' is-",
      "options": [
       "mousse",
       "mices",
@@ -12986,7 +12986,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Sweet ---- the uses of adversity. (W. Shakespeare) — শূন্যস্থানে কোনটি বসবে?",
+     "question": "Sweet ---- the uses of adversity. (W. Shakespeare)",
      "options": [
       "is",
       "are",
@@ -12998,7 +12998,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "I have no pen to write ---- — শূন্যস্থানে কোনটি বসবে?",
+     "question": "I have no pen to write ----.",
      "options": [
       "with",
       "upon",
@@ -13010,7 +13010,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "The dog was running behind — বাক্যের underlined শব্দ 'behind' কী?",
+     "question": "The dog was running behind. The underlined word 'behind' is-",
      "options": [
       "an adverb",
       "a preposition",
@@ -13022,7 +13022,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "He ---- the room just now — শূন্যস্থানে কোনটি বসবে?",
+     "question": "He ---- the room just now.",
      "options": [
       "has left",
       "left",
@@ -13034,7 +13034,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Last week I ---- that book you wanted in a bookshop — শূন্যস্থানে কোনটি বসবে?",
+     "question": "Last week I ---- that book you wanted in a bookshop.",
      "options": [
       "came up",
       "came across",
@@ -13046,7 +13046,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "direct speech-এ পরিবর্তন করুন — 'Rafiq called me a liar.'",
+     "question": "Change into direct speech: 'Rafiq called me a liar.'",
      "options": [
       "Rafiq said to me, 'you were a liar'",
       "Rafiq says to me, 'you are a liar'",
@@ -13058,7 +13058,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "If I were you, I ---- the situation more carefully — শূন্যস্থানে কোনটি বসবে?",
+     "question": "If I were you, I ---- the situation more carefully.",
      "options": [
       "would handle",
       "will handle",
@@ -13070,7 +13070,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Let's love the poor, ----? — শূন্যস্থানে কোন tag question বসবে?",
+     "question": "Let's love the poor, ----?",
      "options": [
       "Shall not we?",
       "Shall we?",
@@ -13082,7 +13082,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Strike while the iron is hot' — এটি কীসের উদাহরণ?",
+     "question": "'Strike while the iron is hot.' is an example of-",
      "options": [
       "Noun clause",
       "Adjective clause",
@@ -13094,7 +13094,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Would you mind ---- a song? — শূন্যস্থানে কোনটি বসবে?",
+     "question": "Would you mind ---- a song?",
      "options": [
       "to sing",
       "sang",
@@ -13106,7 +13106,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Jharna sleeps only for four hours a night — এখানে 'sleeps' শব্দটি কী?",
+     "question": "Jharna sleeps only for four hours a night. Here 'sleeps' is-",
      "options": [
       "causative",
       "intransitive",
@@ -13118,7 +13118,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "There is a coffee shop ---- the street — শূন্যস্থানে কোনটি বসবে?",
+     "question": "There is a coffee shop ---- the street.",
      "options": [
       "at",
       "on",
@@ -13130,7 +13130,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "She told me his name after he ---- — শূন্যস্থানে কোনটি বসবে?",
+     "question": "She told me his name after he ----.",
      "options": [
       "left",
       "had left",
@@ -13142,7 +13142,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Girl' কোন ধরনের noun?",
+     "question": "What kind of noun is 'Girl'?",
      "options": [
       "Collective",
       "Material",
@@ -13154,7 +13154,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "She works as ---- FBI analyst — শূন্যস্থানে কোনটি বসবে?",
+     "question": "She works as ---- FBI analyst.",
      "options": [
       "a",
       "an",
@@ -13166,7 +13166,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "I have not heard from him ---- — শূন্যস্থানে কোনটি বসবে?",
+     "question": "I have not heard from him ----.",
      "options": [
       "for a long time",
       "since long",
@@ -13178,7 +13178,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Between ----, this is the greatest book I've ever read — শূন্যস্থানে কোনটি বসবে?",
+     "question": "Between ----, this is the greatest book I've ever read.",
      "options": [
       "you and I",
       "you and me",
@@ -13190,7 +13190,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "He has done no wrong — বাক্যের underlined শব্দ 'wrong' a/an কী?",
+     "question": "He has done no wrong. The underlined word 'wrong' is a/an-",
      "options": [
       "Pronoun",
       "adverb",
@@ -13202,7 +13202,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Tourists ---- their reservations well in advance if they want to fly to Cox's Bazar — শূন্যস্থানে কোনটি বসবে?",
+     "question": "Tourists ---- their reservations well in advance if they want to fly to Cox's Bazar.",
      "options": [
       "better to had get",
       "had better to get",
@@ -13214,7 +13214,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "She told me his name after he ---- — শূন্যস্থানে কোনটি বসবে?",
+     "question": "She told me his name after he ----.",
      "options": [
       "left",
       "had left",
@@ -13226,7 +13226,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "সঠিক sentence-টি নির্বাচন করুন।",
+     "question": "Choose the correct sentence.",
      "options": [
       "I wish I were you",
       "I wish I was you",
@@ -13238,7 +13238,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "We met Medha carrying a bouquet of red roses — এখানে 'carrying' শব্দটি a/an কী?",
+     "question": "We met Medha carrying a bouquet of red roses. Here 'carrying' is a/an-",
      "options": [
       "gerund",
       "infinitive",
@@ -13250,7 +13250,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "What is the time ---- your watch? — শূন্যস্থানে কোনটি বসবে?",
+     "question": "What is the time ---- your watch?",
      "options": [
       "at",
       "on",
@@ -13262,7 +13262,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "I saw ---- man when I was walking on the road — শূন্যস্থানে কোনটি বসবে?",
+     "question": "I saw ---- man when I was walking on the road.",
      "options": [
       "a one-eyed",
       "a one-eye",
@@ -13274,7 +13274,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন part of speech noun-এর পরিবর্তে বসে?",
+     "question": "What part of speech substitutes for a noun?",
      "options": [
       "Pronoun",
       "Verb",
@@ -13286,7 +13286,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "সঠিক answer নির্বাচন করুন।",
+     "question": "Choose the correct answer.",
      "options": [
       "No sooner had I came than he went away",
       "No sooner I come than he went away",
@@ -13298,7 +13298,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Do you enjoy teaching? — বাক্যের underlined শব্দ 'teaching' কী?",
+     "question": "Do you enjoy teaching? The underlined word 'teaching' is-",
      "options": [
       "noun",
       "participle",
@@ -13310,7 +13310,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "----, I would have called her — শূন্যস্থানে কোনটি বসবে?",
+     "question": "----, I would have called her.",
      "options": [
       "If I saw him",
       "If Rina had seen me",
@@ -13322,7 +13322,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "সঠিক sentence-টি নির্বাচন করুন।",
+     "question": "Choose the correct sentence.",
      "options": [
       "He resembles like his father.",
       "He resembles with his father.",
@@ -13334,7 +13334,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "He watched the boat ---- down the river — শূন্যস্থানে কোনটি বসবে?",
+     "question": "He watched the boat ---- down the river.",
      "options": [
       "to float",
       "floating",
@@ -13346,7 +13346,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Army' শব্দটি একটি কী?",
+     "question": "The word 'Army' is a-",
      "options": [
       "Material Noun",
       "Common Noun",
@@ -13358,7 +13358,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "---- Omar Khayyam is seldom born — শূন্যস্থানে কোনটি বসবে?",
+     "question": "---- Omar Khayyam is seldom born.",
      "options": [
       "Only",
       "The",
@@ -13370,7 +13370,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "নিচের কোন বাক্যটি সঠিক?",
+     "question": "Which of the following sentences is correct?",
      "options": [
       "You, he and I am present",
       "He, You and I am present",
@@ -13382,7 +13382,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "He took shelter under a tree. এখানে 'took' verb-টি ----",
+     "question": "He took shelter under a tree. Here the verb 'took' is ----",
      "options": [
       "transitive",
       "intransitive",
@@ -13394,7 +13394,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন বাক্যটি সঠিক?",
+     "question": "Which sentence is correct?",
      "options": [
       "He needs not go.",
       "He need not go.",
@@ -13406,7 +13406,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: Nasima arrived while I ---- the dinner.",
+     "question": "Nasima arrived while I ---- the dinner.",
      "options": [
       "would cook",
       "had cooked",
@@ -13418,7 +13418,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "'Accept' শব্দের noun form কোনটি?",
+     "question": "What is the noun form of 'Accept'?",
      "options": [
       "Acceptance",
       "Acception",
@@ -13430,7 +13430,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "সঠিক বাক্যটি চিহ্নিত করুন:",
+     "question": "Identify the correct sentence:",
      "options": [
       "It is I who is next",
       "It is I who am next",
@@ -13442,7 +13442,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'mouse' শব্দের plural form হলো ----",
+     "question": "The plural form of 'mouse' is ----",
      "options": [
       "mousse",
       "mices",
@@ -13454,7 +13454,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "সঠিক বাক্যটি নির্বাচন করুন।",
+     "question": "Choose the correct sentence.",
      "options": [
       "He resembles like his father.",
       "He resembles with his father.",
@@ -13466,7 +13466,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'He was a rather disagreeable man.' এখানে underlined শব্দ 'disagreeable' একটি ----",
+     "question": "'He was a rather disagreeable man.' Here the underlined word 'disagreeable' is a/an ----",
      "options": [
       "Noun",
       "Adjective",
@@ -13478,7 +13478,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: How many eggs have your hens ---- this month?",
+     "question": "How many eggs have your hens ---- this month?",
      "options": [
       "lain",
       "laid",
@@ -13490,7 +13490,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: Milk is ---- food.",
+     "question": "Milk is ---- food.",
      "options": [
       "nutritional",
       "nutrient",
@@ -13502,7 +13502,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Who's that?' এই বাক্যে 'that' একটি ----",
+     "question": "'Who's that?' In this sentence 'that' is a/an ----",
      "options": [
       "pronoun",
       "conjunction",
@@ -13514,7 +13514,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "বাক্যটিকে passive form-এ রূপান্তর করুন: Who will help you?",
+     "question": "Make the sentence into passive form: Who will help you?",
      "options": [
       "By whom will you be helped?",
       "By whom you will be helped?",
@@ -13526,7 +13526,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: Can you tell me where ----?",
+     "question": "Can you tell me where ----?",
      "options": [
       "does Mr. Ali live",
       "Mr. Ali does live",
@@ -13538,7 +13538,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: On fine days the sky is ----",
+     "question": "On fine days the sky is ----",
      "options": [
       "cloudy",
       "gloomy",
@@ -13550,7 +13550,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "'Economy' শব্দের verb form কোনটি?",
+     "question": "Which is the verb form of the word 'Economy'?",
      "options": [
       "economic",
       "economical",
@@ -13562,7 +13562,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "'He ran with great speed' বাক্যে 'with great speed' phrase-টি একটি ----",
+     "question": "In 'He ran with great speed', the phrase 'with great speed' is a/an ----",
      "options": [
       "noun phrase",
       "adverb phrase",
@@ -13574,7 +13574,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "নিচের কোন বাক্যটি সঠিক?",
+     "question": "Which of the following sentences is correct?",
      "options": [
       "Birds twitter at dawn",
       "Birds shout and down.",
@@ -13586,7 +13586,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Achilles heel' phrase-টির অর্থ ----",
+     "question": "The phrase 'Achilles heel' means ----",
      "options": [
       "A strong point",
       "A weak point",
@@ -13598,7 +13598,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: Neither Rini nor Simi ---- qualified for the job.",
+     "question": "Neither Rini nor Simi ---- qualified for the job.",
      "options": [
       "are",
       "is",
@@ -13610,7 +13610,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Do not laugh at the poor. এটি কোন ধরনের sentence?",
+     "question": "Do not laugh at the poor. What kind of sentence is it?",
      "options": [
       "Interrogative",
       "Imperative",
@@ -13622,7 +13622,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Cricket is a very exciting game. (একে exclamatory করুন)",
+     "question": "Cricket is a very exciting game. (Make it exclamatory)",
      "options": [
       "Hurrah! cricket is an exciting game",
       "How exciting game is cricket!",
@@ -13634,7 +13634,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: 'Do you have any money ---- you?'",
+     "question": "'Do you have any money ---- you?'",
      "options": [
       "to",
       "over",
@@ -13646,7 +13646,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: Peter can't go and I can't ----.",
+     "question": "Peter can't go and I can't ----.",
      "options": [
       "neither",
       "too",
@@ -13658,7 +13658,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "নিচের কোন বানানটি সঠিক?",
+     "question": "Which one of the following spellings is correct?",
      "options": [
       "Buroaucacy",
       "Buorocracy",
@@ -13670,7 +13670,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন বাক্যটি সঠিক?",
+     "question": "Which is the correct sentence?",
      "options": [
       "He is the most perfect judge",
       "He is a most perfect judge",
@@ -13682,7 +13682,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "সঠিক বাক্যটি নির্বাচন করুন।",
+     "question": "Choose the correct sentence.",
      "options": [
       "Where have you born?",
       "Where are you born?",
@@ -13694,7 +13694,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: A seventeen year old is not ---- to vote in an election.",
+     "question": "A seventeen year old is not ---- to vote in an election.",
      "options": [
       "old enough",
       "as old enough",
@@ -13706,7 +13706,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Banks close at 4 pm, ----? (question tag যোগ করুন)",
+     "question": "Banks close at 4 pm, ----? (Add a question tag)",
      "options": [
       "must they",
       "don't they",
@@ -13718,7 +13718,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "নিচের কোনটি masculine gender?",
+     "question": "Which one is masculine gender?",
      "options": [
       "Cow",
       "Heir",
@@ -13730,7 +13730,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "সঠিক বাক্যটি নির্বাচন করুন।",
+     "question": "Choose the correct sentence.",
      "options": [
       "It is a true fact",
       "It is a fact",
@@ -13742,7 +13742,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Syntax' শব্দের অর্থ ----",
+     "question": "'Syntax' means ----",
      "options": [
       "Manner of speech",
       "Sentence building",
@@ -13754,7 +13754,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Subject Verb Agreement' বলতে বোঝায় ----",
+     "question": "'Subject Verb Agreement' refers to ----",
      "options": [
       "person only",
       "number, person and gender",
@@ -13766,7 +13766,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Down with the tyrant' — এখানে 'down' একটি ----",
+     "question": "'Down with the tyrant' — here 'down' is a/an ----",
      "options": [
       "Verb",
       "adjective",
@@ -13778,7 +13778,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "I dreamt a wonderful dream. এখানে underlined শব্দ 'dream' একটি ----",
+     "question": "I dreamt a wonderful dream. Here the underlined word 'dream' is a ----",
      "options": [
       "Reflexive object",
       "factitive object",
@@ -13790,7 +13790,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: That dress doesn't suit you; you ---- buy another.",
+     "question": "That dress doesn't suit you; you ---- buy another.",
      "options": [
       "could",
       "would",
@@ -13802,7 +13802,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "সঠিক বাক্যটি নির্বাচন করুন ----।",
+     "question": "Choose the correct sentence ----.",
      "options": [
       "Rich is not always happy",
       "The rich is not always happy",
@@ -13814,7 +13814,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: He had a ---- headache.",
+     "question": "He had a ---- headache.",
      "options": [
       "strong",
       "acute",
@@ -13826,7 +13826,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "The news that you heard yesterday is known to all. underlined clause 'that you heard yesterday' হলো ----",
+     "question": "The news that you heard yesterday is known to all. The underlined clause 'that you heard yesterday' is ----",
      "options": [
       "a Noun clause",
       "an Adjective clause",
@@ -13838,7 +13838,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: One should be careful about ---- duty.",
+     "question": "One should be careful about ---- duty.",
      "options": [
       "his",
       "her",
@@ -13850,7 +13850,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "We were waiting for the bus. underlined অংশ 'for the bus' হলো ----",
+     "question": "We were waiting for the bus. The underlined part 'for the bus' is ----",
      "options": [
       "a noun phrase",
       "an infinitive phrase",
@@ -13862,7 +13862,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: The submarine dipped to avoid ---- by the enemy plane.",
+     "question": "The submarine dipped to avoid ---- by the enemy plane.",
      "options": [
       "see",
       "seeing",
@@ -13874,7 +13874,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'Deny' শব্দের noun form কোনটি?",
+     "question": "What is the noun form of 'Deny'?",
      "options": [
       "Refuse",
       "Denial",
@@ -13886,7 +13886,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: Where there is ---- will, there is ---- way.",
+     "question": "Where there is ---- will, there is ---- way.",
      "options": [
       "the, a",
       "a, a",
@@ -13898,7 +13898,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: Fifty miles ---- a long way.",
+     "question": "Fifty miles ---- a long way.",
      "options": [
       "are",
       "were",
@@ -13910,7 +13910,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "He did it. এখানে 'did' একটি ----",
+     "question": "He did it. Here 'did' is a ----",
      "options": [
       "causative verb",
       "common verb",
@@ -13922,7 +13922,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "'Honesty is the best policy' বাক্যে 'honesty' শব্দটি একটি ----",
+     "question": "In 'Honesty is the best policy', the word 'honesty' is a ----",
      "options": [
       "proper noun",
       "Common noun",
@@ -13934,7 +13934,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: I love to read books and ----",
+     "question": "I love to read books and ----",
      "options": [
       "playing cricket",
       "cricket",
@@ -13946,7 +13946,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: Give me all ---- this pen.",
+     "question": "Give me all ---- this pen.",
      "options": [
       "of",
       "to",
@@ -13958,7 +13958,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: Let us have some tea ----?",
+     "question": "Let us have some tea ----?",
      "options": [
       "will",
       "do we",
@@ -13970,7 +13970,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "This is the place where I was born. underlined clause 'where I was born' হলো ----",
+     "question": "This is the place where I was born. The underlined clause 'where I was born' is ----",
      "options": [
       "Main",
       "Noun",
@@ -13982,7 +13982,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'His father is rich but simple' — এটি কোন ধরনের বাক্যের উদাহরণ?",
+     "question": "'His father is rich but simple' is an example of a ----",
      "options": [
       "simple sentence",
       "complex sentence",
@@ -13994,7 +13994,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: ---- your timely help, I would have failed.",
+     "question": "---- your timely help, I would have failed.",
      "options": [
       "But for",
       "For",
@@ -14006,7 +14006,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: I cannot help ---- it.",
+     "question": "I cannot help ---- it.",
      "options": [
       "done",
       "did",
@@ -14018,7 +14018,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Anis said, 'I must write a letter'. এই বাক্যের indirect narration হলো ----",
+     "question": "Anis said, 'I must write a letter'. The indirect narration of this sentence is ----",
      "options": [
       "Anis said that he must write a letter",
       "Anis said he had to write letter",
@@ -14030,7 +14030,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "'People thought that the despot was corrupt'-এর সঠিক passive form চিহ্নিত করুন।",
+     "question": "Identify the correct passive form of 'People thought that the despot was corrupt'.",
      "options": [
       "The despot had been thought to be corrupt",
       "It was thought that the despot was corrupt",
@@ -14042,7 +14042,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "যে বাক্যে 'better' একটি adverb, সেটি নির্বাচন করুন ----",
+     "question": "Select the sentence in which 'better' is an adverb ----",
      "options": [
       "We're hoping for better weather tomorrow",
       "Sound travels better in water than in air",
@@ -14054,7 +14054,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "সঠিক বানানটি নির্বাচন করুন।",
+     "question": "Choose the correct spelling.",
      "options": [
       "Commettee",
       "Committe",
@@ -14066,7 +14066,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "The bird sings sweetly. এখানে underlined শব্দ 'sweetly' হলো ----",
+     "question": "The bird sings sweetly. Here the underlined word 'sweetly' is ----",
      "options": [
       "a verb",
       "an adverb",
@@ -14078,7 +14078,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "'The dog went mad' বাক্যে 'went' শব্দটি কোন ধরনের verb?",
+     "question": "What kind of verb is the word 'went' in the sentence 'The dog went mad'?",
      "options": [
       "Transitive verb",
       "Causative verb",
@@ -14090,7 +14090,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "শূন্যস্থান পূরণ করুন: I promise I ---- smoke again.",
+     "question": "I promise I ---- smoke again.",
      "options": [
       "won't",
       "don't",
@@ -14102,7 +14102,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "He fathered the plan. এখানে 'father' শব্দটি ----",
+     "question": "He fathered the plan. Here the word 'father' is ----",
      "options": [
       "a noun",
       "an adjective",
@@ -24019,7 +24019,7 @@
    "slug": "world-geo-politics",
    "questions": [
     {
-     "question": "Australia-র রাজধানী শহর কোনটি?",
+     "question": "What is the capital city of Australia?",
      "options": [
       "Canberra",
       "Sydney",
@@ -24031,7 +24031,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "পৃষ্ঠতলের আয়তনের দিক থেকে পৃথিবীর বৃহত্তম ocean কোনটি?",
+     "question": "Which is the largest ocean on Earth by surface area?",
      "options": [
       "Atlantic Ocean",
       "Indian Ocean",
@@ -24043,7 +24043,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Egypt প্রধানত কোন মহাদেশে অবস্থিত?",
+     "question": "On which continent is Egypt primarily located?",
      "options": [
       "Asia",
       "Europe",
@@ -24055,7 +24055,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Japan-এর রাজধানী শহর কোনটি?",
+     "question": "What is the capital city of Japan?",
      "options": [
       "Beijing",
       "Seoul",
@@ -24067,7 +24067,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Mount Everest, Nepal এবং অন্য কোন দেশের সীমান্তে অবস্থিত?",
+     "question": "Mount Everest lies on the border between Nepal and which other country?",
      "options": [
       "China",
       "India",
@@ -24079,7 +24079,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "বিশ্বের বৃহত্তম উষ্ণ মরুভূমি Sahara কোন মহাদেশে অবস্থিত?",
+     "question": "The Sahara, the world's largest hot desert, is located on which continent?",
      "options": [
       "Africa",
       "Asia",
@@ -24091,7 +24091,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Great Wall কোন দেশে অবস্থিত?",
+     "question": "In which country is the Great Wall located?",
      "options": [
       "Japan",
       "India",
@@ -24103,7 +24103,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "Panama Canal, Atlantic Ocean-কে অন্য কোন মহাসাগরের সাথে যুক্ত করে?",
+     "question": "The Panama Canal connects the Atlantic Ocean to which other ocean?",
      "options": [
       "Pacific Ocean",
       "Indian Ocean",
@@ -24115,7 +24115,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "বিশ্বের দীর্ঘতম আন্তর্জাতিক সীমান্ত United States এবং কোন দেশের মধ্যে অবস্থিত?",
+     "question": "The world's longest international border lies between the United States and which country?",
      "options": [
       "Canada",
       "Mexico",
@@ -24127,7 +24127,7 @@
      "difficulty": "easy"
     },
     {
-     "question": "NATO acronym-টির পূর্ণরূপ কী?",
+     "question": "What does the acronym NATO stand for?",
      "options": [
       "National Alliance Treaty Organization",
       "North Atlantic Treaty Organization",
@@ -24139,7 +24139,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "United Nations-এর প্রধান সদর দপ্তর কোন শহরে অবস্থিত?",
+     "question": "In which city is the main headquarters of the United Nations located?",
      "options": [
       "Geneva",
       "New York City",
@@ -24151,7 +24151,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "London শহরের মধ্য দিয়ে কোন নদী প্রবাহিত হয়?",
+     "question": "Which river flows through the city of London?",
      "options": [
       "Thames",
       "Seine",
@@ -24163,7 +24163,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Canada-র রাজধানী শহর কোনটি?",
+     "question": "What is the capital city of Canada?",
      "options": [
       "Toronto",
       "Ottawa",
@@ -24175,7 +24175,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন mountain range-কে প্রথাগতভাবে Europe ও Asia-র মধ্যে সীমানা হিসেবে গণ্য করা হয়?",
+     "question": "Which mountain range is traditionally regarded as the boundary between Europe and Asia?",
      "options": [
       "Alps",
       "Ural Mountains",
@@ -24187,7 +24187,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Suez Canal, Mediterranean Sea-কে কোন জলাশয়ের সাথে যুক্ত করে?",
+     "question": "The Suez Canal connects the Mediterranean Sea to which body of water?",
      "options": [
       "Black Sea",
       "Red Sea",
@@ -24199,7 +24199,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "মোট আয়তনের দিক থেকে বিশ্বের বৃহত্তম দেশ কোনটি?",
+     "question": "Which country is the largest in the world by total area?",
      "options": [
       "Canada",
       "China",
@@ -24211,7 +24211,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "ASEAN কোন অঞ্চলের দেশগুলো নিয়ে গঠিত একটি আঞ্চলিক সংস্থা?",
+     "question": "ASEAN is a regional organization made up of countries from which region?",
      "options": [
       "South America",
       "Southeast Asia",
@@ -24223,7 +24223,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "European Union-এর প্রধান প্রতিষ্ঠানগুলো কোন শহরে অবস্থিত, যা একে EU-এর কার্যত (de facto) রাজধানী করে তুলেছে?",
+     "question": "In which city are the main institutions of the European Union headquartered, making it the EU's de facto capital?",
      "options": [
       "Strasbourg",
       "Brussels",
@@ -24235,7 +24235,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "আয়তনের দিক থেকে বিশ্বের ক্ষুদ্রতম সার্বভৌম দেশ কোনটি?",
+     "question": "Which is the smallest sovereign country in the world by area?",
      "options": [
       "Monaco",
       "Vatican City",
@@ -24247,7 +24247,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Strait of Gibraltar, Spain-কে কোন দেশ থেকে পৃথক করে?",
+     "question": "The Strait of Gibraltar separates Spain from which country?",
      "options": [
       "Algeria",
       "Morocco",
@@ -24259,7 +24259,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "বিশ্বের গভীরতম মিঠাপানির lake কোনটি?",
+     "question": "Which is the deepest freshwater lake in the world?",
      "options": [
       "Lake Superior",
       "Lake Baikal",
@@ -24271,7 +24271,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন দেশটি সম্পূর্ণভাবে South Africa দ্বারা পরিবেষ্টিত?",
+     "question": "Which country is completely surrounded by South Africa?",
      "options": [
       "Eswatini",
       "Lesotho",
@@ -24283,7 +24283,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "বিশ্বের সর্বোচ্চ অবিচ্ছিন্ন waterfall, Angel Falls কোন দেশে অবস্থিত?",
+     "question": "Angel Falls, the world's highest uninterrupted waterfall, is located in which country?",
      "options": [
       "Brazil",
       "Venezuela",
@@ -24295,7 +24295,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Africa-র সর্বোচ্চ শৃঙ্গ Mount Kilimanjaro কোন দেশে অবস্থিত?",
+     "question": "Mount Kilimanjaro, the highest peak in Africa, is located in which country?",
      "options": [
       "Kenya",
       "Tanzania",
@@ -24307,7 +24307,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "United Nations Security Council-এ কতজন স্থায়ী সদস্য (permanent member) রয়েছেন?",
+     "question": "How many permanent members sit on the United Nations Security Council?",
      "options": [
       "3",
       "5",
@@ -24319,7 +24319,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Australia-র রাজধানী কোনটি?",
+     "question": "What is the capital of Australia?",
      "options": [
       "Sydney",
       "Melbourne",
@@ -24331,7 +24331,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Turkey-র রাজধানী কোনটি?",
+     "question": "What is the capital of Turkey?",
      "options": [
       "Istanbul",
       "Ankara",
@@ -24343,7 +24343,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "২০০৬ সাল থেকে কোন শহরটি Myanmar (Burma)-র প্রশাসনিক রাজধানী হিসেবে কাজ করছে?",
+     "question": "Since 2006, what has served as the administrative capital of Myanmar (Burma)?",
      "options": [
       "Yangon",
       "Mandalay",
@@ -24355,7 +24355,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন শহরটি Bolivia-র সাংবিধানিক রাজধানী?",
+     "question": "Which city is the constitutional capital of Bolivia?",
      "options": [
       "La Paz",
       "Santa Cruz",
@@ -24367,7 +24367,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Sri Lanka-র সরকারি প্রশাসনিক রাজধানী কোনটি?",
+     "question": "What is the official administrative capital of Sri Lanka?",
      "options": [
       "Colombo",
       "Kandy",
@@ -24379,7 +24379,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন শহরটি South Africa-র নির্বাহী (প্রশাসনিক) রাজধানী?",
+     "question": "Which city is the executive (administrative) capital of South Africa?",
      "options": [
       "Cape Town",
       "Johannesburg",
@@ -24391,7 +24391,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "New Zealand-এর রাজধানী কোনটি?",
+     "question": "What is the capital of New Zealand?",
      "options": [
       "Auckland",
       "Wellington",
@@ -24403,7 +24403,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Switzerland-এর রাজধানী কোনটি?",
+     "question": "What is the capital of Switzerland?",
      "options": [
       "Zurich",
       "Geneva",
@@ -24415,7 +24415,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "১৯৯১ সাল থেকে Nigeria-র রাজধানী কোনটি?",
+     "question": "What has been the capital of Nigeria since 1991?",
      "options": [
       "Lagos",
       "Abuja",
@@ -24427,7 +24427,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Kyrgyzstan-এর রাজধানী কোনটি?",
+     "question": "What is the capital of Kyrgyzstan?",
      "options": [
       "Bishkek",
       "Dushanbe",
@@ -24439,7 +24439,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Bhutan-এর রাজধানী কোনটি?",
+     "question": "What is the capital of Bhutan?",
      "options": [
       "Kathmandu",
       "Thimphu",
@@ -24451,7 +24451,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Burkina Faso-র রাজধানী কোনটি?",
+     "question": "What is the capital of Burkina Faso?",
      "options": [
       "Bamako",
       "Niamey",
@@ -24463,7 +24463,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Tanzania-র সরকারি রাজধানী কোনটি?",
+     "question": "What is the official capital of Tanzania?",
      "options": [
       "Dar es Salaam",
       "Dodoma",
@@ -24475,7 +24475,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Côte d'Ivoire (Ivory Coast)-এর সরকারি রাজনৈতিক রাজধানী কোনটি?",
+     "question": "What is the official political capital of Côte d'Ivoire (Ivory Coast)?",
      "options": [
       "Abidjan",
       "Yamoussoukro",
@@ -24487,7 +24487,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Belize-এর রাজধানী কোনটি?",
+     "question": "What is the capital of Belize?",
      "options": [
       "Belize City",
       "Belmopan",
@@ -24499,7 +24499,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Eritrea-র রাজধানী কোনটি?",
+     "question": "What is the capital of Eritrea?",
      "options": [
       "Addis Ababa",
       "Khartoum",
@@ -24511,7 +24511,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Malawi-র রাজধানী কোনটি?",
+     "question": "What is the capital of Malawi?",
      "options": [
       "Blantyre",
       "Lilongwe",
@@ -24523,7 +24523,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Laos-এর রাজধানী কোনটি?",
+     "question": "What is the capital of Laos?",
      "options": [
       "Vientiane",
       "Luang Prabang",
@@ -24535,7 +24535,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Turkmenistan-এর রাজধানী কোনটি?",
+     "question": "What is the capital of Turkmenistan?",
      "options": [
       "Tashkent",
       "Ashgabat",
@@ -24547,7 +24547,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Liechtenstein-এর রাজধানী কোনটি?",
+     "question": "What is the capital of Liechtenstein?",
      "options": [
       "Vaduz",
       "Luxembourg",
@@ -24559,7 +24559,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "একটি সার্বভৌম দেশের সবচেয়ে উত্তরের রাজধানী শহর কোনটি?",
+     "question": "Which is the northernmost capital city of a sovereign country?",
      "options": [
       "Oslo",
       "Helsinki",
@@ -24571,7 +24571,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "উচ্চতার দিক থেকে বিশ্বের সর্বোচ্চ রাজধানী শহর (সরকারের আসন) কোনটি?",
+     "question": "Which is the highest capital city (seat of government) in the world by elevation?",
      "options": [
       "Quito",
       "Bogotá",
@@ -24583,7 +24583,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Vietnam-এর সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Vietnam?",
      "options": [
       "Baht",
       "Kip",
@@ -24595,7 +24595,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Poland-এর সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Poland?",
      "options": [
       "Koruna",
       "Złoty",
@@ -24607,7 +24607,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Botswana-র সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Botswana?",
      "options": [
       "Rand",
       "Kwacha",
@@ -24619,7 +24619,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Guatemala-র সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Guatemala?",
      "options": [
       "Colón",
       "Lempira",
@@ -24631,7 +24631,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Malaysia-র সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Malaysia?",
      "options": [
       "Rupiah",
       "Ringgit",
@@ -24643,7 +24643,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Peru-র সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Peru?",
      "options": [
       "Peso",
       "Sol",
@@ -24655,7 +24655,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Ghana-র সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Ghana?",
      "options": [
       "Naira",
       "Cedi",
@@ -24667,7 +24667,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Hungary-র সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Hungary?",
      "options": [
       "Złoty",
       "Koruna",
@@ -24679,7 +24679,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Costa Rica-র সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Costa Rica?",
      "options": [
       "Balboa",
       "Quetzal",
@@ -24691,7 +24691,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Paraguay-র সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Paraguay?",
      "options": [
       "Peso",
       "Guaraní",
@@ -24703,7 +24703,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Ethiopia-র সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Ethiopia?",
      "options": [
       "Shilling",
       "Birr",
@@ -24715,7 +24715,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Sweden কোন মুদ্রা ব্যবহার করে?",
+     "question": "Which currency does Sweden use?",
      "options": [
       "Krona",
       "Krone",
@@ -24727,7 +24727,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Kazakhstan-এর সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Kazakhstan?",
      "options": [
       "Som",
       "Tenge",
@@ -24739,7 +24739,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Iceland-এর সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Iceland?",
      "options": [
       "Euro",
       "Króna",
@@ -24751,7 +24751,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Ukraine-এর সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Ukraine?",
      "options": [
       "Ruble",
       "Złoty",
@@ -24763,7 +24763,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Morocco-র সরকারি মুদ্রা কোনটি?",
+     "question": "What is the official currency of Morocco?",
      "options": [
       "Dinar",
       "Dirham",
@@ -24775,7 +24775,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "দক্ষিণ আমেরিকার কোন দেশের সরকারি ভাষা Dutch?",
+     "question": "Which South American country has Dutch as its official language?",
      "options": [
       "Guyana",
       "Suriname",
@@ -24787,7 +24787,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Andorra-র একমাত্র সরকারি ভাষা কোনটি?",
+     "question": "What is the sole official language of Andorra?",
      "options": [
       "Spanish",
       "French",
@@ -24799,7 +24799,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "German, French ও Italian ছাড়া Switzerland-এর চতুর্থ সরকারি ভাষা কোনটি?",
+     "question": "Besides German, French, and Italian, what is Switzerland's fourth official language?",
      "options": [
       "Romansh",
       "English",
@@ -24811,7 +24811,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Dutch ও French ছাড়া Belgium-এর তৃতীয় সরকারি ভাষা কোনটি?",
+     "question": "Besides Dutch and French, what is the third official language of Belgium?",
      "options": [
       "German",
       "Luxembourgish",
@@ -24823,7 +24823,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "নিচের কোনটি Singapore-এর চারটি সরকারি ভাষার একটি নয়?",
+     "question": "Which of the following is NOT one of Singapore's four official languages?",
      "options": [
       "Malay",
       "Tamil",
@@ -24835,7 +24835,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Finnish ছাড়া Finland-এর অপর সরকারি ভাষা কোনটি?",
+     "question": "Besides Finnish, what is the other official language of Finland?",
      "options": [
       "Russian",
       "Swedish",
@@ -24847,7 +24847,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Paraguay-তে Spanish-এর পাশাপাশি কোন আদিবাসী ভাষা সহ-সরকারি ভাষা?",
+     "question": "Which indigenous language is co-official with Spanish in Paraguay?",
      "options": [
       "Quechua",
       "Aymara",
@@ -24859,7 +24859,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "মধ্য আমেরিকার একমাত্র কোন দেশের সরকারি ভাষা English?",
+     "question": "Which is the only country in Central America with English as its official language?",
      "options": [
       "Honduras",
       "Belize",
@@ -24871,7 +24871,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Ethiopia-র কেন্দ্রীয় সরকারের কার্যকরী (সরকারি) ভাষা কোনটি?",
+     "question": "What is the working (official) language of Ethiopia's federal government?",
      "options": [
       "Oromo",
       "Amharic",
@@ -24883,7 +24883,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Pakistan-এর জাতীয় ভাষা কোনটি?",
+     "question": "What is the national language of Pakistan?",
      "options": [
       "Punjabi",
       "Urdu",
@@ -24895,7 +24895,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন দেশের জাতীয় পতাকাই একমাত্র আয়তাকার নয়?",
+     "question": "Which country has the only national flag that is not rectangular?",
      "options": [
       "Bhutan",
       "Nepal",
@@ -24907,7 +24907,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন দেশের জাতীয় পতাকায় একটি AK-47 assault rifle রয়েছে?",
+     "question": "Which country's national flag features an AK-47 assault rifle?",
      "options": [
       "Angola",
       "Mozambique",
@@ -24919,7 +24919,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন দেশের জাতীয় পতাকায় প্রধানভাবে একটি dragon চিত্রিত রয়েছে?",
+     "question": "Which country's national flag prominently depicts a dragon?",
      "options": [
       "Bhutan",
       "Sri Lanka",
@@ -24931,7 +24931,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন দেশের পতাকায় Angkor Wat মন্দির চিত্রিত রয়েছে?",
+     "question": "Which country's flag depicts the temple of Angkor Wat?",
      "options": [
       "Thailand",
       "Cambodia",
@@ -24943,7 +24943,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন দেশের জাতীয় পতাকার কেন্দ্রে একটি cedar গাছ রয়েছে?",
+     "question": "Which country's national flag features a cedar tree in the center?",
      "options": [
       "Cyprus",
       "Lebanon",
@@ -24955,7 +24955,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Switzerland ছাড়া আর কোন দেশের জাতীয় পতাকা বর্গাকার?",
+     "question": "Besides Switzerland, which country has a square national flag?",
      "options": [
       "Vatican City",
       "Nepal",
@@ -24967,7 +24967,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন দেশের পতাকায় দ্বীপটির নিজেরই copper রঙের মানচিত্র রয়েছে?",
+     "question": "Which country's flag features a copper-colored map of the island itself?",
      "options": [
       "Malta",
       "Cyprus",
@@ -24979,7 +24979,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন দেশের জাতীয় পতাকায় তরবারিধারী একটি সোনালি সিংহ চিত্রিত রয়েছে?",
+     "question": "Which country's national flag depicts a golden lion holding a sword?",
      "options": [
       "India",
       "Sri Lanka",
@@ -24991,7 +24991,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Chad-এর জাতীয় পতাকা বিখ্যাতভাবে কোন দেশের পতাকার প্রায় অভিন্ন?",
+     "question": "Chad's national flag is famously almost identical to that of which country?",
      "options": [
       "Moldova",
       "Romania",
@@ -25003,7 +25003,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Mexico-র পতাকার coat of arms-এ থাকা eagle কী চিত্রিত করে?",
+     "question": "What does the eagle on the Mexican flag's coat of arms depict?",
      "options": [
       "An eagle clutching arrows",
       "An eagle devouring a serpent atop a cactus",
@@ -25015,7 +25015,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Albania-র জাতীয় পতাকার কেন্দ্রে কোন প্রতীক (emblem) রয়েছে?",
+     "question": "What emblem appears at the center of Albania's national flag?",
      "options": [
       "A single eagle",
       "A double-headed eagle",
@@ -25027,7 +25027,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন দেশটি কেবল দুটি 'doubly landlocked' রাষ্ট্রের একটি, যা কেবল অন্যান্য landlocked দেশ দ্বারা পরিবেষ্টিত?",
+     "question": "Which country is one of only two 'doubly landlocked' nations, surrounded solely by other landlocked countries?",
      "options": [
       "Uzbekistan",
       "Mongolia",
@@ -25039,7 +25039,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন সার্বভৌম দেশ সম্পূর্ণরূপে South Africa দ্বারা পরিবেষ্টিত?",
+     "question": "Which sovereign country is entirely surrounded by South Africa?",
      "options": [
       "Eswatini",
       "Lesotho",
@@ -25051,7 +25051,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Caribbean-এর Hispaniola দ্বীপটি কোন দুটি দেশ ভাগ করে নিয়েছে?",
+     "question": "Which two countries share the Caribbean island of Hispaniola?",
      "options": [
       "Cuba and Jamaica",
       "Haiti and the Dominican Republic",
@@ -25063,7 +25063,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Borneo দ্বীপটি কোন তিনটি দেশ ভাগ করে নিয়েছে?",
+     "question": "Which three countries share the island of Borneo?",
      "options": [
       "Indonesia, Malaysia, and Brunei",
       "Indonesia, the Philippines, and Malaysia",
@@ -25075,7 +25075,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "New Guinea দ্বীপটি কোন দুটি দেশের মধ্যে বিভক্ত?",
+     "question": "The island of New Guinea is divided between which two countries?",
      "options": [
       "Indonesia and Papua New Guinea",
       "Indonesia and Timor-Leste",
@@ -25087,7 +25087,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "The Gambia প্রায় সম্পূর্ণরূপে কোন একটি দেশ দ্বারা পরিবেষ্টিত?",
+     "question": "The Gambia is almost entirely surrounded by which single country?",
      "options": [
       "Mali",
       "Guinea",
@@ -25099,7 +25099,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Lake Titicaca কোন দুটি দেশের সীমান্তে অবস্থিত?",
+     "question": "Lake Titicaca lies on the border of which two countries?",
      "options": [
       "Peru and Bolivia",
       "Chile and Bolivia",
@@ -25111,7 +25111,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Kaliningrad একটি Russian exclave যা কোন দুটি দেশের মাঝে অবস্থিত?",
+     "question": "Kaliningrad is a Russian exclave sandwiched between which two countries?",
      "options": [
       "Poland and Lithuania",
       "Estonia and Latvia",
@@ -25123,7 +25123,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "আয়তনে বিশ্বের বৃহত্তম landlocked দেশ কোনটি?",
+     "question": "Which is the world's largest landlocked country by area?",
      "options": [
       "Mongolia",
       "Kazakhstan",
@@ -25135,7 +25135,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন দুটি African দেশকে সাধারণত এমন রাষ্ট্র হিসেবে উল্লেখ করা হয় যারা কখনো European শক্তির দ্বারা আনুষ্ঠানিকভাবে উপনিবেশিত হয়নি?",
+     "question": "Which two African nations are commonly cited as never having been formally colonized by European powers?",
      "options": [
       "Ethiopia and Liberia",
       "Ghana and Kenya",
@@ -25147,7 +25147,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Vatican City ছাড়া কোন microstate একটি enclave যা সম্পূর্ণরূপে Italy দ্বারা পরিবেষ্টিত?",
+     "question": "Besides Vatican City, which microstate is an enclave entirely surrounded by Italy?",
      "options": [
       "Monaco",
       "San Marino",
@@ -25159,7 +25159,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন প্রণালী Spain-কে Morocco থেকে পৃথক করে এবং Atlantic Ocean ও Mediterranean Sea-কে সংযুক্ত করে?",
+     "question": "Which strait separates Spain from Morocco, linking the Atlantic Ocean and the Mediterranean Sea?",
      "options": [
       "The Bosphorus",
       "The Strait of Gibraltar",
@@ -25171,7 +25171,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Mount Everest কোন দুটি দেশের সীমান্তে অবস্থিত?",
+     "question": "Mount Everest lies on the border between which two countries?",
      "options": [
       "Nepal and India",
       "Nepal and China",
@@ -25183,7 +25183,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Zambezi River-এর উপর অবস্থিত Victoria Falls কোন দুটি দেশের সীমান্তে অবস্থিত?",
+     "question": "Victoria Falls, on the Zambezi River, lies on the border between which two countries?",
      "options": [
       "Zambia and Zimbabwe",
       "Kenya and Tanzania",
@@ -25195,7 +25195,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "কোন দেশের Mediterranean Sea ও Red Sea উভয়ের উপকূল রয়েছে?",
+     "question": "Which country has coastlines on both the Mediterranean Sea and the Red Sea?",
      "options": [
       "Israel",
       "Egypt",
@@ -25207,7 +25207,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "সর্বাধিক আন্তর্জাতিক স্থলসীমান্ত থাকার ক্ষেত্রে কোন দুটি দেশ সমান, প্রত্যেকের ১৪টি করে প্রতিবেশী?",
+     "question": "Which two countries are tied for having the most international land borders, with 14 neighbors each?",
      "options": [
       "China and Russia",
       "China and India",
@@ -25219,7 +25219,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "বিশ্বের বৃহত্তম drainage basin কোন নদীর?",
+     "question": "Which river has the largest drainage basin in the world?",
      "options": [
       "Nile",
       "Amazon",
@@ -25231,7 +25231,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Danube River শেষ পর্যন্ত কোন জলাশয়ে পতিত হয়?",
+     "question": "Into which body of water does the Danube River ultimately empty?",
      "options": [
       "Adriatic Sea",
       "Caspian Sea",
@@ -25243,7 +25243,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Asia-র দীর্ঘতম নদী কোনটি?",
+     "question": "What is the longest river in Asia?",
      "options": [
       "Yellow River (Huang He)",
       "Mekong",
@@ -25255,7 +25255,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Europe-এর দীর্ঘতম নদী Volga কোন জলাশয়ে পতিত হয়?",
+     "question": "The Volga, the longest river in Europe, drains into which body of water?",
      "options": [
       "Black Sea",
       "Caspian Sea",
@@ -25267,7 +25267,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Africa-র কোন নদীর discharge (পানিপ্রবাহ) সর্বাধিক?",
+     "question": "Which river carries the largest discharge (volume of water) of any river in Africa?",
      "options": [
       "Nile",
       "Niger",
@@ -25279,7 +25279,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Mekong River এদের মধ্যে কোন দেশের মধ্য দিয়ে প্রবাহিত হয় না?",
+     "question": "Through which of these countries does the Mekong River NOT flow?",
      "options": [
       "China",
       "Myanmar",
@@ -25291,7 +25291,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Yenisei, Ob ও Lena নদীগুলো সবই কোন মহাসাগরে পতিত হয়?",
+     "question": "The Yenisei, Ob, and Lena rivers all drain into which ocean?",
      "options": [
       "Pacific Ocean",
       "Arctic Ocean",
@@ -25303,7 +25303,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "বিশ্বের অন্য যেকোনো নদীর চেয়ে বেশি দেশের মধ্য দিয়ে প্রবাহিত হয় বা সীমান্ত গঠন করে কোন নদী?",
+     "question": "Which river flows through or borders more countries than any other in the world?",
      "options": [
       "Rhine",
       "Nile",
@@ -25315,7 +25315,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Nile-এর একটি প্রধান উপনদী Blue Nile কোন হ্রদ থেকে উৎপন্ন হয়?",
+     "question": "The Blue Nile, a major tributary of the Nile, originates from which lake?",
      "options": [
       "Lake Victoria",
       "Lake Tana",
@@ -25327,7 +25327,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Amazon River-এর উৎস কোন পর্বতমালায়?",
+     "question": "In which mountain system does the Amazon River have its source?",
      "options": [
       "Andes",
       "Guiana Highlands",
@@ -25339,7 +25339,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রাচীন Mesopotamia কোন দুটি নদীর মধ্যবর্তী অঞ্চলে অবস্থিত ছিল?",
+     "question": "Ancient Mesopotamia was situated between which two rivers?",
      "options": [
       "Indus and Ganges",
       "Tigris and Euphrates",
@@ -25351,7 +25351,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "South America-র সর্বোচ্চ পর্বতশৃঙ্গ কোনটি?",
+     "question": "What is the highest mountain peak in South America?",
      "options": [
       "Ojos del Salado",
       "Huascaran",
@@ -25363,7 +25363,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "পৃথিবীর equatorial bulge-এর কারণে কোন শৃঙ্গের চূড়া পৃথিবীর কেন্দ্র থেকে সবচেয়ে দূরবর্তী বিন্দু?",
+     "question": "Because of Earth's equatorial bulge, which peak's summit is the farthest point from the centre of the Earth?",
      "options": [
       "Mount Everest",
       "Chimborazo",
@@ -25375,7 +25375,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "বিশ্বের দ্বিতীয় সর্বোচ্চ পর্বত K2 কোন পর্বতমালার অন্তর্ভুক্ত?",
+     "question": "K2, the world's second-highest mountain, belongs to which mountain range?",
      "options": [
       "Himalayas",
       "Karakoram",
@@ -25387,7 +25387,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "North America-র সর্বোচ্চ শৃঙ্গ Denali কোন পর্বতমালার অংশ?",
+     "question": "Denali, the highest peak in North America, is part of which mountain range?",
      "options": [
       "Rocky Mountains",
       "Alaska Range",
@@ -25399,7 +25399,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Alps-এর সর্বোচ্চ শৃঙ্গ Mont Blanc, France এবং আর কোন দেশের সীমান্তে অবস্থিত?",
+     "question": "Mont Blanc, the highest peak of the Alps, straddles the border between France and which country?",
      "options": [
       "Switzerland",
       "Italy",
@@ -25411,7 +25411,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "contiguous (lower 48) United States-এর সর্বোচ্চ পর্বত কোনটি?",
+     "question": "What is the highest mountain in the contiguous (lower 48) United States?",
      "options": [
       "Mount Rainier",
       "Mount Elbert",
@@ -25423,7 +25423,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Europe-এর সর্বোচ্চ শৃঙ্গ Mount Elbrus কোন পর্বতমালায় অবস্থিত?",
+     "question": "Mount Elbrus, the highest peak in Europe, is located in which mountain range?",
      "options": [
       "Alps",
       "Caucasus",
@@ -25435,7 +25435,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "Oceania-র সর্বোচ্চ শৃঙ্গ Puncak Jaya (Carstensz Pyramid) কোন দ্বীপে অবস্থিত?",
+     "question": "Puncak Jaya (Carstensz Pyramid), the highest peak in Oceania, is located on which island?",
      "options": [
       "Borneo",
       "New Guinea",
@@ -25447,7 +25447,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Ural Mountains-কে প্রথাগতভাবে কোন দুটি মহাদেশের মধ্যকার সীমানা হিসেবে ধরা হয়?",
+     "question": "The Ural Mountains are traditionally taken as the boundary between which two continents?",
      "options": [
       "Europe and Asia",
       "Asia and Africa",
@@ -25459,7 +25459,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "কোন পর্বতমালা France ও Spain-এর মধ্যে প্রাকৃতিক সীমান্ত গঠন করে?",
+     "question": "Which mountain range forms the natural border between France and Spain?",
      "options": [
       "Alps",
       "Apennines",
@@ -25471,7 +25471,7 @@
      "difficulty": "medium"
     },
     {
-     "question": "প্রায় ৪,৮৯২ মিটার উঁচু Mount Vinson কোন মহাদেশের সর্বোচ্চ শৃঙ্গ?",
+     "question": "Mount Vinson, at about 4,892 m, is the highest peak of which continent?",
      "options": [
       "South America",
       "Antarctica",
@@ -25483,7 +25483,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "৮,০০০ মিটারের বেশি উঁচু চৌদ্দটি পর্বতই কোন দুটি পর্বতমালার মধ্যে অবস্থিত?",
+     "question": "All fourteen mountains above 8,000 metres are located within which two mountain systems?",
      "options": [
       "Andes and Rockies",
       "Himalayas and Karakoram",
@@ -25495,7 +25495,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Appalachian Mountains এবং পূর্ব North America-র সর্বোচ্চ শৃঙ্গ Mount Mitchell কোন U.S. state-এ অবস্থিত?",
+     "question": "Mount Mitchell, the highest peak in the Appalachian Mountains and in eastern North America, is located in which U.S. state?",
      "options": [
       "Tennessee",
       "North Carolina",
@@ -25507,7 +25507,7 @@
      "difficulty": "hard"
     },
     {
-     "question": "Atlas Mountains কোন অঞ্চল জুড়ে বিস্তৃত?",
+     "question": "The Atlas Mountains stretch across which region?",
      "options": [
       "Northwest Africa",
       "East Africa",
