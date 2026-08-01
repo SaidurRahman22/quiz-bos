@@ -12,6 +12,7 @@ import ResetPassword from './pages/ResetPassword.jsx';
 import Profile from './pages/Profile.jsx';
 import SavedQuestions from './pages/SavedQuestions.jsx';
 import Admin from './pages/Admin.jsx';
+import Settings from './pages/Settings.jsx';
 
 const AUTH_ROUTES = ['/login', '/register', '/forgot-password', '/reset-password'];
 
@@ -41,6 +42,7 @@ export default function App() {
           <Route path="/quizzes/:slug" element={<QuizPlay />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/saved" element={<SavedQuestions />} />
+          <Route path="/settings" element={<Settings />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/flashcards" element={<FlashcardTopics />} />
           <Route path="/flashcards/:slug" element={<FlashcardDeck />} />

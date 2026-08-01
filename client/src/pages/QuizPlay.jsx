@@ -12,6 +12,7 @@ import Loader from '../components/Loader.jsx';
 import Bilingual from '../components/Bilingual.jsx';
 import DifficultyToggle from '../components/DifficultyToggle.jsx';
 import { filterByDifficulty, difficultyCounts, shuffle } from '../utils.js';
+import { speak, stopSpeaking, ttsSupported } from '../tts.js';
 import { useAuth } from '../context/AuthContext.jsx';
 
 const KEYS = ['A', 'B', 'C', 'D', 'E', 'F']; // supports up to 6 options (admin questions)
@@ -315,6 +316,13 @@ export default function QuizPlay() {
     return () => window.removeEventListener('keydown', onKey);
   });
 
+  // Stop any read-aloud when the visible question changes or on unmount so
+  // speech never overlaps between questions.
+  useEffect(() => {
+    stopSpeaking();
+    return stopSpeaking;
+  }, [current]);
+
   if (error) {
     return (
       <div className="alert alert-danger">
@@ -512,6 +520,16 @@ export default function QuizPlay() {
       <div className="qb-card p-4 p-md-5">
         <div className="d-flex justify-content-between align-items-start mb-3 gap-2">
           <h4 className="mb-0 flex-grow-1">{q.question}</h4>
+          {ttsSupported() && (
+            <button
+              className="btn btn-sm btn-ghost"
+              onClick={() => speak(q.question)}
+              title="Read the question aloud"
+              aria-label="Read the question aloud"
+            >
+              🔊
+            </button>
+          )}
           <span className={`difficulty-tag diff-${q.difficulty}`}>{q.difficulty}</span>
         </div>
 

@@ -5,6 +5,7 @@ import Loader from '../components/Loader.jsx';
 import Bilingual from '../components/Bilingual.jsx';
 import DifficultyToggle from '../components/DifficultyToggle.jsx';
 import { filterByDifficulty, difficultyCounts, shuffle } from '../utils.js';
+import { speak, stopSpeaking, ttsSupported } from '../tts.js';
 
 // ── Leitner spaced-repetition config ────────────────────────────────────────
 const DAY_MS = 24 * 60 * 60 * 1000;
@@ -115,6 +116,7 @@ export default function FlashcardDeck() {
 
   const go = useCallback(
     (dir) => {
+      stopSpeaking();
       setFlipped(false);
       setPos((p) => Math.min(Math.max(p + dir, 0), Math.max(queue.length - 1, 0)));
     },
@@ -129,6 +131,13 @@ export default function FlashcardDeck() {
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
   }, []);
+
+  // Stop any read-aloud when the card advances (go / grade) or the deck changes,
+  // and on unmount, so speech never overlaps between cards.
+  useEffect(() => {
+    stopSpeaking();
+    return stopSpeaking;
+  }, [slug, pos]);
 
   if (error) {
     return (
@@ -281,7 +290,26 @@ export default function FlashcardDeck() {
         Box {box} / {MAX_BOX}
       </div>
 
-      <div className={`flashcard ${flipped ? 'flipped' : ''}`} onClick={() => setFlipped((f) => !f)}>
+      <div
+        className={`flashcard ${flipped ? 'flipped' : ''}`}
+        style={{ position: 'relative' }}
+        onClick={() => setFlipped((f) => !f)}
+      >
+        {ttsSupported() && (
+          <button
+            className="btn btn-sm btn-ghost"
+            style={{ position: 'absolute', bottom: '0.9rem', left: '1rem', zIndex: 2 }}
+            // stopPropagation so reading the card aloud doesn't also flip it.
+            onClick={(e) => {
+              e.stopPropagation();
+              speak(flipped ? card.back : card.front);
+            }}
+            title="Read this side aloud"
+            aria-label="Read this side aloud"
+          >
+            🔊
+          </button>
+        )}
         <div className="flashcard-inner">
           <div className="flashcard-face flashcard-front">
             <span className="face-label">Question</span>

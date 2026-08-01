@@ -110,6 +110,15 @@ export default function Navbar() {
                   >
                     ⭐ Saved
                   </button>
+                  <button
+                    className="user-dropdown-item"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate('/settings');
+                    }}
+                  >
+                    ⚙️ Settings
+                  </button>
                   {user.isAdmin && (
                     <button
                       className="user-dropdown-item"

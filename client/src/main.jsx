@@ -7,6 +7,10 @@ import App from './App.jsx';
 import PWAUpdatePrompt from './pwa/PWAUpdatePrompt.jsx';
 import { ThemeProvider } from './context/ThemeContext.jsx';
 import { AuthProvider } from './context/AuthContext.jsx';
+import { getReminderSettings, startForegroundReminder } from './pwa/notifications.js';
+
+// If the user enabled study reminders, run the foreground scheduler for this session.
+if (getReminderSettings().enabled) startForegroundReminder();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

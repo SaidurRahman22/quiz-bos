@@ -14,6 +14,10 @@ export default defineConfig({
       manifest,
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
+        // sw-custom.js is imported at runtime (push / periodicsync / notificationclick
+        // handlers); don't also precache it as a normal asset.
+        globIgnores: ['**/sw-custom.js'],
+        importScripts: ['sw-custom.js'],
         navigateFallback: '/index.html',
         runtimeCaching: [
           {
