@@ -3,14 +3,14 @@ export const TOPICS = [
   {
     slug: 'nursing',
     name: 'Nursing',
-    description: 'Clinical fundamentals — vital signs, medications, patient safety & care.',
+    description: 'Clinical fundamentals - vital signs, medications, patient safety & care.',
     icon: '🩺',
     color: '#10b981',
   },
   {
     slug: 'general-knowledge',
     name: 'General Knowledge',
-    description: 'A bit of everything — science, history, sports, space & world records.',
+    description: 'A bit of everything - science, history, sports, space & world records.',
     icon: '🧠',
     color: '#6366f1',
   },
@@ -24,7 +24,7 @@ export const TOPICS = [
   {
     slug: 'bangla',
     name: 'Bangla',
-    description: 'Bengali literature, grammar & language history — the high-frequency topics from BCS, bank, NTRCA & university admission exams.',
+    description: 'Bengali literature, grammar & language history - the high-frequency topics from BCS, bank, NTRCA & university admission exams.',
     icon: '✍️',
     color: '#0ea5e9',
   },
