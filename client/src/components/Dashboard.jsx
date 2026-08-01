@@ -111,6 +111,28 @@ export default function Dashboard() {
     accuracy: t.accuracy,
     color: meta(t.slug).color,
   }));
+
+  // Left-aligned, word-wrapped Y-axis label so short topic names sit flush to
+  // the card edge instead of being right-anchored (which left a big empty
+  // gutter on the left of the chart).
+  const TopicTick = ({ x, y, payload }) => {
+    const words = String(payload.value).split(' ');
+    const lines = [];
+    let cur = '';
+    for (const w of words) {
+      if (cur && (cur + ' ' + w).length > 13) { lines.push(cur); cur = w; }
+      else cur = cur ? cur + ' ' + w : w;
+    }
+    if (cur) lines.push(cur);
+    const two = lines.slice(0, 2);
+    return (
+      <text x={2} y={y} textAnchor="start" fill={ink} fontSize={13}>
+        {two.map((ln, i) => (
+          <tspan key={i} x={2} dy={i === 0 ? (two.length === 1 ? 4 : -3) : 15}>{ln}</tspan>
+        ))}
+      </text>
+    );
+  };
   const donutData = [
     { name: 'Correct', value: summary.correct, color: '#0ca30c' },
     { name: 'To improve', value: incorrect, color: theme === 'dark' ? '#3a3a38' : '#e5e7eb' },
@@ -317,12 +339,12 @@ export default function Dashboard() {
                   <BarChart
                     layout="vertical"
                     data={topicData}
-                    margin={{ top: 6, right: 44, left: 8, bottom: 0 }}
+                    margin={{ top: 6, right: 44, left: 0, bottom: 0 }}
                     barCategoryGap="28%"
                   >
                     <CartesianGrid stroke={grid} horizontal={false} />
                     <XAxis type="number" domain={[0, 100]} tick={{ fill: ink, fontSize: 12 }} tickLine={false} axisLine={{ stroke: grid }} unit="%" />
-                    <YAxis type="category" dataKey="name" width={130} tick={{ fill: ink, fontSize: 13 }} tickLine={false} axisLine={false} />
+                    <YAxis type="category" dataKey="name" width={104} tick={<TopicTick />} interval={0} tickLine={false} axisLine={false} />
                     <Tooltip content={<ChartTooltip />} cursor={{ fill: 'rgba(99,102,241,0.06)' }} />
                     <Bar dataKey="accuracy" radius={[0, 6, 6, 0]} animationDuration={900}>
                       {topicData.map((d, i) => (
