@@ -99,6 +99,16 @@ export async function runSetup() {
       FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
       INDEX idx_user_created (user_id, created_at)
     ) ENGINE=InnoDB;
+
+    CREATE TABLE IF NOT EXISTS question_reports (
+      id          INT AUTO_INCREMENT PRIMARY KEY,
+      question_id INT NOT NULL,
+      topic_slug  VARCHAR(64) NOT NULL,
+      reason      VARCHAR(280),
+      user_id     INT NULL,
+      created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      INDEX idx_question (question_id)
+    ) ENGINE=InnoDB;
   `);
   console.log('✔ User tables ready (preserved across reseeds)');
 

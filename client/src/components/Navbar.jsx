@@ -74,6 +74,15 @@ export default function Navbar() {
                     className="user-dropdown-item"
                     onClick={() => {
                       setMenuOpen(false);
+                      navigate('/profile');
+                    }}
+                  >
+                    👤 Profile
+                  </button>
+                  <button
+                    className="user-dropdown-item"
+                    onClick={() => {
+                      setMenuOpen(false);
                       navigate('/');
                     }}
                   >

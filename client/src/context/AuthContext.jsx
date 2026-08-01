@@ -42,9 +42,19 @@ export function AuthProvider({ children }) {
     clearToken();
     setUser(null);
   }, []);
+  // logout-all bumps the server token_version, invalidating this token too,
+  // so on success we clear the local session just like logout.
+  const logoutEverywhere = useCallback(
+    () =>
+      apiClient.logoutAll().then(() => {
+        clearToken();
+        setUser(null);
+      }),
+    []
+  );
 
   return (
-    <AuthContext.Provider value={{ user, ready, login, register, logout }}>
+    <AuthContext.Provider value={{ user, ready, login, register, logout, logoutEverywhere }}>
       {children}
     </AuthContext.Provider>
   );

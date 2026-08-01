@@ -20,6 +20,7 @@ export const getTopics = () => api.get('/topics').then((r) => r.data);
 export const getQuiz = (slug) => api.get(`/quizzes/${slug}`).then((r) => r.data);
 export const getFlashcards = (slug) => api.get(`/flashcards/${slug}`).then((r) => r.data);
 export const getHealth = () => api.get('/health').then((r) => r.data);
+export const reportQuestion = (data) => api.post('/reports', data).then((r) => r.data);
 
 // Auth
 export const register = (data) => api.post('/auth/register', data).then((r) => r.data);

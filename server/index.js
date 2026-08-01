@@ -3,12 +3,13 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { PORT } from './config.js';
-import { pool, ensureAuthSchema } from './db.js';
+import { pool, ensureAuthSchema, ensureReportsSchema } from './db.js';
 import topicsRouter from './routes/topics.js';
 import quizzesRouter from './routes/quizzes.js';
 import flashcardsRouter from './routes/flashcards.js';
 import authRouter from './routes/auth.js';
 import statsRouter from './routes/stats.js';
+import reportsRouter from './routes/reports.js';
 
 const app = express();
 
@@ -45,10 +46,20 @@ const authLimiter = rateLimit({
   message: { error: 'Too many attempts. Please try again in a few minutes.' },
 });
 
+// Throttle report submissions to blunt spam from a single client.
+const reportsLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 30,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: 'Too many reports. Please try again later.' },
+});
+
 // Content (public)
 app.use('/api/topics', topicsRouter);
 app.use('/api/quizzes', quizzesRouter);
 app.use('/api/flashcards', flashcardsRouter);
+app.use('/api/reports', reportsLimiter, reportsRouter);
 
 // Auth (rate-limited) + user stats (auth-protected inside the router)
 app.use('/api/auth', authLimiter, authRouter);
@@ -62,9 +73,10 @@ app.use((err, _req, res, _next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
-// Ensure the token_version revocation column exists (idempotent), then start.
-ensureAuthSchema()
-  .catch((err) => console.error('Auth schema migration failed:', err))
+// Run idempotent boot migrations (token_version column + question_reports table),
+// then start listening regardless of migration outcome.
+Promise.all([ensureAuthSchema(), ensureReportsSchema()])
+  .catch((err) => console.error('Schema migration failed:', err))
   .finally(() => {
     app.listen(PORT, () => {
       console.log(`Quiz Boss API listening on http://localhost:${PORT}`);
