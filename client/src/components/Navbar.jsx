@@ -129,10 +129,10 @@ export default function Navbar() {
             </div>
           ) : (
             <>
-              <Link to="/login" className="qb-nav-link d-none d-sm-inline">
+              <Link to="/login" className="qb-nav-link">
                 Log in
               </Link>
-              <Link to="/register" className="btn btn-gradient btn-sm ms-1">
+              <Link to="/register" className="btn btn-gradient btn-sm ms-1 d-none d-sm-inline-block">
                 Sign up
               </Link>
             </>

@@ -20,7 +20,12 @@ export default function FlashcardTopics() {
         <p className="text-muted-2">Flip through study cards to memorize key facts across every topic.</p>
       </div>
 
-      {error && <div className="alert alert-danger">Could not reach the API. Is the backend running on port 4000?</div>}
+      {error && (
+        <div className="alert alert-danger">
+          Couldn’t load flashcards. Check your connection and try again — offline, only decks you’ve
+          opened before are available.
+        </div>
+      )}
       {!topics && !error && <Loader label="Loading topics…" />}
 
       {topics && (

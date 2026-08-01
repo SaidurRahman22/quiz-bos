@@ -20,7 +20,12 @@ export default function QuizTopics() {
         <p className="text-muted-2">Pick a topic and test your knowledge. Instant feedback on every answer.</p>
       </div>
 
-      {error && <div className="alert alert-danger">Could not reach the API. Is the backend running on port 4000?</div>}
+      {error && (
+        <div className="alert alert-danger">
+          Couldn’t load quizzes. Check your connection and try again — offline, only topics you’ve
+          opened before are available.
+        </div>
+      )}
       {!topics && !error && <Loader label="Loading topics…" />}
 
       {topics && (

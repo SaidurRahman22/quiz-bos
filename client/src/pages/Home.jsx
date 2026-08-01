@@ -79,7 +79,8 @@ export default function Home() {
 
         {error && (
           <div className="alert alert-danger">
-            Could not reach the API. Make sure the backend is running on port 4000.
+            Couldn’t load content. Check your internet connection and try again — offline, only
+            topics you’ve opened before are available.
           </div>
         )}
         {!topics && !error && <Loader label="Loading topics…" />}

@@ -18,8 +18,10 @@ export default defineConfig({
         runtimeCaching: [
           {
             // Quiz/flashcard/topic content: serve from network, fall back to cache so
-            // decks you've already opened keep working offline.
-            urlPattern: /\/api\/(topics|quizzes|flashcards)/,
+            // decks you've already opened keep working offline. Matched by PATHNAME (via a
+            // callback) so it also caches the cross-origin production API (Railway) — a bare
+            // RegExp only matches same-origin requests, which is why offline was failing.
+            urlPattern: ({ url }) => /^\/api\/(topics|quizzes|flashcards)(\/|$)/.test(url.pathname),
             handler: 'NetworkFirst',
             options: {
               cacheName: 'qb-api-content',
