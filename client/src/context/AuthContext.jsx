@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import * as apiClient from '../api.js';
-import { getToken, setToken, clearToken } from '../tokenStore.js';
+import { getToken, setToken, clearToken, refreshToken } from '../tokenStore.js';
 
 const AuthContext = createContext(null);
 export const useAuth = () => useContext(AuthContext);
@@ -53,8 +53,30 @@ export function AuthProvider({ children }) {
     []
   );
 
+  // Update editable profile fields (username / avatar); reflect the result in context
+  // so the navbar avatar and everything else updates immediately.
+  const updateProfile = useCallback(
+    (patch) => apiClient.updateProfile(patch).then((d) => {
+      setUser(d.user);
+      return d.user;
+    }),
+    []
+  );
+
+  // Change password with the current password. The server revokes other sessions and
+  // returns a fresh token for this one, which we swap in without logging the user out.
+  const changePassword = useCallback(
+    (payload) => apiClient.changePassword(payload).then((d) => {
+      if (d.token) refreshToken(d.token);
+      return d;
+    }),
+    []
+  );
+
   return (
-    <AuthContext.Provider value={{ user, ready, login, register, logout, logoutEverywhere }}>
+    <AuthContext.Provider
+      value={{ user, ready, login, register, logout, logoutEverywhere, updateProfile, changePassword }}
+    >
       {children}
     </AuthContext.Provider>
   );

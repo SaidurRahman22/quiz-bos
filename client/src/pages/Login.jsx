@@ -59,14 +59,19 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           autoComplete="current-password"
         />
-        <label className="remember-row">
-          <input
-            type="checkbox"
-            checked={remember}
-            onChange={(e) => setRemember(e.target.checked)}
-          />
-          <span>Remember me on this device</span>
-        </label>
+        <div className="d-flex align-items-center justify-content-between">
+          <label className="remember-row">
+            <input
+              type="checkbox"
+              checked={remember}
+              onChange={(e) => setRemember(e.target.checked)}
+            />
+            <span>Remember me on this device</span>
+          </label>
+          <Link to="/forgot-password" style={{ fontSize: '0.85rem' }}>
+            Forgot password?
+          </Link>
+        </div>
 
         <button className="btn btn-gradient w-100 auth-submit" disabled={loading}>
           {loading ? <span className="btn-spinner" /> : 'Log in →'}

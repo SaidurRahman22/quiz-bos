@@ -54,6 +54,33 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+/* ---------- Modern scrollbars (app-wide, theme-aware) ----------
+   A slim, floating gradient thumb on a transparent track. Styled for WebKit
+   (Chrome/Edge/Safari) and Firefox; both light & dark themes inherit the vars. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  /* padding-box + transparent border makes the thumb float with a little inset */
+  background: linear-gradient(var(--primary), var(--primary-2)) padding-box;
+  border: 2px solid transparent;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--primary-2), var(--accent)) padding-box;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
 h1, h2, h3, h4, h5, .fw-head {
   font-family: var(--font-head);
   letter-spacing: -0.02em;

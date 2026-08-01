@@ -59,8 +59,21 @@ export default function Navbar() {
 
           {user ? (
             <div className="user-menu ms-1" ref={menuRef}>
-              <button className="avatar-btn" onClick={() => setMenuOpen((o) => !o)} title={user.username}>
-                {initials}
+              <button
+                className="avatar-btn"
+                onClick={() => setMenuOpen((o) => !o)}
+                title={user.username}
+                style={user.avatar ? { padding: 0, overflow: 'hidden' } : undefined}
+              >
+                {user.avatar ? (
+                  <img
+                    src={user.avatar}
+                    alt=""
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                ) : (
+                  initials
+                )}
               </button>
               {menuOpen && (
                 <div className="user-dropdown fade-in">
@@ -97,6 +110,17 @@ export default function Navbar() {
                   >
                     ⭐ Saved
                   </button>
+                  {user.isAdmin && (
+                    <button
+                      className="user-dropdown-item"
+                      onClick={() => {
+                        setMenuOpen(false);
+                        navigate('/admin');
+                      }}
+                    >
+                      🛠️ Admin
+                    </button>
+                  )}
                   <button className="user-dropdown-item danger" onClick={handleLogout}>
                     ⎋ Log out
                   </button>

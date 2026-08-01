@@ -85,7 +85,19 @@ export async function runSetup() {
       email         VARCHAR(255) NOT NULL UNIQUE,
       password_hash VARCHAR(255) NOT NULL,
       token_version INT NOT NULL DEFAULT 0,
+      avatar        LONGTEXT NULL,
+      is_admin      TINYINT NOT NULL DEFAULT 0,
       created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    ) ENGINE=InnoDB;
+
+    CREATE TABLE IF NOT EXISTS password_resets (
+      id         INT AUTO_INCREMENT PRIMARY KEY,
+      user_id    INT NOT NULL,
+      token_hash CHAR(64) NOT NULL,
+      expires_at DATETIME NOT NULL,
+      created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE KEY uniq_token (token_hash),
+      INDEX idx_user (user_id)
     ) ENGINE=InnoDB;
 
     CREATE TABLE IF NOT EXISTS quiz_attempts (

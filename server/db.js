@@ -21,6 +21,38 @@ export async function ensureAuthSchema() {
   }
 }
 
+// Add the profile columns (avatar data-URL/URL + admin flag). Idempotent — one ALTER
+// per column so an already-migrated DB just skips the duplicates.
+export async function ensureProfileSchema() {
+  const alters = [
+    'ALTER TABLE users ADD COLUMN avatar LONGTEXT NULL',
+    'ALTER TABLE users ADD COLUMN is_admin TINYINT NOT NULL DEFAULT 0',
+  ];
+  for (const sql of alters) {
+    try {
+      await pool.query(sql);
+    } catch (err) {
+      if (err.code !== 'ER_DUP_FIELDNAME' && err.code !== 'ER_NO_SUCH_TABLE') throw err;
+    }
+  }
+}
+
+// Password-reset tokens. Only the SHA-256 hash of the token is stored, never the raw
+// token, so a DB leak can't be used to reset passwords.
+export async function ensurePasswordResetSchema() {
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS password_resets (
+      id         INT AUTO_INCREMENT PRIMARY KEY,
+      user_id    INT NOT NULL,
+      token_hash CHAR(64) NOT NULL,
+      expires_at DATETIME NOT NULL,
+      created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE KEY uniq_token (token_hash),
+      INDEX idx_user (user_id)
+    ) ENGINE=InnoDB
+  `);
+}
+
 // Idempotent migration: guarantee the question_reports table exists so user-submitted
 // reports survive content reseeds (which drop/recreate the content tables). Safe to run
 // on every boot — CREATE TABLE IF NOT EXISTS is a no-op when the table is already there.

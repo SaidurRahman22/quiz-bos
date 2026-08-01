@@ -53,3 +53,22 @@ if (!JWT_SECRET || JWT_SECRET.length < 32) {
 }
 // Shorter default lifetime limits how long a stolen token stays usable (SEC-03).
 export const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '1d';
+
+// Admins are granted by email (comma-separated ADMIN_EMAILS) OR the users.is_admin
+// column. The env route lets you bootstrap an admin without touching the DB.
+export const ADMIN_EMAILS = new Set(
+  (process.env.ADMIN_EMAILS || '')
+    .split(',')
+    .map((s) => s.trim().toLowerCase())
+    .filter(Boolean)
+);
+
+// Transactional email (password reset). Configure ONE provider via its API key.
+// If neither is set the reset link is logged to the server console instead (dev),
+// so nothing leaks to the client and the flow is still testable.
+export const RESEND_API_KEY = process.env.RESEND_API_KEY || '';
+export const BREVO_API_KEY = process.env.BREVO_API_KEY || '';
+export const MAIL_FROM = process.env.MAIL_FROM || 'Quiz Boss <onboarding@resend.dev>';
+
+// Public URL of the frontend, used to build password-reset links.
+export const APP_URL = (process.env.APP_URL || 'http://localhost:5173').replace(/\/$/, '');

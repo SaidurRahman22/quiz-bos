@@ -3,7 +3,14 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { PORT } from './config.js';
-import { pool, ensureAuthSchema, ensureReportsSchema, ensureSavedSchema } from './db.js';
+import {
+  pool,
+  ensureAuthSchema,
+  ensureReportsSchema,
+  ensureSavedSchema,
+  ensureProfileSchema,
+  ensurePasswordResetSchema,
+} from './db.js';
 import topicsRouter from './routes/topics.js';
 import quizzesRouter from './routes/quizzes.js';
 import flashcardsRouter from './routes/flashcards.js';
@@ -11,6 +18,7 @@ import authRouter from './routes/auth.js';
 import statsRouter from './routes/stats.js';
 import reportsRouter from './routes/reports.js';
 import savedRouter from './routes/saved.js';
+import adminRouter from './routes/admin.js';
 
 const app = express();
 
@@ -26,7 +34,16 @@ const allowedOrigins = (process.env.CORS_ORIGIN || '')
   .split(',')
   .map((s) => s.trim())
   .filter(Boolean);
-app.use(cors({ origin: allowedOrigins.length ? allowedOrigins : false, methods: ['GET', 'POST'] }));
+app.use(
+  cors({
+    origin: allowedOrigins.length ? allowedOrigins : false,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+  })
+);
+// Profile updates can carry an avatar (image/GIF data URL) so this one path gets a
+// larger body limit; everything else stays tight at 64kb. This parser runs first, so
+// the global one below sees the body already parsed and skips it.
+app.use('/api/auth/me', express.json({ limit: '2mb' }));
 app.use(express.json({ limit: '64kb' }));
 
 app.get('/api/health', async (_req, res) => {
@@ -66,6 +83,7 @@ app.use('/api/reports', reportsLimiter, reportsRouter);
 app.use('/api/auth', authLimiter, authRouter);
 app.use('/api', statsRouter);
 app.use('/api/saved', savedRouter);
+app.use('/api/admin', adminRouter);
 
 // 404 + error handlers
 app.use((_req, res) => res.status(404).json({ error: 'Not found' }));
@@ -77,7 +95,13 @@ app.use((err, _req, res, _next) => {
 
 // Run idempotent boot migrations (token_version column + question_reports table),
 // then start listening regardless of migration outcome.
-Promise.all([ensureAuthSchema(), ensureReportsSchema(), ensureSavedSchema()])
+Promise.all([
+  ensureAuthSchema(),
+  ensureReportsSchema(),
+  ensureSavedSchema(),
+  ensureProfileSchema(),
+  ensurePasswordResetSchema(),
+])
   .catch((err) => console.error('Schema migration failed:', err))
   .finally(() => {
     app.listen(PORT, () => {

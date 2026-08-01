@@ -7,10 +7,13 @@ import FlashcardTopics from './pages/FlashcardTopics.jsx';
 import FlashcardDeck from './pages/FlashcardDeck.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
+import ForgotPassword from './pages/ForgotPassword.jsx';
+import ResetPassword from './pages/ResetPassword.jsx';
 import Profile from './pages/Profile.jsx';
 import SavedQuestions from './pages/SavedQuestions.jsx';
+import Admin from './pages/Admin.jsx';
 
-const AUTH_ROUTES = ['/login', '/register'];
+const AUTH_ROUTES = ['/login', '/register', '/forgot-password', '/reset-password'];
 
 export default function App() {
   const location = useLocation();
@@ -22,6 +25,8 @@ export default function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
       </Routes>
     );
   }
@@ -36,6 +41,7 @@ export default function App() {
           <Route path="/quizzes/:slug" element={<QuizPlay />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/saved" element={<SavedQuestions />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="/flashcards" element={<FlashcardTopics />} />
           <Route path="/flashcards/:slug" element={<FlashcardDeck />} />
           <Route path="*" element={<Home />} />

@@ -27,6 +27,19 @@ export const register = (data) => api.post('/auth/register', data).then((r) => r
 export const login = (data) => api.post('/auth/login', data).then((r) => r.data);
 export const getMe = () => api.get('/auth/me').then((r) => r.data);
 export const logoutAll = () => api.post('/auth/logout-all').then((r) => r.data);
+export const updateProfile = (data) => api.patch('/auth/me', data).then((r) => r.data);
+export const changePassword = (data) => api.post('/auth/change-password', data).then((r) => r.data);
+export const forgotPassword = (data) => api.post('/auth/forgot-password', data).then((r) => r.data);
+export const resetPassword = (data) => api.post('/auth/reset-password', data).then((r) => r.data);
+
+// Admin (question CRUD — requires an admin account)
+export const adminGetTopics = () => api.get('/admin/topics').then((r) => r.data.topics);
+export const adminListQuestions = (topic) =>
+  api.get('/admin/questions', { params: { topic } }).then((r) => r.data.questions);
+export const adminCreateQuestion = (data) => api.post('/admin/questions', data).then((r) => r.data.question);
+export const adminUpdateQuestion = (id, data) =>
+  api.put(`/admin/questions/${id}`, data).then((r) => r.data.question);
+export const adminDeleteQuestion = (id) => api.delete(`/admin/questions/${id}`).then((r) => r.data);
 
 // Stats / attempts
 export const recordAttempt = (data) => api.post('/attempts', data).then((r) => r.data);

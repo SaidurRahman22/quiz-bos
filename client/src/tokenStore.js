@@ -21,3 +21,10 @@ export function clearToken() {
   localStorage.removeItem(KEY);
   sessionStorage.removeItem(KEY);
 }
+
+// Replace the token in whichever store currently holds it (preserves the user's
+// "remember me" choice). Used after a password change hands back a fresh token.
+export function refreshToken(token) {
+  if (localStorage.getItem(KEY) != null) localStorage.setItem(KEY, token);
+  else sessionStorage.setItem(KEY, token);
+}

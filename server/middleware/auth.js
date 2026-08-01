@@ -1,6 +1,12 @@
 import jwt from 'jsonwebtoken';
-import { JWT_SECRET, JWT_EXPIRES_IN } from '../config.js';
+import { JWT_SECRET, JWT_EXPIRES_IN, ADMIN_EMAILS } from '../config.js';
 import { pool } from '../db.js';
+
+// True if the account should have admin rights (is_admin column OR allow-listed email).
+export function computeIsAdmin(user) {
+  if (!user) return false;
+  return user.is_admin === 1 || ADMIN_EMAILS.has(String(user.email || '').toLowerCase());
+}
 
 // `tv` (token version) makes tokens revocable: bump users.token_version
 // (logout-all / password change) and every previously-issued token stops verifying.
@@ -38,4 +44,17 @@ export async function requireAuth(req, res, next) {
 
   req.user = payload;
   next();
+}
+
+// Gate admin-only routes. Chain AFTER requireAuth: `router.use(requireAuth, requireAdmin)`.
+// Looks up the live account each time (admin status is never trusted from the token).
+export async function requireAdmin(req, res, next) {
+  try {
+    const [rows] = await pool.execute('SELECT email, is_admin FROM users WHERE id = ?', [req.user.id]);
+    if (!computeIsAdmin(rows[0])) return res.status(403).json({ error: 'Admin access required.' });
+    req.user.isAdmin = true;
+    next();
+  } catch (err) {
+    next(err);
+  }
 }
