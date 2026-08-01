@@ -264,11 +264,7 @@ h1, h2, h3, h4, h5, .fw-head {
   border-radius: 14px;
   padding: 1rem 1.15rem;
   margin-bottom: 0.85rem;
-  /* Weight 600, not 500: Blink renders several Hind Siliguri Bengali glyphs at
-     the 500 instance defectively — the digit ১ came out as a thin sliver, so
-     Bangla numeric answers like ১৯৫৫ looked like their first digit was cut off.
-     400/600/700 render correctly; 600 keeps the medium-bold look. */
-  font-weight: 600;
+  font-weight: 500;
   color: var(--text);
   transition: all 0.15s ease;
 }

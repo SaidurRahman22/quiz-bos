@@ -15,8 +15,12 @@
     <meta name="apple-mobile-web-app-title" content="Quiz Boss" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Hind Siliguri weight 500 is intentionally NOT loaded: Blink renders several
+         of its Bengali glyphs (notably the digit ১) defectively at the 500 instance,
+         which made Bangla numbers like ১৯৫৫ look clipped. Any Bengali text set to
+         font-weight:500 now falls back to the correct 400 face. -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Hind+Siliguri:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&family=Hind+Siliguri:wght@400;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
