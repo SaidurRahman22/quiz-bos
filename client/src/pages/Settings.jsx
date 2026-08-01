@@ -82,7 +82,11 @@ export default function Settings() {
       return;
     }
     const ok = await showReminderNow('This is how your daily reminder will look. 📚');
-    if (!ok) setReminderMsg('Couldn’t show a notification — check that notifications are allowed for this site.');
+    setReminderMsg(
+      ok
+        ? 'Test sent! If you didn’t see it, your device is hiding it — turn off “Do not disturb” / Focus Assist and allow Chrome notifications in Windows Settings → System → Notifications.'
+        : 'Couldn’t show a notification — check that notifications are allowed for this site.'
+    );
   };
 
   // ---- Offline handlers ----
