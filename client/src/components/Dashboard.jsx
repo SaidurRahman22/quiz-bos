@@ -16,6 +16,8 @@ import {
   LabelList,
 } from 'recharts';
 import { getStats, getTopics } from '../api.js';
+import { getStreak } from '../streak.js';
+import { computeBadges } from '../badges.js';
 import { useTheme } from '../context/ThemeContext.jsx';
 import { useAuth } from '../context/AuthContext.jsx';
 import CountUp from './CountUp.jsx';
@@ -92,6 +94,10 @@ export default function Dashboard() {
   const avgAccuracy = summary.answered ? Math.round((summary.correct / summary.answered) * 100) : 0;
   const incorrect = Math.max(summary.answered - summary.correct, 0);
 
+  const streak = getStreak(user?.id);
+  const badges = computeBadges({ stats, streak, topicCount: Object.keys(topics).length });
+  const earnedCount = badges.filter((b) => b.earned).length;
+
   const meta = (slug) => topics[slug] || { name: slug, icon: '📘', color: '#6366f1' };
 
   const trendData = trend.map((a, i) => ({
@@ -126,6 +132,86 @@ export default function Dashboard() {
         <div className="d-flex gap-2 flex-wrap">
           <Link to="/quizzes" className="btn btn-gradient">🎯 Take a quiz</Link>
           <Link to="/flashcards" className="btn btn-ghost">🃏 Flashcards</Link>
+        </div>
+      </div>
+
+      {/* Daily streak — renders whether or not there are quiz stats yet */}
+      <div
+        className="qb-card fade-up d-flex align-items-center gap-3 mt-4"
+        style={{ padding: '1.05rem 1.3rem' }}
+      >
+        <div
+          style={{
+            flex: '0 0 auto',
+            width: 56,
+            height: 56,
+            borderRadius: 16,
+            display: 'grid',
+            placeItems: 'center',
+            fontSize: '1.9rem',
+            lineHeight: 1,
+            background:
+              streak.current > 0
+                ? 'linear-gradient(135deg, color-mix(in srgb, var(--accent) 22%, transparent), color-mix(in srgb, var(--primary) 22%, transparent))'
+                : 'var(--surface-2)',
+            filter: streak.current > 0 ? 'none' : 'grayscale(1)',
+            opacity: streak.current > 0 ? 1 : 0.7,
+          }}
+        >
+          🔥
+        </div>
+        <div className="flex-grow-1">
+          {streak.current > 0 ? (
+            <>
+              <div
+                style={{
+                  fontFamily: 'var(--font-head)',
+                  fontWeight: 800,
+                  fontSize: '1.25rem',
+                  lineHeight: 1.1,
+                }}
+              >
+                <span className="gradient-text">{streak.current}-day</span> streak
+              </div>
+              <div className="text-muted-2" style={{ fontSize: '0.85rem', marginTop: 2 }}>
+                {streak.activeToday
+                  ? "You've studied today — nice work! Come back tomorrow to keep it going."
+                  : 'Take a quiz today to keep your streak alive.'}
+              </div>
+            </>
+          ) : (
+            <>
+              <div
+                style={{
+                  fontFamily: 'var(--font-head)',
+                  fontWeight: 700,
+                  fontSize: '1.1rem',
+                  lineHeight: 1.15,
+                }}
+              >
+                Start your streak — take a quiz today!
+              </div>
+              <div className="text-muted-2" style={{ fontSize: '0.85rem', marginTop: 2 }}>
+                Study on consecutive days to build up a streak.
+              </div>
+            </>
+          )}
+        </div>
+        <div className="text-end" style={{ flex: '0 0 auto' }}>
+          <div
+            style={{
+              fontFamily: 'var(--font-head)',
+              fontWeight: 800,
+              fontSize: '1.5rem',
+              lineHeight: 1,
+              color: 'var(--text)',
+            }}
+          >
+            {streak.best}
+          </div>
+          <div className="text-muted-2" style={{ fontSize: '0.75rem' }}>
+            Best
+          </div>
         </div>
       </div>
 
@@ -329,6 +415,107 @@ export default function Dashboard() {
                       </div>
                     );
                   })}
+                </div>
+              </div>
+            </div>
+
+            {/* Achievements */}
+            <div className="col-12">
+              <div className="qb-card chart-card">
+                <div className="chart-title">
+                  Achievements <span>· {earnedCount}/{badges.length} unlocked</span>
+                </div>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))',
+                    gap: '0.85rem',
+                  }}
+                >
+                  {badges.map((b) => (
+                    <div
+                      key={b.id}
+                      style={{
+                        position: 'relative',
+                        textAlign: 'center',
+                        padding: '1.05rem 0.85rem',
+                        borderRadius: 14,
+                        background: b.earned
+                          ? 'linear-gradient(160deg, color-mix(in srgb, var(--primary) 9%, var(--surface-2)), var(--surface-2))'
+                          : 'var(--surface-2)',
+                        border: b.earned
+                          ? '1px solid color-mix(in srgb, var(--primary) 32%, var(--border))'
+                          : '1px solid var(--border)',
+                        opacity: b.earned ? 1 : 0.6,
+                      }}
+                    >
+                      {b.earned && (
+                        <span
+                          style={{
+                            position: 'absolute',
+                            top: 8,
+                            right: 8,
+                            width: 18,
+                            height: 18,
+                            borderRadius: 999,
+                            display: 'grid',
+                            placeItems: 'center',
+                            fontSize: '0.62rem',
+                            fontWeight: 700,
+                            color: '#fff',
+                            background: 'linear-gradient(135deg, var(--primary), var(--primary-2))',
+                          }}
+                        >
+                          ✓
+                        </span>
+                      )}
+                      <div
+                        style={{
+                          fontSize: '1.9rem',
+                          lineHeight: 1,
+                          marginBottom: '0.5rem',
+                          filter: b.earned ? 'none' : 'grayscale(1)',
+                        }}
+                      >
+                        {b.icon}
+                      </div>
+                      <div style={{ fontWeight: 700, fontSize: '0.9rem', color: 'var(--text)' }}>
+                        {b.name}
+                      </div>
+                      <div
+                        className="text-muted-2"
+                        style={{ fontSize: '0.72rem', marginTop: 3, lineHeight: 1.3 }}
+                      >
+                        {b.description}
+                      </div>
+                      {!b.earned && typeof b.progress === 'number' && (
+                        <div style={{ marginTop: '0.65rem' }}>
+                          <div
+                            style={{
+                              background: 'var(--surface)',
+                              border: '1px solid var(--border)',
+                              height: 6,
+                              borderRadius: 999,
+                              overflow: 'hidden',
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: `${b.progress}%`,
+                                height: '100%',
+                                background: 'linear-gradient(90deg, var(--primary), var(--primary-2))',
+                                borderRadius: 999,
+                                transition: 'width 0.9s ease',
+                              }}
+                            />
+                          </div>
+                          <div className="text-muted-2" style={{ fontSize: '0.68rem', marginTop: 3 }}>
+                            {b.progress}%
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>

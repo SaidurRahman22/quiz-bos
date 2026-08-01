@@ -13,6 +13,8 @@ import Bilingual from '../components/Bilingual.jsx';
 import DifficultyToggle from '../components/DifficultyToggle.jsx';
 import { filterByDifficulty, difficultyCounts, shuffle } from '../utils.js';
 import { speak, stopSpeaking, ttsSupported } from '../tts.js';
+import { recordStudyActivity } from '../streak.js';
+import { shareScoreCard } from '../shareCard.js';
 import { useAuth } from '../context/AuthContext.jsx';
 
 const KEYS = ['A', 'B', 'C', 'D', 'E', 'F']; // supports up to 6 options (admin questions)
@@ -87,6 +89,7 @@ export default function QuizPlay() {
   const [savedIds, setSavedIds] = useState(() => new Set());
   const [savingIds, setSavingIds] = useState(() => new Set()); // bookmark toggles in flight
   const [built, setBuilt] = useState(false); // first session for the current topic is ready
+  const [shareStatus, setShareStatus] = useState('');
   // Guards recordAttempt / setFinished against firing twice (e.g. submit + timeout race).
   const finishedRef = useRef(false);
 
@@ -178,6 +181,26 @@ export default function QuizPlay() {
     if (wrong.length) startSession(wrong.map(shuffleOptions), isExam ? wrong.length * EXAM_SECONDS_PER_Q : null);
   };
 
+  // Share a branded score card (image via Web Share on mobile; download + copied caption otherwise).
+  const share = async () => {
+    setShareStatus('…');
+    const result = await shareScoreCard({
+      topicName: data?.topic?.name || 'Quiz',
+      topicIcon: data?.topic?.icon,
+      score,
+      total,
+    });
+    setShareStatus(
+      result === 'shared'
+        ? '✓ Shared!'
+        : result === 'downloaded'
+          ? '📥 Saved image + copied caption'
+          : result === 'unsupported'
+            ? 'Sharing isn’t supported on this device'
+            : ''
+    );
+  };
+
   const choose = (idx) => {
     // Practice: lock the answer once chosen (review only). Exam: allow changing it.
     if (!isExam && answers[current] !== null) return;
@@ -192,6 +215,7 @@ export default function QuizPlay() {
     if (finishedRef.current) return;
     finishedRef.current = true;
     setFinished(true);
+    recordStudyActivity(user?.id); // advance the daily study streak (once per day)
     if (user && session.length > 0) {
       const finalScore = session.reduce((acc, qq, i) => acc + (answers[i] === qq.correctIndex ? 1 : 0), 0);
       recordAttempt({ topicSlug: slug, difficulty, score: finalScore, total: session.length }).catch(() => {});
@@ -419,6 +443,16 @@ export default function QuizPlay() {
             <button className="btn btn-ghost" onClick={() => navigate('/quizzes')}>
               ← Other quizzes
             </button>
+          </div>
+          <div className="mt-3">
+            <button className="btn btn-gradient" onClick={share}>
+              📤 Share score
+            </button>
+            {shareStatus && (
+              <div className="text-muted-2 mt-2" style={{ fontSize: '0.85rem' }}>
+                {shareStatus}
+              </div>
+            )}
           </div>
         </div>
 
