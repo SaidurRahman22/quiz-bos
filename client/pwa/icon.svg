@@ -4,12 +4,21 @@
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#6366f1"/>
-      <stop offset="1" stop-color="#8b5cf6"/>
+      <stop offset="0.55" stop-color="#8b5cf6"/>
+      <stop offset="1" stop-color="#ec4899"/>
     </linearGradient>
   </defs>
   <!-- Full-bleed background so Android can mask it into any shape (maskable-safe). -->
   <rect width="512" height="512" fill="url(#g)"/>
-  <!-- Bold check mark = "quiz / correct", kept inside the center safe zone. -->
-  <path d="M146 262 L226 342 L372 176" fill="none" stroke="#ffffff" stroke-width="52"
-        stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Line-art brain = "QuizBoss" brand, kept inside the center safe zone. -->
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke-width="30" d="M256 140 C232 118 190 114 168 138 C140 130 112 152 120 184 C96 200 96 244 124 258 C112 296 148 330 188 324 C196 350 228 360 256 344 C284 360 316 350 324 324 C364 330 400 296 388 258 C416 244 416 200 392 184 C400 152 372 130 344 138 C322 114 280 118 256 140 Z"/>
+    <g stroke-width="18">
+      <path d="M256 148 C248 184 264 204 252 240 C244 272 262 300 256 340"/>
+      <path d="M184 194 C212 204 216 230 194 246"/>
+      <path d="M172 272 C198 270 214 288 206 312"/>
+      <path d="M328 194 C300 204 296 230 318 246"/>
+      <path d="M340 272 C314 270 298 288 306 312"/>
+    </g>
+  </g>
 </svg>
