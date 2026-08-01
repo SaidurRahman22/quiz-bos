@@ -14,6 +14,10 @@ export const manifest = {
   theme_color: '#6366f1', // Android status bar / task switcher tint
   categories: ['education'],
   lang: 'en',
+  dir: 'ltr',
+  // Tell app stores / installers this is a first-class web app, not a shell around a
+  // native app — required by some TWA/packaging validators (PWABuilder).
+  prefer_related_applications: false,
   icons: [
     { src: '/pwa/icon-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
     { src: '/pwa/icon-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
