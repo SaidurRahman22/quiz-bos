@@ -66,13 +66,13 @@ const avatarUploadLimiter = rateLimit({
   message: { error: 'Too many profile updates. Please try again later.' },
 });
 
-// Profile updates can carry an avatar (image/GIF data URL) so this one path gets a larger
-// body limit — throttled FIRST, and with inflate:false so a tiny gzip body can't be
-// decompression-amplified (~1000x) into a huge payload before auth/rate-limiting run.
-// Everything else stays tight at 64kb. This parser runs first, so the global one below
-// sees the body already parsed and skips it. inflate:false also rejects compressed bodies
-// globally (our client only sends plain JSON).
-app.use('/api/auth/me', avatarUploadLimiter, express.json({ limit: '1.5mb', inflate: false }));
+// Only the PATCH to /api/auth/me carries a large avatar body — so ONLY that gets the
+// larger limit + the upload throttle, applied FIRST, with inflate:false so a tiny gzip
+// body can't be decompression-amplified before auth/rate-limiting run. Crucially this is
+// scoped to PATCH: the GET /api/auth/me session check runs on every page load and must
+// never be throttled (that was logging users out / dropping their avatar on refresh).
+// Everything else stays tight at 64kb; this parser runs first so the global one skips it.
+app.patch('/api/auth/me', avatarUploadLimiter, express.json({ limit: '1.5mb', inflate: false }));
 app.use(express.json({ limit: '64kb', inflate: false }));
 
 app.get('/api/health', async (_req, res) => {

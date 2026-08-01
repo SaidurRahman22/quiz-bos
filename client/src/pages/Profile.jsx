@@ -316,7 +316,7 @@ export default function Profile() {
                 onClick={() => fileInputRef.current?.click()}
                 disabled={avatarBusy}
               >
-                Change photo
+                Upload from device!
               </button>
               <button
                 type="button"

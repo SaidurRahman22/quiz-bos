@@ -38,7 +38,7 @@ export default function Navbar() {
         </Link>
 
         <div className="d-flex align-items-center gap-1 gap-sm-2">
-          <NavLink to="/" end className="qb-nav-link d-none d-sm-inline">
+          <NavLink to="/" end className="qb-nav-link d-none d-md-inline">
             Home
           </NavLink>
           <NavLink to="/quizzes" className="qb-nav-link">
@@ -132,7 +132,7 @@ export default function Navbar() {
               <Link to="/login" className="qb-nav-link">
                 Log in
               </Link>
-              <Link to="/register" className="btn btn-gradient btn-sm ms-1 d-none d-sm-inline-block">
+              <Link to="/register" className="btn btn-gradient btn-sm ms-1 d-none d-md-inline-block">
                 Sign up
               </Link>
             </>
