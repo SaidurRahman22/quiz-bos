@@ -88,6 +88,15 @@ export default function Navbar() {
                   >
                     📊 My Dashboard
                   </button>
+                  <button
+                    className="user-dropdown-item"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      navigate('/saved');
+                    }}
+                  >
+                    ⭐ Saved
+                  </button>
                   <button className="user-dropdown-item danger" onClick={handleLogout}>
                     ⎋ Log out
                   </button>

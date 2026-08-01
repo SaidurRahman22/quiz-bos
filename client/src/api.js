@@ -32,4 +32,9 @@ export const logoutAll = () => api.post('/auth/logout-all').then((r) => r.data);
 export const recordAttempt = (data) => api.post('/attempts', data).then((r) => r.data);
 export const getStats = () => api.get('/stats').then((r) => r.data);
 
+// Saved questions
+export const getSavedQuestions = () => api.get('/saved').then((r) => r.data.saved);
+export const saveQuestion = (data) => api.post('/saved', data).then((r) => r.data);
+export const unsaveQuestion = (questionId) => api.delete(`/saved/${questionId}`).then((r) => r.data);
+
 export default api;

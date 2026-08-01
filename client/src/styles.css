@@ -305,6 +305,16 @@ h1, h2, h3, h4, h5, .fw-head {
 .option-btn:disabled {
   cursor: default;
 }
+/* Exam mode: a chosen option is highlighted without revealing correctness. */
+.option-btn.chosen {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+}
+.option-btn.chosen .key {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
 
 .explanation {
   border-left: 4px solid var(--primary);

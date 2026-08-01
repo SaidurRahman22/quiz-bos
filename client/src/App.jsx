@@ -8,6 +8,7 @@ import FlashcardDeck from './pages/FlashcardDeck.jsx';
 import Login from './pages/Login.jsx';
 import Register from './pages/Register.jsx';
 import Profile from './pages/Profile.jsx';
+import SavedQuestions from './pages/SavedQuestions.jsx';
 
 const AUTH_ROUTES = ['/login', '/register'];
 
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="/quizzes" element={<QuizTopics />} />
           <Route path="/quizzes/:slug" element={<QuizPlay />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/saved" element={<SavedQuestions />} />
           <Route path="/flashcards" element={<FlashcardTopics />} />
           <Route path="/flashcards/:slug" element={<FlashcardDeck />} />
           <Route path="*" element={<Home />} />

@@ -1,6 +1,13 @@
-import { useEffect, useState, useMemo, useCallback } from 'react';
+import { useEffect, useState, useMemo, useCallback, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { getQuiz, recordAttempt, reportQuestion } from '../api.js';
+import {
+  getQuiz,
+  recordAttempt,
+  reportQuestion,
+  getSavedQuestions,
+  saveQuestion,
+  unsaveQuestion,
+} from '../api.js';
 import Loader from '../components/Loader.jsx';
 import Bilingual from '../components/Bilingual.jsx';
 import DifficultyToggle from '../components/DifficultyToggle.jsx';
@@ -8,11 +15,13 @@ import { filterByDifficulty, difficultyCounts, shuffle } from '../utils.js';
 import { useAuth } from '../context/AuthContext.jsx';
 
 const KEYS = ['A', 'B', 'C', 'D'];
-const SESSION_SIZE = 10; // questions per play-through (drawn at random from the pool)
+const DEFAULT_SIZE = 10; // questions per play-through when the user hasn't picked a size
+const SIZES = [10, 20, 50, 'all']; // adjustable session size
+const EXAM_SECONDS_PER_Q = 60; // exam mode: one minute per question
 
 // Shuffle a question's options each attempt so people learn the answer, not "always C".
 // correctIndex is remapped to wherever the correct option lands; id/question/explanation
-// are preserved (id keeps "report this question" and retry-wrong working).
+// are preserved (id keeps "report" / "save" / retry-wrong working).
 function shuffleOptions(q) {
   const order = shuffle(q.options.map((_, i) => i));
   return {
@@ -20,6 +29,12 @@ function shuffleOptions(q) {
     options: order.map((i) => q.options[i]),
     correctIndex: order.indexOf(q.correctIndex),
   };
+}
+
+function fmtTime(s) {
+  const m = Math.floor(s / 60);
+  const sec = s % 60;
+  return `${m}:${String(sec).padStart(2, '0')}`;
 }
 
 export default function QuizPlay() {
@@ -30,15 +45,19 @@ export default function QuizPlay() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [difficulty, setDifficulty] = useState('mix');
+  const [mode, setMode] = useState('practice'); // 'practice' | 'exam'
+  const [size, setSize] = useState(DEFAULT_SIZE); // 10 | 20 | 50 | 'all'
   const [session, setSession] = useState([]);
   const [current, setCurrent] = useState(0);
-  // answers[i] = the option index the user chose for question i (null = unanswered).
-  // Storing the actual choice per question (not just correctness) is what lets the
-  // user go Previous/Next and review their earlier answer + explanation.
+  // answers[i] = the option index chosen for question i (null = unanswered). Storing the
+  // actual choice (not just correctness) powers Previous/Next, review, and exam re-answers.
   const [answers, setAnswers] = useState([]);
   const [finished, setFinished] = useState(false);
-  // Question ids the user has flagged as wrong (optimistic; rolled back if the POST fails).
+  const [secondsLeft, setSecondsLeft] = useState(null); // exam countdown; null in practice
   const [reported, setReported] = useState(() => new Set());
+  const [savedIds, setSavedIds] = useState(() => new Set());
+  // Guards recordAttempt / setFinished against firing twice (e.g. submit + timeout race).
+  const finishedRef = useRef(false);
 
   useEffect(() => {
     setData(null);
@@ -46,56 +65,80 @@ export default function QuizPlay() {
     getQuiz(slug).then(setData).catch(() => setError(true));
   }, [slug]);
 
+  // Load which questions this user has already bookmarked, so the ⭐ reflects reality.
+  useEffect(() => {
+    if (!user) {
+      setSavedIds(new Set());
+      return;
+    }
+    getSavedQuestions()
+      .then((list) => setSavedIds(new Set(list.map((s) => s.questionId))))
+      .catch(() => {});
+  }, [user]);
+
   const counts = useMemo(() => (data ? difficultyCounts(data.questions) : null), [data]);
 
-  const startSession = useCallback((picked) => {
+  const startSession = useCallback((picked, examSeconds) => {
+    finishedRef.current = false;
     setSession(picked);
     setCurrent(0);
     setAnswers(Array(picked.length).fill(null));
     setFinished(false);
     setReported(new Set());
+    setSecondsLeft(examSeconds);
   }, []);
 
   const buildSession = useCallback(
-    (lvl) => {
+    (lvl, sz, md) => {
       if (!data) return;
-      // filterByDifficulty already shuffles the pool; we then shuffle each question's
-      // options so option order is randomized every attempt.
+      // filterByDifficulty already shuffles the pool; then shuffle each question's options.
       const pool = filterByDifficulty(data.questions, lvl);
-      startSession(pool.slice(0, SESSION_SIZE).map(shuffleOptions));
+      const limit = sz === 'all' ? pool.length : sz;
+      const picked = pool.slice(0, limit).map(shuffleOptions);
+      startSession(picked, md === 'exam' ? picked.length * EXAM_SECONDS_PER_Q : null);
     },
     [data, startSession]
   );
 
   // Build the first session as soon as the data arrives.
   useEffect(() => {
-    if (data) buildSession(difficulty);
+    if (data) buildSession(difficulty, size, mode);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
 
-  // ---------- Derived (safe even before data loads: session is []) ----------
+  // ---------- Derived (safe before data loads: session is []) ----------
   const total = session.length;
   const q = session[current];
-  const selected = answers[current] ?? null; // the choice for the question on screen
+  const selected = answers[current] ?? null;
   const answeredCount = answers.filter((a) => a !== null).length;
   const score = session.reduce((acc, qq, i) => acc + (answers[i] === qq.correctIndex ? 1 : 0), 0);
+  const isExam = mode === 'exam';
+  // Reveal correctness/explanation only in practice mode after answering (exam hides it).
+  const reveal = !isExam && selected !== null;
 
   // ---------- Handlers ----------
   const changeDifficulty = (lvl) => {
     setDifficulty(lvl);
-    buildSession(lvl);
+    buildSession(lvl, size, mode);
   };
-  const restart = () => buildSession(difficulty);
+  const changeSize = (sz) => {
+    setSize(sz);
+    buildSession(difficulty, sz, mode);
+  };
+  const changeMode = (md) => {
+    setMode(md);
+    buildSession(difficulty, size, md);
+  };
+  const restart = () => buildSession(difficulty, size, mode);
 
-  // Rebuild a fresh session from only the questions the user got wrong, re-shuffling
-  // their options so it's a genuine retry rather than a memory test of positions.
   const retryWrong = () => {
     const wrong = session.filter((qq, i) => answers[i] !== qq.correctIndex);
-    if (wrong.length) startSession(wrong.map(shuffleOptions));
+    if (wrong.length) startSession(wrong.map(shuffleOptions), isExam ? wrong.length * EXAM_SECONDS_PER_Q : null);
   };
 
   const choose = (idx) => {
-    if (answers[current] !== null) return; // already answered — review only, never overwrite
+    // Practice: lock the answer once chosen (review only). Exam: allow changing it.
+    if (!isExam && answers[current] !== null) return;
     setAnswers((prev) => {
       const copy = [...prev];
       copy[current] = idx;
@@ -103,22 +146,22 @@ export default function QuizPlay() {
     });
   };
 
-  const prev = () => setCurrent((c) => Math.max(c - 1, 0));
-
-  const next = () => {
-    if (current + 1 >= total) {
-      setFinished(true);
-      // Record the completed attempt for logged-in users (fire-and-forget).
-      if (user && total > 0) {
-        recordAttempt({ topicSlug: slug, difficulty, score, total }).catch(() => {});
-      }
-    } else {
-      setCurrent((c) => c + 1);
+  const finishQuiz = useCallback(() => {
+    if (finishedRef.current) return;
+    finishedRef.current = true;
+    setFinished(true);
+    if (user && session.length > 0) {
+      const finalScore = session.reduce((acc, qq, i) => acc + (answers[i] === qq.correctIndex ? 1 : 0), 0);
+      recordAttempt({ topicSlug: slug, difficulty, score: finalScore, total: session.length }).catch(() => {});
     }
+  }, [user, session, answers, slug, difficulty]);
+
+  const prev = () => setCurrent((c) => Math.max(c - 1, 0));
+  const next = () => {
+    if (current + 1 >= total) finishQuiz();
+    else setCurrent((c) => c + 1);
   };
 
-  // Flag a question as wrong/broken. Optimistic: mark it reported immediately, and roll
-  // back only if the request fails so the user can try again.
   const report = (qq) => {
     if (!qq || reported.has(qq.id)) return;
     setReported((prevSet) => new Set(prevSet).add(qq.id));
@@ -131,9 +174,51 @@ export default function QuizPlay() {
     });
   };
 
-  // ---------- Keyboard controls (feature: answer with A–D / 1–4, move with ← →) ----------
-  // No dependency array: re-subscribes each render so the handler always sees fresh state.
-  // Guarded so it never fires on the results screen or while typing in a field.
+  // Toggle a bookmark. Optimistic; rolls back if the request fails. Requires login.
+  const toggleSave = (qq) => {
+    if (!qq) return;
+    if (!user) {
+      navigate('/login');
+      return;
+    }
+    const wasSaved = savedIds.has(qq.id);
+    setSavedIds((prevSet) => {
+      const s = new Set(prevSet);
+      wasSaved ? s.delete(qq.id) : s.add(qq.id);
+      return s;
+    });
+    const rollback = () =>
+      setSavedIds((prevSet) => {
+        const s = new Set(prevSet);
+        wasSaved ? s.add(qq.id) : s.delete(qq.id);
+        return s;
+      });
+    const req = wasSaved
+      ? unsaveQuestion(qq.id)
+      : saveQuestion({
+          questionId: qq.id,
+          topicSlug: slug,
+          question: qq.question,
+          options: qq.options,
+          correctIndex: qq.correctIndex,
+          explanation: qq.explanation,
+          difficulty: qq.difficulty,
+        });
+    req.catch(rollback);
+  };
+
+  // ---------- Exam countdown ----------
+  useEffect(() => {
+    if (!isExam || finished || secondsLeft == null) return undefined;
+    if (secondsLeft <= 0) {
+      finishQuiz();
+      return undefined;
+    }
+    const id = setTimeout(() => setSecondsLeft((s) => (s == null ? s : s - 1)), 1000);
+    return () => clearTimeout(id);
+  }, [isExam, finished, secondsLeft, finishQuiz]);
+
+  // ---------- Keyboard: A–D / 1–4 to answer, ← → to move, Enter to advance ----------
   useEffect(() => {
     const onKey = (e) => {
       if (finished || !q) return;
@@ -142,14 +227,14 @@ export default function QuizPlay() {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
 
       const k = e.key;
-      // A/B/C/D or 1..4 selects an option — only while the question is unanswered.
       let idx = -1;
       const up = k.length === 1 ? k.toUpperCase() : k;
       if (KEYS.includes(up)) idx = KEYS.indexOf(up);
       else if (/^[1-9]$/.test(k)) idx = Number(k) - 1;
 
       if (idx >= 0) {
-        if (idx < q.options.length && selected === null) {
+        // Exam: always selectable (answers can change). Practice: only while unanswered.
+        if (idx < q.options.length && (isExam || selected === null)) {
           e.preventDefault();
           choose(idx);
         }
@@ -157,7 +242,8 @@ export default function QuizPlay() {
       }
 
       if (k === 'ArrowRight' || k === 'Enter') {
-        if (selected !== null) {
+        // Exam lets you skip ahead; practice requires an answer first (mirrors the button).
+        if (isExam || selected !== null) {
           e.preventDefault();
           next();
         }
@@ -182,22 +268,75 @@ export default function QuizPlay() {
   if (!data) return <Loader label="Loading quiz…" />;
 
   const { topic } = data;
+  const availableCount = counts ? (difficulty === 'mix' ? counts.mix : counts[difficulty]) : 0;
 
-  const DifficultyBar = (
-    <div className="d-flex justify-content-center mb-4">
-      <DifficultyToggle value={difficulty} onChange={changeDifficulty} counts={counts} />
+  // Small segmented pill control (reuses the difficulty-toggle styling).
+  const Segmented = ({ label, options, value, onChange }) => (
+    <div className="d-flex align-items-center gap-2">
+      <span className="text-muted-2" style={{ fontSize: '0.85rem' }}>
+        {label}
+      </span>
+      <div className="difficulty-toggle" role="tablist" aria-label={label}>
+        {options.map((o) => (
+          <button
+            key={String(o.value)}
+            role="tab"
+            aria-selected={value === o.value}
+            className={`dt-btn ${value === o.value ? 'active' : ''}`}
+            onClick={() => onChange(o.value)}
+            title={o.title || o.label}
+          >
+            <span>{o.label}</span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 
-  const ReportButton = ({ qq }) => (
-    <button
-      className="btn btn-sm btn-ghost"
-      onClick={() => report(qq)}
-      disabled={reported.has(qq.id)}
-      title="Report a problem with this question"
-    >
-      {reported.has(qq.id) ? '✓ Reported' : '⚠️ Report'}
-    </button>
+  const Controls = (
+    <div className="d-flex flex-column align-items-center gap-3 mb-4">
+      <DifficultyToggle value={difficulty} onChange={changeDifficulty} counts={counts} />
+      <div className="d-flex justify-content-center gap-3 gap-md-4 flex-wrap">
+        <Segmented
+          label="Mode"
+          value={mode}
+          onChange={changeMode}
+          options={[
+            { value: 'practice', label: '📖 Practice' },
+            { value: 'exam', label: '⏱️ Exam' },
+          ]}
+        />
+        <Segmented
+          label="Questions"
+          value={size}
+          onChange={changeSize}
+          options={SIZES.map((s) => ({
+            value: s,
+            label: s === 'all' ? `All${availableCount ? ` (${availableCount})` : ''}` : String(s),
+          }))}
+        />
+      </div>
+    </div>
+  );
+
+  const actionRow = (qq) => (
+    <div className="d-flex justify-content-end gap-2">
+      <button
+        className={`btn btn-sm ${savedIds.has(qq.id) ? 'btn-gradient' : 'btn-ghost'}`}
+        onClick={() => toggleSave(qq)}
+        title={user ? 'Save this question to your ⭐ deck' : 'Log in to save questions'}
+      >
+        {savedIds.has(qq.id) ? '⭐ Saved' : '☆ Save'}
+      </button>
+      <button
+        className="btn btn-sm btn-ghost"
+        onClick={() => report(qq)}
+        disabled={reported.has(qq.id)}
+        title="Report a problem with this question"
+      >
+        {reported.has(qq.id) ? '✓ Reported' : '⚠️ Report'}
+      </button>
+    </div>
   );
 
   // ---------- Results ----------
@@ -205,7 +344,6 @@ export default function QuizPlay() {
     const pct = total ? Math.round((score / total) * 100) : 0;
     const message =
       pct >= 90 ? 'Outstanding! 🏆' : pct >= 70 ? 'Great job! 🎉' : pct >= 50 ? 'Good effort! 👍' : 'Keep practising! 💪';
-    // Everything the user missed (unanswered counts as missed), for the review list.
     const wrong = session
       .map((qq, i) => ({ qq, chosen: answers[i] }))
       .filter(({ qq, chosen }) => chosen !== qq.correctIndex);
@@ -213,9 +351,10 @@ export default function QuizPlay() {
     return (
       <div className="container-narrow mx-auto fade-in">
         <div className="qb-card p-5 text-center">
-          <h2 className="mb-1">Quiz complete</h2>
+          <h2 className="mb-1">{isExam ? 'Exam complete' : 'Quiz complete'}</h2>
           <p className="text-muted-2 mb-4">
-            {topic.icon} {topic.name} · <span className="text-capitalize">{difficulty}</span>
+            {topic.icon} {topic.name} · <span className="text-capitalize">{difficulty}</span> ·{' '}
+            {isExam ? '⏱️ Exam' : '📖 Practice'}
           </p>
           <div className="score-ring mb-4" style={{ '--pct': `${pct}%` }}>
             <div className="inner">
@@ -233,7 +372,7 @@ export default function QuizPlay() {
               </button>
             )}
             <button className="btn btn-ghost" onClick={restart}>
-              🔁 New {difficulty} set
+              🔁 New set
             </button>
             <button className="btn btn-ghost" onClick={() => navigate('/quizzes')}>
               ← Other quizzes
@@ -262,9 +401,7 @@ export default function QuizPlay() {
                     <Bilingual text={qq.explanation} />
                   </div>
                 )}
-                <div className="text-end mt-2">
-                  <ReportButton qq={qq} />
-                </div>
+                <div className="mt-2">{actionRow(qq)}</div>
               </div>
             ))}
           </div>
@@ -286,7 +423,7 @@ export default function QuizPlay() {
           </span>
           <span />
         </div>
-        {DifficultyBar}
+        {Controls}
         <div className="qb-card p-5 text-center text-muted-2">No questions available at this difficulty.</div>
       </div>
     );
@@ -294,6 +431,7 @@ export default function QuizPlay() {
 
   // ---------- Question ----------
   const progressPct = total ? (answeredCount / total) * 100 : 0;
+  const lowTime = isExam && secondsLeft != null && secondsLeft <= 30;
 
   return (
     <div className="container-narrow mx-auto fade-in">
@@ -309,7 +447,29 @@ export default function QuizPlay() {
         </span>
       </div>
 
-      {DifficultyBar}
+      {Controls}
+
+      {isExam && secondsLeft != null && (
+        <div className="d-flex align-items-center justify-content-between mb-3 gap-2 flex-wrap">
+          <span
+            className="pill"
+            style={{
+              fontVariantNumeric: 'tabular-nums',
+              fontWeight: 700,
+              color: lowTime ? '#dc2626' : undefined,
+              borderColor: lowTime ? '#dc2626' : undefined,
+            }}
+          >
+            ⏱️ {fmtTime(secondsLeft)}
+          </span>
+          <span className="text-muted-2" style={{ fontSize: '0.85rem' }}>
+            Answered {answeredCount} / {total} · no feedback until you submit
+          </span>
+          <button className="btn btn-sm btn-gradient" onClick={finishQuiz}>
+            Submit exam
+          </button>
+        </div>
+      )}
 
       <div className="qb-progress mb-4">
         <div className="bar" style={{ width: `${progressPct}%` }} />
@@ -324,42 +484,51 @@ export default function QuizPlay() {
         <div className="mt-4">
           {q.options.map((opt, idx) => {
             let cls = 'option-btn';
-            if (selected !== null) {
+            if (reveal) {
               if (idx === q.correctIndex) cls += ' correct';
               else if (idx === selected) cls += ' wrong';
+            } else if (isExam && idx === selected) {
+              cls += ' chosen';
             }
             return (
-              <button key={idx} className={cls} disabled={selected !== null} onClick={() => choose(idx)}>
+              <button key={idx} className={cls} disabled={reveal} onClick={() => choose(idx)}>
                 <span className="key">{KEYS[idx]}</span>
                 <span>{opt}</span>
-                {selected !== null && idx === q.correctIndex && <span className="ms-auto">✅</span>}
-                {selected !== null && idx === selected && idx !== q.correctIndex && <span className="ms-auto">❌</span>}
+                {reveal && idx === q.correctIndex && <span className="ms-auto">✅</span>}
+                {reveal && idx === selected && idx !== q.correctIndex && <span className="ms-auto">❌</span>}
+                {!reveal && isExam && idx === selected && <span className="ms-auto">●</span>}
               </button>
             );
           })}
         </div>
 
-        {selected !== null && (
+        {reveal && (
           <div className="explanation mt-3">
             <strong>{selected === q.correctIndex ? 'Correct! ' : 'Not quite. '}</strong>
             <Bilingual text={q.explanation} />
           </div>
         )}
 
-        <div className="d-flex justify-content-end mt-3">
-          <ReportButton qq={q} />
-        </div>
+        <div className="mt-3">{actionRow(q)}</div>
 
         <div className="d-flex justify-content-between align-items-center mt-3 gap-2 flex-wrap">
           <button className="btn btn-ghost" onClick={prev} disabled={current === 0}>
             ← Previous
           </button>
           <span className="text-muted-2">
-            Score: <strong>{score}</strong> / {answeredCount}
+            {isExam ? (
+              <>
+                Answered <strong>{answeredCount}</strong> / {total}
+              </>
+            ) : (
+              <>
+                Score: <strong>{score}</strong> / {answeredCount}
+              </>
+            )}
           </span>
-          {selected !== null ? (
+          {isExam || selected !== null ? (
             <button className="btn btn-gradient" onClick={next}>
-              {current + 1 >= total ? 'See results →' : 'Next →'}
+              {current + 1 >= total ? (isExam ? 'Submit exam →' : 'See results →') : 'Next →'}
             </button>
           ) : (
             <button className="btn btn-gradient" disabled title="Choose an answer to continue">

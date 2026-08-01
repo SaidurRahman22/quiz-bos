@@ -3,13 +3,14 @@ import cors from 'cors';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import { PORT } from './config.js';
-import { pool, ensureAuthSchema, ensureReportsSchema } from './db.js';
+import { pool, ensureAuthSchema, ensureReportsSchema, ensureSavedSchema } from './db.js';
 import topicsRouter from './routes/topics.js';
 import quizzesRouter from './routes/quizzes.js';
 import flashcardsRouter from './routes/flashcards.js';
 import authRouter from './routes/auth.js';
 import statsRouter from './routes/stats.js';
 import reportsRouter from './routes/reports.js';
+import savedRouter from './routes/saved.js';
 
 const app = express();
 
@@ -64,6 +65,7 @@ app.use('/api/reports', reportsLimiter, reportsRouter);
 // Auth (rate-limited) + user stats (auth-protected inside the router)
 app.use('/api/auth', authLimiter, authRouter);
 app.use('/api', statsRouter);
+app.use('/api/saved', savedRouter);
 
 // 404 + error handlers
 app.use((_req, res) => res.status(404).json({ error: 'Not found' }));
@@ -75,7 +77,7 @@ app.use((err, _req, res, _next) => {
 
 // Run idempotent boot migrations (token_version column + question_reports table),
 // then start listening regardless of migration outcome.
-Promise.all([ensureAuthSchema(), ensureReportsSchema()])
+Promise.all([ensureAuthSchema(), ensureReportsSchema(), ensureSavedSchema()])
   .catch((err) => console.error('Schema migration failed:', err))
   .finally(() => {
     app.listen(PORT, () => {

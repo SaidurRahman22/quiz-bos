@@ -24,6 +24,13 @@ import Loader from './Loader.jsx';
 // CVD-safe ordinal ramp (blue, light→dark) for difficulty, validated in dataviz skill.
 const DIFF_COLOR = { easy: '#86b6ef', medium: '#3987e5', hard: '#184f95', mix: '#8b5cf6' };
 
+function masteryTier(pct) {
+  if (pct >= 85) return 'Mastered';
+  if (pct >= 70) return 'Proficient';
+  if (pct >= 50) return 'Familiar';
+  return 'Needs work';
+}
+
 function relativeTime(dateStr) {
   const then = new Date(dateStr).getTime();
   const s = Math.max(1, Math.floor((Date.now() - then) / 1000));
@@ -102,6 +109,9 @@ export default function Dashboard() {
     { name: 'Correct', value: summary.correct, color: '#0ca30c' },
     { name: 'To improve', value: incorrect, color: theme === 'dark' ? '#3a3a38' : '#e5e7eb' },
   ];
+  const weakest = byTopic
+    .filter((t) => t.attempts > 0)
+    .reduce((lo, t) => (lo == null || t.accuracy < lo.accuracy ? t : lo), null);
 
   return (
     <div className="fade-in">
@@ -263,6 +273,58 @@ export default function Dashboard() {
                           <div className="text-muted-2" style={{ fontSize: '0.75rem' }}>
                             {a.score}/{a.total}
                           </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            <div className="col-12">
+              <div className="qb-card chart-card">
+                <div className="d-flex justify-content-between align-items-center flex-wrap gap-2">
+                  <div className="chart-title mb-0">Topic mastery</div>
+                  {weakest && (
+                    <Link to={`/quizzes/${weakest.slug}`} className="btn btn-gradient">
+                      🎯 Practice your weakest: {meta(weakest.slug).icon} {meta(weakest.slug).name} ({weakest.accuracy}%)
+                    </Link>
+                  )}
+                </div>
+                <div className="d-flex flex-column gap-3 mt-3">
+                  {byTopic.map((t) => {
+                    const m = meta(t.slug);
+                    return (
+                      <div className="d-flex align-items-center gap-3" key={t.slug}>
+                        <div className="d-flex align-items-center gap-2" style={{ minWidth: 160, flex: '0 0 160px' }}>
+                          <span style={{ fontSize: '1.1rem' }}>{m.icon}</span>
+                          <span className="fw-semibold text-truncate">{m.name}</span>
+                        </div>
+                        <div className="flex-grow-1">
+                          <div
+                            style={{
+                              background: 'var(--surface-2)',
+                              height: 10,
+                              borderRadius: 999,
+                              overflow: 'hidden',
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: `${t.accuracy}%`,
+                                height: '100%',
+                                background: m.color,
+                                borderRadius: 999,
+                                transition: 'width 0.9s ease',
+                              }}
+                            />
+                          </div>
+                        </div>
+                        <div className="text-end" style={{ minWidth: 108, flex: '0 0 108px' }}>
+                          <span className="fw-bold" style={{ color: 'var(--text)' }}>{t.accuracy}%</span>
+                          <span className="ms-2" style={{ color: 'var(--muted)', fontSize: '0.8rem' }}>
+                            {masteryTier(t.accuracy)}
+                          </span>
                         </div>
                       </div>
                     );

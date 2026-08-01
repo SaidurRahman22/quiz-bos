@@ -1,10 +1,42 @@
-import { useEffect, useState, useMemo, useCallback } from 'react';
+import { useEffect, useState, useMemo, useCallback, useRef } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { getFlashcards } from '../api.js';
 import Loader from '../components/Loader.jsx';
 import Bilingual from '../components/Bilingual.jsx';
 import DifficultyToggle from '../components/DifficultyToggle.jsx';
-import { filterByDifficulty, difficultyCounts } from '../utils.js';
+import { filterByDifficulty, difficultyCounts, shuffle } from '../utils.js';
+
+// ── Leitner spaced-repetition config ────────────────────────────────────────
+const DAY_MS = 24 * 60 * 60 * 1000;
+// Days until a card is due again for each box (1 = new / same session).
+const BOX_DAYS = { 1: 0, 2: 1, 3: 3, 4: 7, 5: 16 };
+const MAX_BOX = 5;
+const MISSED_MS = 60 * 1000; // missed cards come back almost immediately (this session)
+const REQUEUE_GAP = 3; // how far ahead a missed card is re-inserted in the queue
+const SESSION_SIZE = 10;
+
+const storageKey = (slug) => `qb-srs-${slug}`;
+
+// All localStorage access is wrapped so a disabled/full/quota-blocked store
+// simply degrades to in-memory scheduling instead of crashing the app.
+function loadSrs(slug) {
+  try {
+    const raw = localStorage.getItem(storageKey(slug));
+    if (!raw) return {};
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveSrs(slug, map) {
+  try {
+    localStorage.setItem(storageKey(slug), JSON.stringify(map));
+  } catch {
+    /* storage unavailable — keep going with the in-memory copy */
+  }
+}
 
 export default function FlashcardDeck() {
   const { slug } = useParams();
@@ -13,58 +45,88 @@ export default function FlashcardDeck() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [difficulty, setDifficulty] = useState('mix');
-  const [deck, setDeck] = useState([]);
-  const [index, setIndex] = useState(0);
+  const [queue, setQueue] = useState([]); // the current study session (cards)
+  const [pos, setPos] = useState(0); // index into the queue
   const [flipped, setFlipped] = useState(false);
-  const [known, setKnown] = useState(() => new Set());
+  const [srs, setSrs] = useState({}); // { [cardId]: { box, due } }
+  const [stats, setStats] = useState({ reviewed: new Set(), learning: new Set() });
+
+  // Always-fresh mirrors so session building / key handling read current state
+  // without forcing rebuilds on every grade.
+  const srsRef = useRef({});
+  const handlerRef = useRef(null);
 
   useEffect(() => {
     setData(null);
     setError(null);
-    setKnown(new Set());
+    const loaded = loadSrs(slug);
+    srsRef.current = loaded;
+    setSrs(loaded);
     getFlashcards(slug).then(setData).catch(() => setError(true));
   }, [slug]);
 
   const counts = useMemo(() => (data ? difficultyCounts(data.cards) : null), [data]);
 
-  const buildDeck = useCallback(
+  // Build a ~10-card study session for the chosen difficulty, prioritising:
+  //   1. due cards (lowest box, then most overdue)
+  //   2. new / unseen cards
+  //   3. soonest-due upcoming cards (only if still short)
+  const buildSession = useCallback(
     (lvl) => {
       if (!data) return;
-      // 10 random cards per study session for the chosen difficulty.
-      setDeck(filterByDifficulty(data.cards, lvl).slice(0, 10));
-      setIndex(0);
+      const now = Date.now();
+      const map = srsRef.current;
+      const pool = filterByDifficulty(data.cards, lvl); // already shuffled
+      const due = [];
+      const fresh = [];
+      const future = [];
+
+      for (const c of pool) {
+        const s = map[c.id];
+        if (!s) fresh.push(c);
+        else if (s.due <= now) due.push(c);
+        else future.push(c);
+      }
+
+      due.sort((a, b) => {
+        const sa = map[a.id];
+        const sb = map[b.id];
+        return sa.box - sb.box || sa.due - sb.due;
+      });
+      future.sort((a, b) => map[a.id].due - map[b.id].due);
+
+      const session = [...due, ...shuffle(fresh), ...future].slice(0, SESSION_SIZE);
+      setQueue(session);
+      setPos(0);
       setFlipped(false);
+      setStats({ reviewed: new Set(), learning: new Set() });
     },
     [data]
   );
 
   useEffect(() => {
-    if (data) buildDeck(difficulty);
+    if (data) buildSession(difficulty);
+    // Difficulty changes rebuild explicitly via changeDifficulty, so we only
+    // auto-build once the data arrives.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [data]);
-
-  const total = deck.length;
 
   const go = useCallback(
     (dir) => {
       setFlipped(false);
-      setIndex((i) => Math.min(Math.max(i + dir, 0), Math.max(total - 1, 0)));
+      setPos((p) => Math.min(Math.max(p + dir, 0), Math.max(queue.length - 1, 0)));
     },
-    [total]
+    [queue.length]
   );
 
+  // Stable listener that always calls the latest handler (kept in a ref).
   useEffect(() => {
     const onKey = (e) => {
-      if (e.key === 'ArrowRight') go(1);
-      else if (e.key === 'ArrowLeft') go(-1);
-      else if (e.key === ' ' || e.key === 'Enter') {
-        e.preventDefault();
-        setFlipped((f) => !f);
-      }
+      if (handlerRef.current) handlerRef.current(e);
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [go]);
+  }, []);
 
   if (error) {
     return (
@@ -76,20 +138,67 @@ export default function FlashcardDeck() {
   if (!data) return <Loader label="Loading flashcards…" />;
 
   const { topic } = data;
-  const card = deck[index];
+  const card = queue[pos];
+  const noCards = queue.length === 0;
+  const complete = queue.length > 0 && pos >= queue.length;
+  const box = card ? srs[card.id]?.box || 1 : 1;
 
   const changeDifficulty = (lvl) => {
     setDifficulty(lvl);
-    buildDeck(lvl);
+    buildSession(lvl);
   };
 
-  const toggleKnown = () => {
+  // Grade the current card, update its Leitner box, persist, and advance.
+  const grade = (correct) => {
     if (!card) return;
-    setKnown((prev) => {
-      const s = new Set(prev);
-      s.has(card.id) ? s.delete(card.id) : s.add(card.id);
-      return s;
+    const now = Date.now();
+    const prev = srsRef.current[card.id] || { box: 1, due: 0 };
+    const newBox = correct ? Math.min(prev.box + 1, MAX_BOX) : 1;
+    const due = correct ? now + BOX_DAYS[newBox] * DAY_MS : now + MISSED_MS;
+
+    const nextSrs = { ...srsRef.current, [card.id]: { box: newBox, due } };
+    srsRef.current = nextSrs;
+    setSrs(nextSrs);
+    saveSrs(slug, nextSrs);
+
+    setStats((s) => {
+      const reviewed = new Set(s.reviewed);
+      const learning = new Set(s.learning);
+      if (correct) {
+        reviewed.add(card.id);
+        learning.delete(card.id);
+      } else {
+        learning.add(card.id);
+      }
+      return { reviewed, learning };
     });
+
+    // Missed cards get re-queued later in the same session so they come back soon.
+    if (!correct) {
+      setQueue((q) => {
+        const nq = [...q];
+        const insertAt = Math.min(pos + REQUEUE_GAP, nq.length);
+        nq.splice(insertAt, 0, card);
+        return nq;
+      });
+    }
+
+    setFlipped(false);
+    setPos((p) => p + 1);
+  };
+
+  // Keep the key handler pointing at the current closure every render.
+  handlerRef.current = (e) => {
+    const t = e.target;
+    if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT' || t.isContentEditable)) return;
+    if (noCards || complete) return;
+    if (e.key === 'ArrowRight') go(1);
+    else if (e.key === 'ArrowLeft') go(-1);
+    else if (e.key === ' ' || e.key === 'Enter') {
+      e.preventDefault();
+      setFlipped((f) => !f);
+    } else if (flipped && (e.key === '1' || e.key === 'j')) grade(false);
+    else if (flipped && (e.key === '2' || e.key === 'k')) grade(true);
   };
 
   const DifficultyBar = (
@@ -98,6 +207,7 @@ export default function FlashcardDeck() {
     </div>
   );
 
+  const shown = Math.min(pos + 1, queue.length);
   const header = (
     <div className="d-flex align-items-center justify-content-between mb-3">
       <Link to="/flashcards" className="btn-ghost btn btn-sm">
@@ -107,12 +217,12 @@ export default function FlashcardDeck() {
         {topic.icon} {topic.name}
       </span>
       <span className="fw-semibold text-muted-2">
-        {total ? index + 1 : 0} / {total}
+        {queue.length ? shown : 0} / {queue.length}
       </span>
     </div>
   );
 
-  if (!card) {
+  if (noCards) {
     return (
       <div className="container-narrow mx-auto fade-in">
         {header}
@@ -122,16 +232,42 @@ export default function FlashcardDeck() {
     );
   }
 
-  const isKnown = known.has(card.id);
-  const progressPct = ((index + 1) / total) * 100;
+  if (complete) {
+    return (
+      <div className="container-narrow mx-auto fade-in">
+        {header}
+        {DifficultyBar}
+        <div className="qb-card p-5 text-center">
+          <div style={{ fontSize: '2rem' }}>🎉</div>
+          <h3 className="fw-bold mt-2 mb-1">Session complete</h3>
+          <p className="text-muted-2 mb-4">
+            Reviewed {stats.reviewed.size} · still learning {stats.learning.size}
+          </p>
+          <div className="d-flex gap-2 justify-content-center">
+            <button className="btn btn-gradient" onClick={() => buildSession(difficulty)}>
+              Another session
+            </button>
+            <Link to="/flashcards" className="btn btn-ghost">
+              Exit
+            </Link>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  const progressPct = queue.length ? (shown / queue.length) * 100 : 0;
 
   return (
     <div className="container-narrow mx-auto fade-in">
       {header}
       {DifficultyBar}
 
-      <div className="qb-progress mb-4">
+      <div className="qb-progress mb-2">
         <div className="bar" style={{ width: `${progressPct}%` }} />
+      </div>
+      <div className="text-center mb-3 text-muted-2" style={{ fontSize: '0.85rem' }}>
+        Box {box} / {MAX_BOX}
       </div>
 
       <div className={`flashcard ${flipped ? 'flipped' : ''}`} onClick={() => setFlipped((f) => !f)}>
@@ -152,31 +288,43 @@ export default function FlashcardDeck() {
       </div>
 
       <div className="d-flex align-items-center justify-content-between mt-4 gap-2">
-        <button className="btn btn-ghost" onClick={() => go(-1)} disabled={index === 0}>
+        <button className="btn btn-ghost" onClick={() => go(-1)} disabled={pos === 0}>
           ← Prev
         </button>
 
-        <button
-          className={`btn ${isKnown ? 'btn-gradient' : 'btn-ghost'}`}
-          onClick={toggleKnown}
-          title="Mark this card as known"
-        >
-          {isKnown ? '✓ Known' : 'Mark known'}
-        </button>
-
-        {index + 1 >= total ? (
-          <button className="btn btn-gradient" onClick={() => navigate('/flashcards')}>
-            Finish →
-          </button>
+        {flipped ? (
+          <div className="d-flex gap-2">
+            <button
+              className="btn btn-ghost"
+              onClick={() => grade(false)}
+              title="Reset to box 1 — you'll see this card again soon"
+            >
+              ✗ Missed
+            </button>
+            <button
+              className="btn btn-gradient"
+              onClick={() => grade(true)}
+              title="Promote this card to the next box"
+            >
+              ✓ Got it
+            </button>
+          </div>
         ) : (
-          <button className="btn btn-gradient" onClick={() => go(1)}>
-            Next →
+          <button className="btn btn-gradient" onClick={() => setFlipped(true)}>
+            Show answer
           </button>
         )}
+
+        <button className="btn btn-ghost" onClick={() => go(1)} disabled={pos + 1 >= queue.length}>
+          Next →
+        </button>
       </div>
 
       <div className="text-center mt-3 text-muted-2" style={{ fontSize: '0.9rem' }}>
-        Known {known.size} · use ← → keys to navigate, space to flip
+        Reviewed {stats.reviewed.size} · learning {stats.learning.size}
+      </div>
+      <div className="text-center mt-1 text-muted-2" style={{ fontSize: '0.8rem' }}>
+        ← → navigate · space flip · <kbd>1</kbd>/<kbd>j</kbd> missed · <kbd>2</kbd>/<kbd>k</kbd> got it
       </div>
     </div>
   );

@@ -109,6 +109,22 @@ export async function runSetup() {
       created_at  TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
       INDEX idx_question (question_id)
     ) ENGINE=InnoDB;
+
+    CREATE TABLE IF NOT EXISTS saved_questions (
+      id            INT AUTO_INCREMENT PRIMARY KEY,
+      user_id       INT NOT NULL,
+      question_id   INT NOT NULL,
+      topic_slug    VARCHAR(64) NOT NULL,
+      question      TEXT NOT NULL,
+      options       JSON NOT NULL,
+      correct_index TINYINT NOT NULL,
+      explanation   TEXT,
+      difficulty    VARCHAR(16) NOT NULL DEFAULT 'medium',
+      created_at    TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE KEY uniq_user_q (user_id, question_id),
+      FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+      INDEX idx_user (user_id)
+    ) ENGINE=InnoDB;
   `);
   console.log('✔ User tables ready (preserved across reseeds)');
 
