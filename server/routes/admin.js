@@ -1,12 +1,42 @@
 import { Router } from 'express';
+import jwt from 'jsonwebtoken';
 import { pool } from '../db.js';
-import { requireAuth, requireAdmin } from '../middleware/auth.js';
+import { computeIsAdmin } from '../middleware/auth.js';
+import { JWT_SECRET } from '../config.js';
 
 const router = Router();
 
-// Every admin route requires a logged-in admin. Admin status is verified against the
-// live DB row (never trusted from the token) inside requireAdmin.
-router.use(requireAuth, requireAdmin);
+// Hide the admin surface entirely. ANY failure — no/expired/revoked token, or a valid
+// non-admin — returns a generic 404 (same as a route that doesn't exist), so directory
+// or path brute-forcing can't confirm these endpoints exist. Real auth is still enforced:
+// admin status is checked against the live DB row and token_version (revocation), never
+// trusted from the token.
+async function adminOnly(req, res, next) {
+  const notFound = () => res.status(404).json({ error: 'Not found' });
+  const header = req.headers.authorization || '';
+  const token = header.startsWith('Bearer ') ? header.slice(7) : null;
+  if (!token) return notFound();
+  let payload;
+  try {
+    payload = jwt.verify(token, JWT_SECRET);
+  } catch {
+    return notFound();
+  }
+  try {
+    const [rows] = await pool.execute(
+      'SELECT email, is_admin, token_version FROM users WHERE id = ?',
+      [payload.id]
+    );
+    const u = rows[0];
+    if (!u || u.token_version !== (payload.tv ?? 0) || !computeIsAdmin(u)) return notFound();
+    req.user = payload;
+    next();
+  } catch (err) {
+    next(err);
+  }
+}
+
+router.use(adminOnly);
 
 const DIFFICULTIES = ['easy', 'medium', 'hard'];
 
