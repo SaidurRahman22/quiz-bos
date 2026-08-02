@@ -245,9 +245,9 @@ When bulk-generating, **verify** every item (spelling + answer correctness) befo
 | `general-knowledge` | General Knowledge | 🧠 | 625 | 63 |
 | `english` | English | 📖 | 950 | 62 |
 | `bangla` | Bangla | ✍️ | 700 | 150 |
-| `ict` | ICT | 💻 | 200 | 0 |
+| `ict` | ICT | 💻 | 1,000 | 0 |
 | `world-geo-politics` | World Geo Politics | 🗺️ | 625 | 62 |
-| **Total** | | | **3,525** | **400** |
+| **Total** | | | **4,325** | **400** |
 
 Difficulty is one of `easy` / `medium` / `hard`; the UI adds a **Mix** option that blends all three.
 
