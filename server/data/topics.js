@@ -29,6 +29,13 @@ export const TOPICS = [
     color: '#0ea5e9',
   },
   {
+    slug: 'ict',
+    name: 'ICT',
+    description: 'Computer fundamentals, networking, internet, cyber security & emerging tech - the high-frequency topics from BCS, bank, NTRCA & university admission exams.',
+    icon: '💻',
+    color: '#14b8a6',
+  },
+  {
     slug: 'world-geo-politics',
     name: 'World Geo Politics',
     description: 'Capitals, countries, borders, oceans and global organizations.',
